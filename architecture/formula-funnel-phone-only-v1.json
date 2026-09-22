@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "funnelId": "LEEWAY_LIVE_PHONE_ONLY_FORMULA_FUNNEL_V1",
+  "status": "PLAN_QUALIFIED_FOR_BUILD",
+  "constraints": [
+    "PHONE_FIRST",
+    "ANDROID_FIRST",
+    "OFFLINE_AFTER_MODEL_INSTALL",
+    "NO_REQUIRED_CLOUD",
+    "NO_REQUIRED_DESKTOP",
+    "NO_REQUIRED_SERVER",
+    "NO_SUBSCRIPTION_RUNTIME",
+    "VOICE_AND_VISION",
+    "HUMAN_AUTHORITY",
+    "TOOLS_ALLOWLISTED"
+  ],
+  "questions": {
+    "notDiscovering": [
+      "device RAM/thermal envelope at runtime",
+      "Gemma 3n E2B exact device-specific LiteRT performance",
+      "audio streaming support versus batch audio capability",
+      "camera frame budget while LLM resident",
+      "simultaneous STT/LLM/TTS memory pressure",
+      "offline model package sizes and first-install UX",
+      "Android background/audio-focus lifecycle",
+      "AEC/double-talk quality on speakerphone/Bluetooth"
+    ],
+    "enhance": [
+      "native Android app companion to Pages",
+      "device capability profiler",
+      "model/runtime manifest",
+      "download/install manager",
+      "memory-pressure governor",
+      "thermal governor",
+      "camera semantic sampler",
+      "push-to-talk baseline then VAD/full duplex",
+      "skill retrieval bundle sized for small model"
+    ],
+    "deterministic": [
+      "AudioRecord/AudioTrack contracts",
+      "model manifest/hash",
+      "SQLite schema",
+      "tool allowlist",
+      "generation epochs",
+      "bounded queues",
+      "camera frame sampler",
+      "skill retrieval index",
+      "receipts"
+    ],
+    "physicalMeasurement": [
+      "RAM peak",
+      "model load time",
+      "tokens/sec",
+      "TTFT",
+      "battery/thermal",
+      "STT latency",
+      "TTS RTF",
+      "barge-in spill",
+      "vision frame latency",
+      "multimodal correctness"
+    ],
+    "assumptionsAsLaws": [
+      "browser Pages can host native Android runtime",
+      "Gemma 3n audio is already continuous streaming",
+      "E2B will fit every Android phone",
+      "one model eliminates need for dedicated speech output",
+      "system TTS quality is sufficient for final branded voice"
+    ],
+    "abstractionBreaks": [
+      "iOS uses different runtime/audio APIs",
+      "browser cannot expose same native execution surfaces",
+      "Gemma 3n and Qwen have different model/runtime formats",
+      "Bluetooth/telephony routes change latency/AEC"
+    ],
+    "informationLoss": [
+      "STT loses prosody",
+      "text-only Qwen loses native image/audio inputs unless separate encoders",
+      "downsampled vision can miss brief events",
+      "TTS cannot reconstruct original user acoustic state"
+    ],
+    "higherAuthority": [
+      "permissions",
+      "privacy/consent",
+      "tool authorization",
+      "file/device access",
+      "voice cloning consent",
+      "canonical Formula authority"
+    ],
+    "stressFailures": [
+      "low memory kill",
+      "thermal throttling",
+      "camera+LLM contention",
+      "mic permission loss",
+      "audio focus loss",
+      "Bluetooth route change",
+      "interrupt during inference",
+      "model download interruption",
+      "long-session context growth"
+    ],
+    "reuse": [
+      "device capability passport",
+      "verified model profile",
+      "speaker/voice selection",
+      "thermal budget",
+      "skill retrieval cache",
+      "tool capability map"
+    ],
+    "simplerArchitecture": "Gemma 3n E2B for multimodal understanding/reasoning + Android native audio + Sherpa-ONNX TTS/VAD where needed; Qwen3 1.7B only as optional text fallback.",
+    "falsifier": "If E2B cannot meet memory/latency/thermal acceptance on target phone, promote Qwen3 1.7B + dedicated Sherpa-ONNX speech + lightweight vision encoder instead."
+  },
+  "decision": {
+    "primaryModel": "Gemma 3n E2B",
+    "primaryRuntime": "Google AI Edge / LiteRT MediaPipe LLM Inference on Android",
+    "fallbackTextModel": "Qwen3 1.7B quantized via llama.cpp Android",
+    "voice": "Phase 1 Android offline TTS for immediate proof; Phase 2 Sherpa-ONNX compact offline TTS for controlled voice",
+    "vad": "Sherpa-ONNX VAD after push-to-talk baseline",
+    "stt": "Gemma 3n audio transcription where runtime capability fits; Sherpa-ONNX/Qwen3-ASR path as dedicated fallback",
+    "vision": "Gemma 3n native image/video input with semantic frame sampling",
+    "storage": "Room/SQLite",
+    "tools": "Kotlin allowlisted function registry",
+    "pages": "Install/status/docs/diagnostic companion only; native APK performs phone inference"
+  },
+  "gates": [
+    "G0_PAGES_UI",
+    "G1_ANDROID_SHELL",
+    "G2_DEVICE_PASSPORT",
+    "G3_MODEL_INSTALL_LOAD",
+    "G4_TEXT_INFERENCE",
+    "G5_PUSH_TO_TALK_AUDIO",
+    "G6_SPOKEN_RESPONSE",
+    "G7_INTERRUPT",
+    "G8_VISION",
+    "G9_SKILL_RETRIEVAL",
+    "G10_OFFLINE_AIRPLANE_MODE",
+    "G11_THERMAL_LONG_SESSION",
+    "G12_VERITAS_RECEIPT"
+  ]
+}
