@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "LEEWAY_LIVE",
+  "platformPriority": [
+    "android"
+  ],
+  "primary": {
+    "model": "Gemma 3n E2B",
+    "runtime": "Google AI Edge / LiteRT MediaPipe",
+    "modalities": [
+      "text",
+      "image",
+      "video",
+      "audio-input"
+    ],
+    "execution": "on-device"
+  },
+  "fallback": {
+    "model": "Qwen3 1.7B",
+    "runtime": "llama.cpp Android",
+    "role": "optional text fallback"
+  },
+  "speech": {
+    "v1Input": "push-to-talk",
+    "v1Output": "Android offline TextToSpeech",
+    "upgrade": "Sherpa-ONNX VAD + compact offline TTS",
+    "dedicatedSttFallback": "Sherpa-ONNX / Qwen3-ASR compatible path"
+  },
+  "vision": {
+    "model": "Gemma 3n E2B",
+    "sampling": "semantic/adaptive"
+  },
+  "storage": "Room/SQLite",
+  "tools": "Kotlin allowlist",
+  "skills": "retrieval-selected compact LeeWay skill bundle",
+  "cloudRequired": false,
+  "pagesRole": "installer/status/docs/diagnostics",
+  "apkRole": "actual phone inference runtime"
+}
