@@ -1,0 +1,9 @@
+{
+  "name": "LeeWay Live",
+  "short_name": "LeeWay Live",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#06111d",
+  "theme_color": "#06111d",
+  "description": "LeeWay phone-first voice and vision agent"
+}
