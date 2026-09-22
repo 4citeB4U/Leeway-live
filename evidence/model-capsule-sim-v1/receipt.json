@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptId": "LEEWAY-MODEL-CAPSULE-CANDIDATE-SIM-V1-2026-09-22",
+  "authorityState": "CANDIDATE_SIMULATION_NOT_CANONICAL_FORMULA",
+  "method": "64 MiB synthetic GGUF-like binary; metadata + quantized-weight-like regions; 16 deterministic shards; DEFLATE level 9; reconstruct shard-by-shard; SHA-256 compare",
+  "controls": [
+    {
+      "artifact": "random",
+      "originalMiB": 64,
+      "capsuleMiB": 64.019879,
+      "reductionPct": -0.031061,
+      "ratio": 0.999689,
+      "sha256Match": true
+    },
+    {
+      "artifact": "structured",
+      "originalMiB": 64,
+      "capsuleMiB": 41.12574,
+      "reductionPct": 35.741031,
+      "ratio": 1.556203,
+      "peakShardWorkingMiBEst": 6.571217,
+      "sha256Match": true
+    }
+  ],
+  "verdict": "PASS_CANDIDATE_CAPSULE_RECONSTRUCTION_AND_COMPRESSION_SENSITIVITY",
+  "proves": [
+    "exact sharded reconstruction",
+    "compression is structure-sensitive",
+    "bounded shard working-set architecture"
+  ],
+  "doesNotProve": [
+    "canonical LeeWay Formula execution",
+    "16x reduction",
+    "real GGUF inference quality",
+    "direct inference from compressed representation",
+    "phone runtime"
+  ],
+  "nextGate": "RUN_SAME_PROTOCOL_ON_REAL_SMALL_QUANTIZED_MODEL_THEN_CANONICAL_FORMULA_COMPARISON"
+}
