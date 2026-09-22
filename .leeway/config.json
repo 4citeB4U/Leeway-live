@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": "Leeway-live",
+  "minimumComplianceScore": 85,
+  "policies": {
+    "NO_SECRETS_IN_CODE": true,
+    "HEADERS_REQUIRED": true,
+    "TAGS_REQUIRED": true,
+    "NO_CIRCULAR_DEPS": true
+  },
+  "sourceRoots": [
+    "docs",
+    "src",
+    "skills"
+  ],
+  "authority": "Creator/Human Authority > LeeWay Standards > Root of Trust > Runtime > Agent Lee > Skills/Tools > Execution > Veritas > Receipt"
+}
