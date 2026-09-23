@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "checkpointId": "LEEWAY_CHATTERBOX_NANO_CONTINUATION_20260923",
+  "branch": "architecture/device-http-runtime-v1",
+  "status": "MACHINE_GATE_BLOCKED_BY_PHYSICAL_DEVICE_OFFLINE",
+  "proven": {
+    "chatterboxNanoCpuExecution": true,
+    "agentLeeReferenceCloneGeneration": true,
+    "nativeControl": {
+      "generationSeconds": 12.551,
+      "audioDurationSeconds": 8.72,
+      "rtf": 1.439,
+      "threads": 24,
+      "conditioning": "PER_REQUEST"
+    },
+    "leeWayComputeCandidate": {
+      "computeProfile": "CAPACITY_SAFE",
+      "threads": 8,
+      "streams": 1,
+      "conditioning": "PREPARE_ONCE_REUSE",
+      "conditioningSeconds": 1.003,
+      "firstGenerationSeconds": 6.21,
+      "secondGenerationSeconds": 7.329,
+      "firstRtf": 0.722,
+      "secondRtf": 0.748,
+      "speedupVsNativeFirst": 2.02,
+      "controllerHash": "054F73C8EFD8BCA3B1963D6EDA13F2A5AB0E12DA0C8EA6D6BBC2897552148080",
+      "controllerAuthority": "CANDIDATE_UNPROMOTED_DRIFT_RECORDED"
+    },
+    "speakerSimilarityProxy": {
+      "referenceVsNative": 0.8873884081840515,
+      "referenceVsLeeWay": 0.9007571935653687,
+      "nativeVsLeeWay": 0.9791833162307739
+    },
+    "canonicalFormulaV1": {
+      "health": "LEEWAY_FORMULA_V1_PASS",
+      "implementationSha256": "6502791BBA909D7481DB3A204F3CBF67B1DC06A4B76A73C797D709408341D63E",
+      "usedAsGenericChatterboxSelector": false
+    },
+    "providerSourceCommitted": true,
+    "bashLauncherCommitted": true,
+    "bashQualificationCommitted": true,
+    "deviceHttpManifestUpdated": true
+  },
+  "currentBlockers": [
+    {
+      "id": "D_DRIVE_NOT_ENUMERATED",
+      "evidence": "Windows enumerated only internal Samsung NVMe; D: absent from Get-Disk/Get-Volume/Get-PSDrive.",
+      "class": "PHYSICAL_STORAGE"
+    },
+    {
+      "id": "AGENT_LEE_DESKTOP_OFFLINE",
+      "evidence": "Remote Desktop Commander reports Agent-Lee status offline; last_seen 2026-09-23T06:29:24.644Z.",
+      "class": "REMOTE_EXECUTION"
+    },
+    {
+      "id": "HF_JOBS_PAYMENT_REQUIRED",
+      "evidence": "Hugging Face cpu-performance and cpu-basic both returned HTTP 402 Payment Required.",
+      "class": "EXTERNAL_PROVIDER",
+      "acceptedPaidDependency": false
+    },
+    {
+      "id": "GITHUB_ACTIONS_PRE_STEP_FAILURE",
+      "evidence": "Runs 35828291648 and 35828561903 failed in ~4 seconds with job records but zero steps.",
+      "class": "CI_INFRASTRUCTURE"
+    },
+    {
+      "id": "COMPUTE_CONTROLLER_AUTHORITY_DRIFT",
+      "evidence": "Current controller hash differs from older promotion-script pinned hash.",
+      "class": "AUTHORITY_RECONCILIATION"
+    }
+  ],
+  "nextMachineGate": {
+    "requires": [
+      "qualified local device online",
+      "authorized Agent Lee reference audio",
+      "complete Nano model directory"
+    ],
+    "commands": [
+      "device-runtime/bash/start-chatterbox-nano-provider.sh",
+      "device-runtime/bash/qualify-chatterbox-nano-http.sh"
+    ],
+    "acceptance": [
+      "HTTP 200",
+      "canonical Agent Lee voice ID",
+      "nonzero PCM16 audio",
+      "first-body latency measured",
+      "BOUNDED_SEGMENT truth label",
+      "stream state proof",
+      "cancel proof",
+      "receipt"
+    ]
+  },
+  "evidenceLaw": "configured != executed; executed != verified; blocker != permission to fabricate PASS"
+}
