@@ -11,7 +11,8 @@
     "VOICE_AND_VISION_FIRST",
     "HUMAN_AUTHORITY",
     "HASH_VERIFICATION",
-    "NO_FAKE_FORMULA_OUTPUT"
+    "NO_FAKE_FORMULA_OUTPUT",
+    "BASH_FIRST_PORTABLE_BOOTSTRAP"
   ],
   "questions": {
     "notDiscovering": [
@@ -21,7 +22,10 @@
       "browser loopback permission support on target browser",
       "simultaneous model+STT+TTS+vision memory pressure",
       "Bluetooth/audio-focus behavior",
-      "barge-in cancellation spill on device"
+      "barge-in cancellation spill on device",
+      "Chatterbox Nano/Turbo/Multilingual actual ARM64 memory and thermal behavior",
+      "Chatterbox clone fidelity for Agent Lee speaker identity",
+      "Chatterbox native incremental streaming availability versus batch generation"
     ],
     "enhance": [
       "device passport",
@@ -31,7 +35,9 @@
       "loopback discovery and local-navigation fallback",
       "provider capability negotiation",
       "bounded queues and generation epochs",
-      "Veritas device qualification harness"
+      "Veritas device qualification harness",
+      "portable Bash bootstrap independent of Termux",
+      "voice-provider benchmark matrix: XTTS vs Chatterbox Nano/Turbo/Multilingual"
     ],
     "deterministic": [
       "shard manifests and SHA-256",
@@ -58,8 +64,9 @@
   "routeDecision": {
     "transport": "device-local HTTP",
     "pages": "bootstrap/control/evidence only",
-    "voice": "XTTS-v2 when Device Passport + Veritas qualify it; otherwise select another governed local provider",
+    "voice": "Keep XTTS-v2 as the current verified provider; qualify Chatterbox Nano/Turbo/Multilingual behind the same HTTP provider interface and allow the Device Passport + hard gates + Veritas to select the local provider.",
     "vision": "device-qualified multimodal provider behind the same HTTP contract",
-    "docker": "development/qualification laboratory only"
+    "docker": "development/qualification laboratory only",
+    "shell": "Bash-first; Termux is one Android host adapter rather than the canonical runtime."
   }
 }
