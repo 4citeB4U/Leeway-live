@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "LEEWAY_LIVE_DEVICE_PROVIDER_HARD_GATES_V1",
+  "authority": "Creator/Human Authority > LeeWay Standards",
+  "status": "PRE_FORMULA_HARD_GATES",
+  "note": "These are deterministic safety/compatibility gates, not canonical Formula scores.",
+  "voice": {
+    "xttsV2": {
+      "minimumRamMiBForQualificationAttempt": 6000,
+      "requires": [
+        "arm64_or_supported_arch",
+        "pytorch_import",
+        "coqui_tts_import",
+        "reference_voice_hash",
+        "streaming_execution",
+        "memory_measurement",
+        "thermal_measurement"
+      ],
+      "failureAction": "DO_NOT_PROMOTE; SELECT_ANOTHER_LOCAL_VOICE_PROVIDER_CANDIDATE"
+    }
+  },
+  "vision": {
+    "requires": [
+      "real_model_load",
+      "real_image_analysis",
+      "camera_frame_test",
+      "memory_measurement",
+      "thermal_measurement"
+    ],
+    "failureAction": "DO_NOT_PROMOTE; SELECT_ANOTHER_LOCAL_VISION_PROVIDER_CANDIDATE"
+  }
+}
