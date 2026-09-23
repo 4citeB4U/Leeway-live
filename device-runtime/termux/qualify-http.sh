@@ -9,4 +9,4 @@ curl -fsS "$BASE/v1/voice/profiles"; echo
 curl -fsS "$BASE/v1/vision/status"; echo
 echo "HTTP control-plane checks passed."
 echo "Voice byte-stream, cancellation, and vision-image tests require provider-specific fixtures and are separate Veritas gates."
-\n
+
