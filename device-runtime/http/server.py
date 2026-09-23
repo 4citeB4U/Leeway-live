@@ -48,7 +48,8 @@ class H(BaseHTTPRequestHandler):
         if allow:self.send_header("Access-Control-Allow-Origin",allow)
         self.send_header("Vary","Origin")
         self.send_header("Access-Control-Allow-Headers","content-type,authorization")
-        self.send_header("Access-Control-Allow-Methods","GET,POST,OPTIONS")\n        self.send_header("Access-Control-Allow-Private-Network","true")
+        self.send_header("Access-Control-Allow-Methods","GET,POST,OPTIONS")
+        self.send_header("Access-Control-Allow-Private-Network","true")
         self.send_header("Cache-Control","no-store")
     def send_json(self,code,obj):
         raw=json.dumps(obj,separators=(",",":")).encode()
