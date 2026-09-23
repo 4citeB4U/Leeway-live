@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptId": "LEEWAY-CHATTERBOX-NANO-NATIVE-VS-COMPUTE-FABRIC-CANDIDATE-V1-20260923",
+  "status": "PASS_CANDIDATE_PERFORMANCE_EXPERIMENT_WITH_AUTHORITY_DRIFT_RECORDED",
+  "provider": "chatterbox-nano",
+  "executionPlatform": {
+    "os": "Windows",
+    "cpu": "Intel Core Ultra 9 275HX",
+    "logicalProcessors": 24,
+    "ramBytes": 33752997888,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "observedVramTotalMiB": 8151,
+    "observedVramFreeMiB": 3250,
+    "observedPcieGenCurrent": 1,
+    "observedPcieWidthCurrent": 8
+  },
+  "reference": {
+    "voiceId": "LEEWAY_VOICE::AGENT_LEE::DEFAULT_CLONE",
+    "speakerProfileId": "LEEWAY_SPEAKER::LEONARD_J_LEE::AGENT_LEE",
+    "referenceSHA256": "3edaf14e4f71ec83d191aea1794b9af9b46140137996d86c6be0d54657b1de59"
+  },
+  "model": {
+    "family": "Chatterbox Nano",
+    "mode": "CPU",
+    "loadSeconds": 63.466,
+    "sampleRate": 24000,
+    "peakProcessRssBytes": 4316770304,
+    "torchVersion": "2.12.0+cpu",
+    "note": "Forward-compatibility experiment; official package pins Torch 2.6/Transformers 5.2."
+  },
+  "nativeControl": {
+    "threads": 24,
+    "conditioningPolicy": "PER_REQUEST",
+    "generationSeconds": 12.551,
+    "audioDurationSeconds": 8.72,
+    "rtf": 1.439,
+    "outputSHA256": "e3b540f4908feeb14fafe7c4d3023c7fdadb66a74583e78cc2bc0511b6391dd0"
+  },
+  "leewayCandidate": {
+    "controllerHash": "054F73C8EFD8BCA3B1963D6EDA13F2A5AB0E12DA0C8EA6D6BBC2897552148080",
+    "controllerAuthority": "CANDIDATE_UNPROMOTED_DRIFT_RECORDED",
+    "observedHeadroomRho": 0.24340505490094141,
+    "qControl": 17,
+    "computeProfile": "CAPACITY_SAFE",
+    "streams": 1,
+    "threads": 8,
+    "conditioningPolicy": "PREPARE_ONCE_REUSE",
+    "conditioningSeconds": 1.003,
+    "generationSecondsFirst": 6.21,
+    "generationSecondsSecond": 7.329,
+    "audioDurationSeconds": 8.6,
+    "rtfFirst": 0.722,
+    "rtfSecond": 0.748,
+    "outputSHA256": "1d526900d1243264bcf36010a282fff693da87cadbf2a1acc2c91a6af2de5d6b"
+  },
+  "speakerSimilarityProxy": {
+    "evaluator": "Chatterbox voice encoder cosine similarity",
+    "referenceVsNative": 0.8873884081840515,
+    "referenceVsLeeWay": 0.9007571935653687,
+    "nativeVsLeeWay": 0.9791833162307739,
+    "boundary": "Not an independent human MOS or perceptual identity verdict."
+  },
+  "derivedComparison": {
+    "nativeToLeeWayFirstGenerationSpeedup": 2.02109500805153,
+    "nativeToLeeWaySecondReuseSpeedup": 1.7125119388729704,
+    "nativeRtfToLeeWayFirstRtfRatio": 1.9930747922437675
+  },
+  "formula": {
+    "canonicalFormulaV1Health": "LEEWAY_FORMULA_V1_PASS",
+    "canonicalFormulaV1ImplementationSha256": "6502791BBA909D7481DB3A204F3CBF67B1DC06A4B76A73C797D709408341D63E",
+    "formulaV1UsedAsGenericWorkloadSelector": false,
+    "note": "Compute Fabric controller was used only as candidate binding/control-plane logic. Canonical historical Formula v1 was not misrepresented as a generic Chatterbox selector."
+  },
+  "blockers": [
+    "Compute Fabric controller current hash differs from older pinned promotion-script hash and is not yet reconciled as canonical authority.",
+    "D: canonical external drive disappeared from Windows storage enumeration after experiment; local continuation paused at physical storage boundary.",
+    "HTTP first-audio/cancellation qualification for Chatterbox Nano remains to be executed after local runtime storage is restored or an equivalent noncanonical test environment is provisioned."
+  ]
+}

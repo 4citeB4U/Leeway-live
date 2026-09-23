@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "LEEWAY_LIVE_DEVICE_PROVIDER_HARD_GATES_V1",
+  "authority": "Creator/Human Authority > LeeWay Standards",
+  "status": "PRE_FORMULA_HARD_GATES",
+  "note": "These are deterministic safety/compatibility gates, not canonical Formula scores.",
+  "voice": {
+    "xttsV2": {
+      "minimumRamMiBForQualificationAttempt": 6000,
+      "requires": [
+        "arm64_or_supported_arch",
+        "pytorch_import",
+        "coqui_tts_import",
+        "reference_voice_hash",
+        "streaming_execution",
+        "memory_measurement",
+        "thermal_measurement"
+      ],
+      "failureAction": "DO_NOT_PROMOTE; SELECT_ANOTHER_LOCAL_VOICE_PROVIDER_CANDIDATE"
+    },
+    "chatterboxNano": {
+      "minimumRamMiBForQualificationAttempt": 3000,
+      "requires": [
+        "supported_arch",
+        "pytorch_import",
+        "chatterbox_import",
+        "reference_voice_hash",
+        "clone_fidelity_test",
+        "http_execution",
+        "memory_measurement",
+        "thermal_measurement"
+      ],
+      "promotionRequires": [
+        "on_device_generation",
+        "voice_identity_similarity",
+        "latency_measurement",
+        "cancel_or_interrupt_strategy"
+      ],
+      "failureAction": "DO_NOT_PROMOTE; TRY_NEXT_LOCAL_VOICE_PROVIDER"
+    },
+    "chatterboxTurbo": {
+      "minimumRamMiBForQualificationAttempt": 4000,
+      "requires": [
+        "supported_arch",
+        "pytorch_import",
+        "chatterbox_import",
+        "reference_voice_hash",
+        "clone_fidelity_test",
+        "http_execution",
+        "memory_measurement",
+        "thermal_measurement"
+      ],
+      "promotionRequires": [
+        "low_latency_generation",
+        "voice_identity_similarity",
+        "streaming_or_bounded_chunk_strategy",
+        "interrupt_test"
+      ],
+      "failureAction": "DO_NOT_PROMOTE; TRY_NEXT_LOCAL_VOICE_PROVIDER"
+    },
+    "chatterboxMultilingualV3": {
+      "minimumRamMiBForQualificationAttempt": 6000,
+      "requires": [
+        "supported_arch",
+        "pytorch_import",
+        "chatterbox_import",
+        "reference_voice_hash",
+        "multilingual_clone_test",
+        "http_execution",
+        "memory_measurement",
+        "thermal_measurement"
+      ],
+      "promotionRequires": [
+        "same_speaker_across_languages",
+        "latency_measurement",
+        "streaming_or_bounded_chunk_strategy",
+        "interrupt_test"
+      ],
+      "failureAction": "DO_NOT_PROMOTE; TRY_NEXT_LOCAL_VOICE_PROVIDER"
+    }
+  },
+  "vision": {
+    "requires": [
+      "real_model_load",
+      "real_image_analysis",
+      "camera_frame_test",
+      "memory_measurement",
+      "thermal_measurement"
+    ],
+    "failureAction": "DO_NOT_PROMOTE; SELECT_ANOTHER_LOCAL_VISION_PROVIDER_CANDIDATE"
+  }
+}

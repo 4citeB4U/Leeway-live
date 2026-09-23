@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "experimentId": "LEEWAY_CHATTERBOX_FORMULA_OVERLAY_V1",
+  "status": "IMPLEMENTED_PENDING_MODEL_BYTES",
+  "law": "Same Chatterbox Nano weights, same Agent Lee reference audio, same prompts. Native control and LeeWay-controlled arms differ only in runtime orchestration.",
+  "controller": {
+    "path": "LeeWay-Standards/Formula/LeeWay.ComputeFabric.Controller.v1.psm1",
+    "observedHash": "054F73C8EFD8BCA3B1963D6EDA13F2A5AB0E12DA0C8EA6D6BBC2897552148080",
+    "priorPromotionExpectedHash": "D0A82D276877C1D3C235E5E07731667A70CE3BE1C849533DEF82F99CA972063A",
+    "authorityState": "CANDIDATE_CONTROLLER_DRIFT_UNPROMOTED"
+  },
+  "formulaV1Boundary": "LW-F1-H historical 16x6 is not claimed to be a generic Chatterbox selector.",
+  "telemetryInputs": [
+    "cpu load",
+    "free RAM",
+    "GPU utilization",
+    "free VRAM",
+    "PCIe identity"
+  ],
+  "qControlInput": "minimum normalized headroom across CPU, GPU, VRAM, RAM",
+  "profileMapping": "existing Get-LWComputeQ69 + Get-LWComputeProfile",
+  "currentMeasuredProfile": {
+    "qControl": 19,
+    "profile": "CAPACITY_SAFE",
+    "torchThreads": 8,
+    "interopThreads": 1,
+    "concurrency": 1,
+    "precomputeSpeakerConditionals": true,
+    "reuseSpeakerConditionals": true,
+    "device": "cpu"
+  },
+  "arms": {
+    "native": {
+      "behavior": "Official usage: generate(text, audio_prompt_path=reference) each turn."
+    },
+    "leewayControlled": {
+      "behavior": "One resident model; Formula-selected thread/concurrency budget; prepare_conditionals(reference) once; reuse conditioning for repeated turns."
+    }
+  },
+  "sameInputsRequired": true,
+  "metrics": [
+    "model load time",
+    "speaker conditioning time",
+    "per-turn generation time",
+    "audio duration",
+    "RTF",
+    "peak RSS",
+    "GPU/VRAM when CUDA becomes verified",
+    "speaker identity similarity",
+    "output correctness"
+  ],
+  "blockedSubplan": {
+    "microBurstPlan": "NOT_EXECUTED",
+    "reason": "Measured PCIe and GPU service rates were not recovered; controller correctly forbids fabricated rates."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptId": "LEEWAY_CHATTERBOX_NANO_PACKAGE_PROFILE_V1",
+  "observedAt": "2026-09-23T05:12:30Z",
+  "source": "ResembleAI/chatterbox-nano public Hugging Face repository",
+  "modelLabel": "Chatterbox-Nano",
+  "advertisedT3Class": "110M",
+  "requiredObservedAssets": [
+    {
+      "file": "t3_nano_v1.safetensors",
+      "bytes": 869899204,
+      "sourceHeader": "X-Linked-Size"
+    },
+    {
+      "file": "s3gen_meanflow.safetensors",
+      "bytes": 1064875036,
+      "sourceHeader": "X-Linked-Size"
+    },
+    {
+      "file": "ve.safetensors",
+      "bytes": 5695784,
+      "sourceHeader": "X-Linked-Size"
+    },
+    {
+      "file": "conds.pt",
+      "bytes": 169454,
+      "sourceHeader": "X-Linked-Size"
+    }
+  ],
+  "coreWeightBytes": 1940470024,
+  "coreWeightGiB": 1.807,
+  "engineeringMeaning": [
+    "The advertised 110M Nano architecture does not describe total downloadable runtime asset size.",
+    "The shared S3Gen decoder dominates transport/storage footprint.",
+    "Device qualification must use measured package bytes and runtime memory, not parameter-count marketing shorthand."
+  ],
+  "formulaUse": "INPUT_EVIDENCE_ONLY_NOT_CANONICAL_FORMULA_OUTPUT"
+}

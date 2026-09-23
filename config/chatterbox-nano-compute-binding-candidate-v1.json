@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "LEEWAY_CHATTERBOX_NANO_COMPUTE_BINDING_CANDIDATE_V1",
+  "status": "CANDIDATE_NOT_CANONICAL_FORMULA_PROMOTION",
+  "controller": {
+    "sha256": "054F73C8EFD8BCA3B1963D6EDA13F2A5AB0E12DA0C8EA6D6BBC2897552148080",
+    "authorityState": "UNPROMOTED_DRIFT_RECORDED"
+  },
+  "observedInput": {
+    "cpuLogicalProcessors": 24,
+    "ramFreeRatio": 0.24340505490094141,
+    "vramFreeRatio": 0.39872408293460926,
+    "pcieGenCurrent": 1,
+    "pcieWidthCurrent": 8
+  },
+  "binding": {
+    "headroomRho": 0.24340505490094141,
+    "qControl": 17,
+    "computeProfile": "CAPACITY_SAFE",
+    "streams": 1,
+    "threads": 8,
+    "conditioningPolicy": "PREPARE_ONCE_REUSE",
+    "modelResidency": "PERSISTENT_WHILE_ACTIVE",
+    "transport": "BOUNDED_SEGMENT_HTTP"
+  },
+  "evidenceBoundary": "Adapter binding around unchanged Chatterbox Nano baseline; not canonical Formula v1 generic selection."
+}
