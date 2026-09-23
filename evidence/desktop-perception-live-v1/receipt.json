@@ -1,0 +1,45 @@
+{
+  "receiptId": "LEEWAY_LIVE_DESKTOP_PERCEPTION_PROOF_V1",
+  "authority": "LeeWay Standards",
+  "adapterId": "LEEWAY_LIVE_ADAPTER::DESKTOP_PERCEPTION_HARNESS::V1",
+  "observedAt": "2026-09-23T01:00:22Z",
+  "voiceId": "LEEWAY_VOICE::AGENT_LEE::DEFAULT_CLONE",
+  "speakerProfileId": "LEEWAY_SPEAKER::LEONARD_J_LEE::AGENT_LEE",
+  "referenceAudioSHA256": "30d4f63e070d150c857d1d02710163cd7863bb4a8210806e822b63292795320a",
+  "nativeStreaming": {
+    "status": "PASS",
+    "engine": "xtts-v2",
+    "encoding": "pcm_s16le",
+    "sampleRate": 24000,
+    "channels": 1,
+    "streamId": "leeway-voice-stream-cfd4509d-641a-4659-a0e6-348fbac96c71",
+    "chunkCount": 76,
+    "audioBytes": 338944,
+    "firstAudioLatencyMs": 776.749,
+    "totalLatencyMs": 43951.89,
+    "error": null
+  },
+  "multilingual": {
+    "status": "PASS",
+    "language": "es",
+    "outputBytes": 215660,
+    "durationSeconds": 4.492,
+    "outputSHA256": "c27ee7b25de200d1be36a7d52cd63945e2e1a52bcbe68fd57b2baa1041a183de",
+    "sameVoiceIdentity": true
+  },
+  "perceptionAdapters": {
+    "ears": "HEALTHY",
+    "vision": "HEALTHY"
+  },
+  "interruption": {
+    "status": "PARTIAL",
+    "clientAbortBytesObserved": 33280,
+    "cancelRequested": true,
+    "cancellationCompletionNotYetProven": true
+  },
+  "routerProxy": {
+    "generationCompletedUpstream": true,
+    "publicForwardingCloseSemantics": "PARTIAL"
+  },
+  "evidenceBoundary": "Machine proof only. Human audible confirmation remains separate."
+}

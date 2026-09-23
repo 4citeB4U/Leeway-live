@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "LEEWAY_LIVE",
+  "contractId": "LEEWAY_LIVE_VOICE_FABRIC::V1",
+  "authority": "Creator/Human Authority > LeeWay Standards",
+  "purpose": "Unify LeeWay Live phone and desktop real-time voice under one provider-agnostic control/evidence contract.",
+  "commonFabric": {
+    "skill": "skills/realtime-voice-multimodal-infrastructure/SKILL.md",
+    "acousticCoprocessor": "skills/acoustic-coprocessor-fabric/SKILL.md",
+    "selector": "skills/frontier-voice-architecture-selector/SKILL.md",
+    "requiredPlanes": ["media", "control", "cognitive", "evidence"],
+    "requiredEvents": ["TEXT_DELTA", "NATIVE_AUDIO_CHUNK"],
+    "interruption": {
+      "generationEpochRequired": true,
+      "localPlayoutFlushRequired": true,
+      "upstreamCancellationRequired": true,
+      "staleEpochDropRequired": true
+    },
+    "evidenceLaw": "configured != executed; executed != verified; audio generated != audio heard"
+  },
+  "adapters": {
+    "desktop": {
+      "id": "LEEWAY_LIVE_ADAPTER::DESKTOP_PERCEPTION_HARNESS::V1",
+      "execution": "local-docker",
+      "agentRouter": "http://127.0.0.1:8080",
+      "perceptionHarness": "http://127.0.0.1:8092",
+      "ears": "http://agent-lee-ears-kernel:8094",
+      "vision": "http://agent-lee-vision-kernel:8093",
+      "voice": {
+        "engine": "xtts-v2",
+        "voiceId": "LEEWAY_VOICE::AGENT_LEE::DEFAULT_CLONE",
+        "speakerProfileId": "LEEWAY_SPEAKER::LEONARD_J_LEE::AGENT_LEE",
+        "referenceAudioSHA256": "30d4f63e070d150c857d1d02710163cd7863bb4a8210806e822b63292795320a",
+        "streamingEndpoint": "/tts/stream",
+        "streamStateEndpoint": "/streams/{stream_id}",
+        "cancelEndpoint": "/streams/{stream_id}/cancel",
+        "supportedLanguages": ["en", "es", "fr", "de", "it", "pt", "ja", "ko", "zh-cn"]
+      },
+      "status": "EXECUTION_VERIFIED_WITH_INTERRUPTION_PARTIAL"
+    },
+    "android": {
+      "id": "LEEWAY_LIVE_ADAPTER::ANDROID_PHONE_FIRST::V1",
+      "contract": "architecture/PHONE-FIRST-V1.md",
+      "manifest": "config/phone-runtime-manifest-v1.json",
+      "execution": "native-android",
+      "status": "CONTRACT_PRESENT_NATIVE_EXECUTION_SEPARATE_GATE"
+    }
+  },
+  "ownership": {
+    "repository": "4citeB4U/Leeway-live",
+    "repoRole": "canonical live voice/control/evidence contract",
+    "desktopRuntimeRole": "local execution adapter",
+    "androidRuntimeRole": "native phone execution adapter",
+    "pagesRole": "installer/status/docs/diagnostics plus local desktop bridge client"
+  }
+}
