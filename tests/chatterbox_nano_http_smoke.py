@@ -1,4 +1,4 @@
-import json, threading, time, urllib.request
+# Evidence boundary: CI uses Chatterbox built-in conditioning; it does not claim Agent Lee speaker identity.\nimport json, threading, time, urllib.request
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 import numpy as np
 import torch
