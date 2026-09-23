@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "LEEWAY_CHATTERBOX_COMPUTE_ADAPTER_V1",
+  "authority": "LeeWay device-runtime adapter candidate",
+  "evidenceBoundary": "Maps LeeWay Compute Fabric profile outputs to Chatterbox runtime knobs. These mappings are adapter policy, not direct canonical Formula outputs.",
+  "profiles": {
+    "CAPACITY_SAFE": {
+      "threadFraction": 0.333333,
+      "minThreads": 2,
+      "maxThreads": 8,
+      "streams": 1,
+      "segmentChars": 72,
+      "queueDepth": 1,
+      "conditioning": "PREPARE_ONCE_REUSE",
+      "residency": "PERSISTENT"
+    },
+    "BALANCED": {
+      "threadFraction": 0.5,
+      "minThreads": 4,
+      "maxThreads": 12,
+      "streams": 2,
+      "segmentChars": 96,
+      "queueDepth": 2,
+      "conditioning": "PREPARE_ONCE_REUSE",
+      "residency": "PERSISTENT"
+    },
+    "PERFORMANCE": {
+      "threadFraction": 0.75,
+      "minThreads": 4,
+      "maxThreads": 16,
+      "streams": 4,
+      "segmentChars": 128,
+      "queueDepth": 2,
+      "conditioning": "PREPARE_ONCE_REUSE",
+      "residency": "PERSISTENT"
+    }
+  },
+  "threadRule": "threads = clamp(round(logicalProcessors * threadFraction), minThreads, maxThreads)",
+  "safety": {
+    "noOverclock": true,
+    "noVoltageChange": true,
+    "modelMathUnmodified": true,
+    "samePromptReferenceAndSamplingForAB": true
+  }
+}
