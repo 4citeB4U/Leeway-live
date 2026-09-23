@@ -33,11 +33,42 @@
       "candidates": [
         {
           "id": "xtts-v2-http",
-          "state": "QUALIFIED_DESKTOP_DEVICE_ANDROID_NOT_YET_PROVEN"
+          "state": "CURRENT_VERIFIED_PROVIDER_DESKTOP_ANDROID_NOT_YET_PROVEN",
+          "notes": [
+            "native incremental streaming proven on desktop",
+            "multilingual clone proven",
+            "device ARM64 not yet qualified"
+          ]
         },
         {
-          "id": "compact-local-clone",
-          "state": "FUTURE_CANDIDATE"
+          "id": "chatterbox-nano-http",
+          "state": "ON_DEVICE_CANDIDATE_NOT_YET_VERIFIED",
+          "notes": [
+            "110M",
+            "CPU/on-device target",
+            "English",
+            "must prove clone fidelity and HTTP streaming"
+          ]
+        },
+        {
+          "id": "chatterbox-turbo-http",
+          "state": "LOW_LATENCY_CANDIDATE_NOT_YET_VERIFIED",
+          "notes": [
+            "350M",
+            "English",
+            "zero-shot cloning",
+            "native streaming API not yet canonical"
+          ]
+        },
+        {
+          "id": "chatterbox-multilingual-v3-http",
+          "state": "MULTILINGUAL_CANDIDATE_NOT_YET_VERIFIED",
+          "notes": [
+            "500M",
+            "23+ languages",
+            "zero-shot multilingual cloning",
+            "must prove device memory and streaming behavior"
+          ]
         }
       ]
     },
@@ -60,5 +91,26 @@
     "canonicalFormulaExecutionRequiredForPromotion": false,
     "noFabricatedFormula": true
   },
-  "evidenceLaw": "configured != executed; executed != verified"
+  "evidenceLaw": "configured != executed; executed != verified",
+  "runtimeShell": {
+    "authority": "bash-first",
+    "hosts": [
+      {
+        "id": "android-termux",
+        "role": "BASH_HOST_ADAPTER",
+        "required": false
+      },
+      {
+        "id": "linux-bash",
+        "role": "NATIVE_BASH_HOST",
+        "required": false
+      },
+      {
+        "id": "windows-git-bash-wsl",
+        "role": "BASH_COMPAT_HOST",
+        "required": false
+      }
+    ],
+    "law": "Bash scripts define portable bootstrap/qualification flow; Termux is an Android host, not the architecture."
+  }
 }
