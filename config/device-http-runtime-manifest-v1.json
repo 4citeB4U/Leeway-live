@@ -42,13 +42,23 @@
         },
         {
           "id": "chatterbox-nano-http",
-          "state": "ON_DEVICE_CANDIDATE_NOT_YET_VERIFIED",
+          "state": "DESKTOP_CPU_EXECUTION_VERIFIED_COMPUTE_FABRIC_CANDIDATE_PASS_HTTP_EXECUTION_PENDING",
           "notes": [
             "110M",
             "CPU/on-device target",
             "English",
             "must prove clone fidelity and HTTP streaming"
-          ]
+          ],
+          "evidence": {
+            "receipt": "evidence/chatterbox-nano-compute-fabric-candidate-v1/receipt.json",
+            "nativeGenerationSeconds": 12.551,
+            "leeWayGenerationSecondsFirst": 6.21,
+            "leeWayGenerationSecondsSecond": 7.329,
+            "nativeRtf": 1.439,
+            "leeWayRtfFirst": 0.722,
+            "speakerSimilarityProxy": 0.9007571935653687,
+            "peakProcessRssBytes": 4316770304
+          }
         },
         {
           "id": "chatterbox-turbo-http",
