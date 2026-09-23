@@ -48,7 +48,7 @@ class H(BaseHTTPRequestHandler):
         if allow:self.send_header("Access-Control-Allow-Origin",allow)
         self.send_header("Vary","Origin")
         self.send_header("Access-Control-Allow-Headers","content-type,authorization")
-        self.send_header("Access-Control-Allow-Methods","GET,POST,OPTIONS")
+        self.send_header("Access-Control-Allow-Methods","GET,POST,OPTIONS")\n        self.send_header("Access-Control-Allow-Private-Network","true")
         self.send_header("Cache-Control","no-store")
     def send_json(self,code,obj):
         raw=json.dumps(obj,separators=(",",":")).encode()
@@ -60,7 +60,7 @@ class H(BaseHTTPRequestHandler):
         self.send_response(204);self.cors();self.end_headers()
     def do_GET(self):
         p=self.path.split("?",1)[0]
-        if p=="/health": return self.send_json(200,{"ok":True,"runtimeId":RUNTIME_ID,"host":HOST,"port":PORT})
+        if p in ("/","/health"): return self.send_json(200,{"ok":True,"runtimeId":RUNTIME_ID,"host":HOST,"port":PORT,"role":"device-local-http-runtime"})
         if p=="/v1/device/passport": return self.send_json(200,passport())
         if p=="/v1/runtime/status":
             return self.send_json(200,{"ok":True,"runtimeId":RUNTIME_ID,"voiceProvider":VOICE or None,"visionProvider":VISION or None})
