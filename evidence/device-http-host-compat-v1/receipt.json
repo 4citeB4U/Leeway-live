@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptId": "LEEWAY-LIVE-DEVICE-HTTP-HOST-COMPAT-V1-20260923",
+  "authorityState": "DEVICE_HTTP_GATEWAY_EXECUTED_DESKTOP_PROVIDER_ADAPTERS",
+  "branch": "architecture/device-http-runtime-v1",
+  "gateway": {
+    "runtimeId": "LEEWAY_LIVE_DEVICE_HTTP_RUNTIME_V1",
+    "bind": "127.0.0.1:8788",
+    "sourceCommit": "661bd51a20e151ce9e676b86e1a6ac385d3c29dc",
+    "platform": "Windows AMD64",
+    "python": "3.11.15"
+  },
+  "voice": {
+    "status": "PASS",
+    "voiceId": "LEEWAY_VOICE::AGENT_LEE::DEFAULT_CLONE",
+    "speakerProfileId": "LEEWAY_SPEAKER::LEONARD_J_LEE::AGENT_LEE",
+    "referenceAudioSHA256": "30d4f63e070d150c857d1d02710163cd7863bb4a8210806e822b63292795320a",
+    "engine": "xtts-v2",
+    "gatewayEndpoint": "POST /v1/voice/stream",
+    "encoding": "pcm_s16le",
+    "sampleRate": 24000,
+    "channels": 1,
+    "headersLatencyMs": 405.3,
+    "firstBodyLatencyMs": 1549.8,
+    "totalLatencyMs": 34838.6,
+    "audioBytes": 307712
+  },
+  "vision": {
+    "status": "PASS",
+    "gatewayEndpoint": "POST /v1/vision/analyze",
+    "provider": "qwen2.5vl:7b",
+    "testImageSHA256": "DEB7F871A245FFC37AED71EABE729F564A25EA9D0C7A49A2E5BA628DACEC4DAC",
+    "expected": [
+      "red square",
+      "blue circle",
+      "LEEWAY"
+    ],
+    "observedAllExpected": true,
+    "privacyValidation": true,
+    "providerReceipt": "/app/receipts/vision-analyze-image-20260923-014759-ab1f0bde.json"
+  },
+  "formula": {
+    "funnel": "architecture/formula-funnel-device-http-v1.json",
+    "formulaExecutionState": "NOT_EXECUTED_FOR_ARCHITECTURE_SELECTION",
+    "note": "No generic canonical Formula output fabricated."
+  },
+  "evidenceBoundary": [
+    "Desktop provider adapters prove the device HTTP abstraction.",
+    "Android/Termux XTTS and vision execution remain unqualified until run on target ARM64 device.",
+    "Human audible confirmation is separate from machine audio-byte proof."
+  ]
+}
