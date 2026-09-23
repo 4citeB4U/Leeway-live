@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "runtimeId": "LEEWAY_LIVE_DEVICE_HTTP_RUNTIME_V1",
+  "authority": "Creator/Human Authority > LeeWay Standards",
+  "bind": {
+    "host": "127.0.0.1",
+    "port": 8788,
+    "publicExposure": false
+  },
+  "pages": {
+    "role": "bootstrap/status/docs/diagnostics/control-client",
+    "heavyInference": false,
+    "loopbackDiscovery": true,
+    "localNavigationFallback": true
+  },
+  "endpoints": [
+    "GET /health",
+    "GET /v1/device/passport",
+    "GET /v1/runtime/status",
+    "GET /v1/model/status",
+    "GET /v1/voice/profiles",
+    "POST /v1/voice/stream",
+    "GET /v1/voice/streams/{streamId}",
+    "POST /v1/voice/streams/{streamId}/cancel",
+    "GET /v1/vision/status",
+    "POST /v1/vision/analyze",
+    "GET /v1/receipts/latest"
+  ],
+  "providers": {
+    "voice": {
+      "interface": "LEEWAY_VOICE_PROVIDER_V1",
+      "canonicalVoiceId": "LEEWAY_VOICE::AGENT_LEE::DEFAULT_CLONE",
+      "candidates": [
+        {
+          "id": "xtts-v2-http",
+          "state": "QUALIFIED_DESKTOP_DEVICE_ANDROID_NOT_YET_PROVEN"
+        },
+        {
+          "id": "compact-local-clone",
+          "state": "FUTURE_CANDIDATE"
+        }
+      ]
+    },
+    "vision": {
+      "interface": "LEEWAY_VISION_PROVIDER_V1",
+      "candidates": [
+        {
+          "id": "gemma-3n-litert",
+          "state": "PHONE_PRIMARY_CANDIDATE"
+        },
+        {
+          "id": "qwen-vl-http",
+          "state": "QUALIFIED_DESKTOP_DEVICE_ANDROID_NOT_YET_PROVEN"
+        }
+      ]
+    }
+  },
+  "formula": {
+    "funnel": "architecture/formula-funnel-device-http-v1.json",
+    "canonicalFormulaExecutionRequiredForPromotion": false,
+    "noFabricatedFormula": true
+  },
+  "evidenceLaw": "configured != executed; executed != verified"
+}
