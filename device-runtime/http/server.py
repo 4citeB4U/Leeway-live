@@ -107,4 +107,4 @@ class H(BaseHTTPRequestHandler):
 if __name__=="__main__":
     print(json.dumps({"runtimeId":RUNTIME_ID,"listen":f"http://{HOST}:{PORT}","voice":VOICE or None,"vision":VISION or None}))
     ThreadingHTTPServer((HOST,PORT),H).serve_forever()
-\n
+
