@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "capsuleId": "LEEWAY_CHATTERBOX_NANO_RUNTIME_CAPSULE_V1",
+  "provider": "chatterbox-nano",
+  "sourceRepository": "ResembleAI/chatterbox-nano",
+  "authorityState": "CANDIDATE_DEPENDENCY_GRAPH_DERIVED_FROM_UPSTREAM_SOURCE",
+  "runtimePath": "ChatterboxTurboTTS.from_local(..., nano=True)",
+  "requiredFiles": [
+    {
+      "path": "ve.safetensors",
+      "bytes": 5695784,
+      "role": "voice-encoder"
+    },
+    {
+      "path": "t3_nano_v1.safetensors",
+      "bytes": 869899204,
+      "role": "nano-t3"
+    },
+    {
+      "path": "s3gen_meanflow.safetensors",
+      "bytes": 1064875036,
+      "role": "meanflow-decoder"
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 3878,
+      "role": "tokenizer"
+    },
+    {
+      "path": "vocab.json",
+      "bytes": 999186,
+      "role": "tokenizer"
+    },
+    {
+      "path": "merges.txt",
+      "bytes": 456318,
+      "role": "tokenizer"
+    },
+    {
+      "path": "added_tokens.json",
+      "bytes": 418,
+      "role": "tokenizer"
+    },
+    {
+      "path": "special_tokens_map.json",
+      "bytes": 470,
+      "role": "tokenizer"
+    },
+    {
+      "path": "conds.pt",
+      "bytes": 169454,
+      "role": "optional-builtin-conditionals"
+    }
+  ],
+  "excludedFiles": [
+    {
+      "path": "s3gen.safetensors",
+      "bytes": 1056484620,
+      "reason": "Not loaded by inspected Nano/Turbo from_local() path, which loads s3gen_meanflow.safetensors."
+    }
+  ],
+  "sizeAccounting": {
+    "selectedBytes": 1942099748,
+    "excludedBytes": 1056484620,
+    "transportAvoidancePercent": 35.23,
+    "note": "Dependency pruning, not compression. Exact hashes must be captured after download."
+  },
+  "verificationRequired": [
+    "all required files present",
+    "source hashes captured",
+    "from_local model load",
+    "Agent Lee reference clone generation",
+    "same behavior as upstream broad snapshot path"
+  ]
+}
