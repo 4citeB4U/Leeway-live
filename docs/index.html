@@ -1,103 +1,83 @@
 <!--
 LEEWAY HEADER — DO NOT REMOVE
 REGION: UI.APP.SURFACE
-TAG: UI.APP.LEEWAYLIVE.MAIN
+TAG: UI.APP.LEEWAYLIVE.SENSORY
 5WH:
-WHAT = LeeWay Live GitHub Pages installer plus browser/local-runtime diagnostics
-WHY = Provides one public front door for phone-local LeeWay while preserving current local runtime and browser capabilities
+WHAT = Agent Lee mobile-first sensory interaction surface
+WHY = Presents one embodied sphere for governed voice, camera, text, and runtime evidence without diagnostic clutter
 WHO = LeeWay Industries / Agent Lee
 WHERE = docs/index.html
-WHEN = 2026-09-23
-HOW = Static GitHub Pages UI driven by canonical manifests and governed JavaScript modules
+WHEN = 2026-09-24
+HOW = Static GitHub Pages shell backed by LeeWay browser/phone capability adapters
 AGENTS: ASSESS ALIGN AUDIT AGENT_LEE VERITAS
 LICENSE: MIT
 -->
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#06111d">
-  <link rel="icon" href="data:,">
-  <title>LeeWay Live</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#02060b">
+<link rel="icon" href="data:,">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./styles.css">
+<title>Agent Lee — LeeWay Live</title>
 </head>
 <body>
-<main class="app-shell">
-  <header class="topbar">
-    <div class="identity">
-      <strong>LeeWay Live</strong>
-      <span id="runtimeStatus">CONNECTING GITHUB AUTHORITIES…</span>
-    </div>
-    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-      <button id="connectLocal" class="icon-button" aria-label="Connect local LeeWay Runtime Fabric">CONNECT LOCAL</button>
-      <button id="cameraToggle" class="icon-button" aria-label="Toggle browser camera diagnostic">CAM</button>
-    </div>
-  </header>
-
-  <section class="speech-bubble agent-bubble" aria-labelledby="installTitle">
-    <strong id="installTitle">LeeWay Phone Sensory Harness</strong>
-    <p>GitHub Pages distributes. The installed phone package executes the model, bridge, relay, and native LeeWay capabilities.</p>
-    <a id="installButton" class="send-button" href="#" aria-disabled="true">DISCOVERING ANDROID PACKAGE…</a>
-    <div id="packageInfo" style="margin-top:.75rem;font-size:.82rem;opacity:.85">Reading the canonical Device Bridge package manifest…</div>
-  </section>
-
-    <section class="speech-bubble agent-bubble" aria-labelledby="phonePairTitle">
-    <strong id="phonePairTitle">Connect This Page to Your Phone Model</strong>
-    <p>Enter the Device ID and owner pairing token shown by the installed LeeWay Device Bridge. They are stored only in this browser on this device.</p>
-    <div class="input-row" style="margin-bottom:.5rem">
-      <input id="phoneDeviceId" type="text" autocomplete="off" placeholder="Phone Device ID" aria-label="Phone Device ID">
-    </div>
-    <div class="input-row" style="margin-bottom:.5rem">
-      <input id="phonePairingToken" type="password" autocomplete="off" placeholder="Owner pairing token" aria-label="Owner pairing token">
-    </div>
-    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
-      <button id="connectPhone" class="send-button">CONNECT PHONE</button>
-      <button id="forgetPhone" class="icon-button">FORGET PHONE</button>
-    </div>
-    <div id="phoneStatus" style="margin-top:.75rem;font-size:.82rem;opacity:.85">PHONE MODEL: NOT CONNECTED</div>
-  </section>
-
-<section class="camera-pip" id="cameraPanel">
+<main class="sensory-shell">
+  <section class="vision-frame" id="cameraPanel" aria-label="Agent Lee vision">
     <video id="cameraView" autoplay muted playsinline></video>
-    <div class="camera-placeholder" id="cameraPlaceholder">BROWSER CAMERA DIAGNOSTIC</div>
-    <span class="camera-status" id="cameraStatus">OFF</span>
+    <div class="vision-placeholder" id="cameraPlaceholder"><span>VISION</span><small>tap eye to enable</small></div>
+    <span class="vision-state" id="cameraStatus">OFF</span>
   </section>
 
-  <section class="conversation-stage">
-    <div class="speech-bubble agent-bubble" role="status" aria-live="polite">
-      <span id="agentText">LeeWay Live is loading its governed runtime.</span>
-    </div>
-
-    <div class="sphere-wrap">
+  <section class="agent-stage">
+    <button class="sphere-button" id="agentSphereButton" aria-label="Talk to Agent Lee">
       <div class="agent-sphere" id="agentSphere" data-state="idle">
-        <div class="sphere-core">L</div>
-        <div class="sphere-ring ring-one"></div>
-        <div class="sphere-ring ring-two"></div>
+        <div class="fluid-layer fluid-a"></div>
+        <div class="fluid-layer fluid-b"></div>
+        <div class="sphere-glow"></div>
+        <div class="voice-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
-      <div class="state-label" id="stateLabel">READY</div>
-    </div>
-
-    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
-      <button id="micButton" class="mic-button" aria-label="Start browser voice diagnostic" aria-pressed="false">
-        <span class="mic-glyph">●</span><span>MIC</span>
-      </button>
-      <button id="seeButton" class="mic-button" aria-label="Analyze current browser camera frame"><span>SEE</span></button>
-    </div>
+    </button>
+    <div class="state-label" id="stateLabel">READY</div>
+    <div class="agent-caption" id="agentText" role="status" aria-live="polite">Tap the sphere and speak.</div>
   </section>
+
+  <section class="controls" aria-label="Sensory controls">
+    <button id="micButton" class="control-button primary" aria-label="Talk to Agent Lee" aria-pressed="false"><span class="control-icon">●</span><span>TALK</span></button>
+    <button id="cameraToggle" class="control-button" aria-label="Toggle camera vision"><span class="control-icon">◉</span><span>VISION</span></button>
+    <button id="seeButton" class="control-button" aria-label="Ask Agent Lee what the camera sees"><span class="control-icon">◎</span><span>SEE</span></button>
+  </section>
+
+  <section class="transcript" id="userBubble" hidden><span id="userTranscript"></span></section>
 
   <section class="composer">
-    <div class="speech-bubble user-bubble" id="userBubble" hidden><span id="userTranscript"></span></div>
     <div class="input-row">
-      <input id="textInput" type="text" autocomplete="off" placeholder="Type to LeeWay Live…" aria-label="Message">
-      <button id="sendButton" class="send-button">SEND</button>
+      <input id="textInput" type="text" autocomplete="off" placeholder="Message Agent Lee…" aria-label="Message Agent Lee">
+      <button id="sendButton" class="send-button" aria-label="Send">↑</button>
     </div>
   </section>
 
-  <details class="evidence-panel">
-    <summary>GitHub / runtime evidence</summary>
-    <pre id="evidenceTrace"></pre>
+  <details class="system-drawer">
+    <summary>System</summary>
+    <div class="system-grid">
+      <div><b>Runtime</b><span id="runtimeStatus">CONNECTING…</span></div>
+      <div><b>Voice</b><span id="voiceStatus">VERIFYING LEEWAY VOICE…</span></div>
+      <div><b>Phone</b><span id="phoneStatus">NOT PAIRED</span></div>
+    </div>
+    <div class="system-actions">
+      <button id="connectLocal" class="utility-button">VERIFY LOCAL</button>
+      <a id="installButton" class="utility-button" href="#" aria-disabled="true">PHONE PACKAGE</a>
+    </div>
+    <div id="packageInfo" class="fineprint">Discovering canonical Device Bridge package…</div>
+    <details class="pairing">
+      <summary>Phone pairing</summary>
+      <input id="phoneDeviceId" type="text" autocomplete="off" placeholder="Phone Device ID">
+      <input id="phonePairingToken" type="password" autocomplete="off" placeholder="Owner pairing token">
+      <div><button id="connectPhone" class="utility-button">CONNECT</button><button id="forgetPhone" class="utility-button">FORGET</button></div>
+    </details>
+    <details class="evidence-panel"><summary>Evidence</summary><pre id="evidenceTrace"></pre></details>
   </details>
 </main>
 <script type="module" src="./app.js"></script>
