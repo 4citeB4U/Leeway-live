@@ -2,404 +2,468 @@
 
 ## MASTER CHECKPOINT
 
-LeeWay Live is a **device-agnostic sensory transport and orchestration layer** for models.
+LeeWay Live is a **device-agnostic, model-agnostic sensory fabric** owned by LeeWay.
 
-The sensory harness is not tied to one Android build, one browser, one LLM provider, or one speech architecture.
+No paid third-party realtime service is required.
+No external realtime API key is required.
+No model is coupled to one phone, browser, desktop, or operating system.
 
-The stable abstraction is a realtime session.
+The architecture is derived from the already-admitted LeeWay Agent Skills contracts:
+
+- Universal Voice Bus
+- Real-Time Voice Execution Contract
+- Real-Time Voice Multimodal Profile
+- Frontier Voice Architecture Selector
+- Real-Time Voice & Multimodal Infrastructure
+- Formula Tunnel
+
+## Canonical path
 
 ```text
-ANY DEVICE
-phone / tablet / desktop / laptop / browser / native app
+DEVICE CAPABILITIES
+mic / speaker / camera / screen
         ↓
-microphone / camera / screen / speaker
+LEEWAY MEDIA ADAPTER
         ↓
-LiveKit WebRTC room
+native WebRTC/RTP media
         ↓
-LEEWAY UNIVERSAL SENSORY HARNESS
+LEEWAY SESSION FABRIC
         ↓
-Universal Voice Bus + Control Plane + Evidence Plane
+Universal Voice Bus
++ Control Plane
++ Evidence Plane
++ Formula Policy
         ↓
 MODEL ADAPTER
         ↓
-ANY AUTHORIZED MODEL
+AUTHORIZED MODEL
 ```
 
-## Canonical authority
+The transport implementation is replaceable.
+The LeeWay sensory contract is not.
 
-This implementation is subordinate to the existing LeeWay Agent Skills:
+## Zero-service law
 
-- `config/universal-voice-bus-v1.json`
-- `config/realtime-voice-execution-contract-v1.json`
-- `config/realtime-voice-multimodal-profile-v1.json`
-- `config/realtime-voice-heavy-use-routing-v1.json`
-- `skills/leeway-frontier-voice-architecture-selector/SKILL.md`
-- `skills/leeway-real-time-voice-multimodal-infrastructure/SKILL.md`
+The production sensory path SHALL NOT require:
 
-No provider may redefine LeeWay authority.
+- paid realtime-service subscriptions
+- third-party realtime API keys
+- hosted proprietary media authority
+- model-provider-specific device SDKs
 
-## Core law
+Permitted runtime classes are:
 
-**Devices publish senses. Models consume senses. LeeWay owns the contract between them.**
+1. browser/OS native facilities,
+2. LeeWay-owned code,
+3. self-hosted open-source components with no service dependency,
+4. local models/runtimes,
+5. optional model providers only when separately authorized by the owner.
 
-A model does not need device-specific code.
+A free/open library may donate implementation capability but never becomes LeeWay authority.
 
-A device does not need model-specific code.
-
-The LeeWay harness negotiates capabilities between both.
-
-## Runtime planes
+## Four-plane architecture
 
 ### Media Plane
 
 Continuous realtime media:
 
-- microphone audio track
-- camera video track
-- screen-share video track
-- model/agent audio output track
-- optional model/agent video output track
-- RTP/SRTP media transport through WebRTC
+- microphone audio
+- agent speech/audio
+- camera video
+- screen video
+- optional data representations such as encoded audio units
+
+Primary interactive transport:
+
+```text
+WebRTC / RTP / SRTP
+```
+
+LeeWay uses browser/OS-native WebRTC where available.
+
+Media responsibilities:
+
+- capture
+- framing
+- timestamping
+- AEC / NS / AGC where applicable
 - codec negotiation
-- AEC/noise suppression/gain control where available
-- jitter and packet-loss handling
+- packetization
+- jitter handling
+- bounded buffers
+- playout
+- video frame timing
 
 ### Control Plane
 
-Session and realtime control:
+LeeWay-owned control/signaling channel:
 
-- connect / disconnect / reconnect
-- model attach / detach
+- session create/join
+- peer identity
+- SDP offer/answer exchange
+- ICE candidate exchange
 - capability negotiation
-- LISTENING
-- USER_SPEAKING
-- ENDPOINT_PENDING
-- AGENT_THINKING
-- AGENT_SPEAKING
-- INTERRUPTING
-- RECOVERING
-- generation epoch
-- cancellation
-- bounded queues
+- generation epochs
+- barge-in / cancellation
 - backpressure
+- reconnect
+- model attach/detach
 - route changes
-- device changes
-- stale output rejection
+- owner authority
+- receipts/evidence references
+
+Control MAY use a LeeWay-owned WebSocket endpoint because control traffic and media traffic are separate concerns.
+
+The existing LeeWay relay can be extended for signaling without becoming media authority.
 
 ### Cognitive Plane
 
-Selected by the Frontier Voice Architecture Selector.
+The Frontier Voice Architecture Selector chooses the best verified path.
 
-#### Architecture A — Cascaded
+#### A — Cascaded
 
 ```text
 audio
 → VAD / endpointing
 → streaming STT
-→ arbitrary text LLM
+→ text/model stream
 → streaming TTS
-→ audio track
+→ playout
 ```
 
-Use when the attached model consumes text rather than native audio.
-
-#### Architecture B — Native speech-to-speech
+#### B — Native speech-to-speech
 
 ```text
-audio track
-→ realtime multimodal model
-→ native audio stream
-→ audio track
+audio representation
+→ native realtime multimodal model
+→ native audio representation
+→ playout
 ```
 
-Use when the attached model exposes verified native realtime speech capability.
+#### C — Continuous-state research
 
-#### Architecture C — Half-cascade
+CGSS/continuous acoustic representations remain Formula Factory research only until independently qualified.
+
+### Evidence Plane
+
+Every session preserves:
+
+- monotonic timestamps
+- session ID
+- event ID
+- generation epoch
+- source
+- provenance
+- device profile
+- model/provider identity
+- media state
+- queue state
+- jitter/loss context
+- latency spans
+- interruption trace
+- Formula profile
+- privacy authority
+- playout ledger
+- receipt references
+
+## Universal Voice Bus
+
+The existing `LEEWAY_UNIVERSAL_VOICE_BUS_V1` is the canonical event protocol.
+
+Required envelope:
 
 ```text
-audio
-→ realtime speech-understanding model
-→ semantic/text output
-→ selected LeeWay TTS
-→ audio track
+sessionId
+eventId
+eventType
+monotonicTimestamp
+generationEpoch
+source
+provenance
 ```
 
-Use when native acoustic understanding is useful but LeeWay controls the output voice.
-
-### Vision path
-
-The device publishes camera and/or screen-share tracks.
-
-The harness negotiates the attached model's visual capabilities.
+Minimum event classes:
 
 ```text
-camera/screen WebRTC track
-        ↓
-capability negotiation
-        ├─ native live-video model → live frames
-        ├─ image-capable model → adaptive semantic keyframes
-        └─ text-only model → LeeWay vision adapter → semantic events/text
+TEXT_DELTA
+CONTROL_CANCEL
+CONTROL_END
+ERROR
 ```
 
-Audio and vision clocks remain independent.
+Optional negotiated event classes:
 
-Vision sampling is adaptive and task-aware.
+```text
+TOKEN_LOGPROBS
+SEMANTIC_EVENT
+TOOL_EVENT
+PHONEME_EVENT
+PROSODY_EVENT
+AUDIO_EMBEDDING
+AUDIO_CODEC_UNIT
+NATIVE_AUDIO_CHUNK
+VISION_EVENT
+CONFIDENCE_EVENT
+```
 
-## Model attachment contract
+Never assume an optional representation exists.
 
-Every model adapter SHALL implement the LeeWay Model Sensory Contract.
+## Model attachment law
 
-The model receives a stable session interface regardless of provider or device.
+A model is attached to a LeeWay sensory session, not to a specific physical device.
 
-Required adapter lifecycle:
+Every model adapter declares:
 
-1. identify model/provider/runtime
-2. declare capabilities
-3. join authorized LeeWay session
-4. negotiate media representations
-5. consume supported sensory streams
-6. emit responses/events
-7. implement cancellation semantics
-8. preserve generation epochs
-9. expose health and latency telemetry
-10. return evidence
+```text
+inputCapabilities
+outputCapabilities
+cancelSemantics
+timingSemantics
+providerModelIdentity
+```
 
-A model adapter must never claim a modality it cannot actually consume or produce.
+The adapter SHALL also expose:
 
-## Adapter classes
+- adapter ID/version
+- runtime location
+- streaming input support
+- streaming output support
+- audio input mode
+- audio output mode
+- vision mode
+- text mode
+- cancellation support
+- health
+- telemetry
+
+## Model classes
 
 ### NativeRealtimeAdapter
 
-For models that directly consume realtime audio and optionally video.
+For a model that consumes/produces native streaming audio and possibly video.
 
-Examples of capability shape:
-
-```json
-{
-  "audioInput": "native_stream",
-  "audioOutput": "native_stream",
-  "videoInput": "live_or_sampled",
-  "textInput": true,
-  "textOutput": true,
-  "bargeIn": true
-}
+```text
+WebRTC media
+→ representation adapter if needed
+→ model
+→ streamed media
 ```
 
 ### CascadedTextModelAdapter
 
-For ordinary chat/completion models.
+For any ordinary text LLM.
 
 LeeWay supplies:
 
-- streaming STT
-- endpointing
-- vision-to-semantic adapter
-- prompt/context construction
-- streaming TTS
-- interruption/cancellation
-- playout evidence
+```text
+audio → STT → model → TTS → audio
+video → semantic/keyframe adapter → model
+```
 
-The text model only implements text generation.
+The model itself requires no microphone/camera code.
 
 ### LocalModelAdapter
 
-For Ollama, llama.cpp, LiteRT, local OpenAI-compatible runtimes, or other device-hosted models.
+For local runtime targets such as:
 
-The adapter may execute on the same device as the media source or remotely.
-
-Location does not change the LeeWay sensory contract.
-
-## Universal Voice Bus mapping
-
-The existing `LEEWAY_UNIVERSAL_VOICE_BUS_V1` is carried over LiveKit media/data channels.
-
-Required envelope fields:
-
-- sessionId
-- eventId
-- eventType
-- monotonicTimestamp
-- generationEpoch
-- source
-- provenance
-
-Supported representations include:
-
-- TEXT_DELTA
-- CONTROL_CANCEL
-- CONTROL_END
-- ERROR
-- TOKEN_LOGPROBS
-- SEMANTIC_EVENT
-- TOOL_EVENT
-- PHONEME_EVENT
-- PROSODY_EVENT
-- AUDIO_EMBEDDING
-- AUDIO_CODEC_UNIT
-- NATIVE_AUDIO_CHUNK
-- VISION_EVENT
-- CONFIDENCE_EVENT
-
-Media itself uses WebRTC tracks.
-
-Control/evidence events use LiveKit data, RPC, state synchronization, or text streams as appropriate.
-
-## LiveKit role
-
-LiveKit is the realtime transport/runtime substrate, not LeeWay authority.
-
-Use LiveKit for:
-
-- rooms
-- WebRTC transport
-- microphone tracks
-- camera tracks
-- screen-share tracks
-- audio output tracks
-- participant lifecycle
-- reconnect
-- track subscription
-- RPC
-- state synchronization
-- text streams
-- data packets
-
-LeeWay remains responsible for:
-
-- model capability negotiation
-- provider abstraction
-- Formula/governance gates
-- turn state
-- interruption epochs
-- playout ledger
-- context
-- privacy authority
-- evidence
-- receipts
-- recovery policy
-
-## Device-agnostic client contract
-
-A frontend implementation needs only:
-
-1. a LiveKit session token
-2. the LeeWay room/session identifier
-3. media permissions granted by the operating system/user
-4. the standard LeeWay session metadata
-
-No model-specific configuration belongs in the device client.
-
-Client implementations may use:
-
-- Web
-- Android
-- iOS / Swift
-- React Native
-- Flutter
-- desktop/native wrappers
-- future LiveKit-compatible endpoints
-
-## Model-agnostic rule
-
-The model does not know or care whether the user's microphone came from:
-
-- Samsung Fold
-- Android tablet
-- Windows laptop
-- macOS desktop
-- iPhone
-- browser
-- native app
-
-The model consumes the LeeWay session.
-
-Likewise, the client does not know or care whether the model is:
-
-- local LiteRT
+- LiteRT
 - Ollama
 - llama.cpp
-- OpenAI-compatible
-- native realtime speech model
-- cloud LLM
-- future model
+- OpenAI-compatible local endpoint
+- other authorized local inference runtime
 
-The client publishes senses.
+The model may run on the same device or a different device.
+The sensory contract does not change.
 
-## Full-duplex requirements
+## Device classes
 
-Stage completion requires:
+A device only implements capability adapters.
 
-- continuous microphone streaming
-- continuous agent audio streaming
-- deterministic barge-in
-- cancellation propagation
-- playout flush
-- stale generation rejection
-- bounded queues
-- AEC/feedback strategy
-- connection recovery
-- latency telemetry
-- rendered-audio ledger
+Possible participants:
 
-Push-to-talk is a fallback profile, not the target architecture.
+- Samsung / Android phone
+- Android tablet
+- Windows
+- Linux
+- macOS
+- browser
+- iPhone / iPad
+- native desktop wrapper
+- future device exposing compatible media primitives
 
-## Vision requirements
+A device advertises what exists:
 
-Stage completion requires:
+```json
+{
+  "microphone": true,
+  "speaker": true,
+  "camera": true,
+  "screenCapture": true,
+  "webrtc": true
+}
+```
 
-- camera publishing
-- screen-share publishing where supported
-- model capability detection
-- live video for capable realtime models
-- adaptive semantic frame sampling for image-capable models
-- semantic vision adapter for text-only models
-- bounded frame rate / bandwidth
-- vision provenance
-- visual event timing
+The model never needs device-specific knowledge.
 
-## Evidence requirements
+## Session signaling
 
-At minimum record:
+LeeWay signaling carries only session/control metadata.
 
-- provider identity
-- model identity
-- device/network profile
-- connection state
-- media track state
-- packet loss/jitter context
-- STT first/final latency
-- LLM TTFT
-- TTS TTFB
-- interruption spill
-- queue occupancy
-- generation epoch
-- playout ledger
-- visual sampling state
-- reconnect trace
-- privacy authority state
+Example flow:
 
-## Acceptance statement
+```text
+DEVICE
+  | SESSION_HELLO
+  v
+LEEWAY SIGNALING
+  | CAPABILITY_NEGOTIATION
+  v
+MODEL ADAPTER
+  | SDP_OFFER / SDP_ANSWER
+  | ICE_CANDIDATE
+  v
+DIRECT/SELF-HOSTED WEBRTC MEDIA
+```
 
-LeeWay Universal Sensory Harness is complete only when:
+Signaling does not carry raw media unless the selected fallback profile explicitly requires it.
+
+## NAT traversal
+
+The architecture supports:
+
+1. direct host/LAN candidates,
+2. direct peer-reflexive paths where available,
+3. owner-operated/self-hosted STUN/TURN if required.
+
+No proprietary hosted TURN dependency is part of the canonical system.
+
+If relay infrastructure is required and no acceptable free/open self-hosted implementation exists, LeeWay builds the missing component.
+
+## Full-duplex law
+
+Push-to-talk is a fallback profile.
+
+The target state machine is:
+
+```text
+LISTENING
+USER_SPEAKING
+ENDPOINT_PENDING
+AGENT_THINKING
+AGENT_SPEAKING
+INTERRUPTING
+RECOVERING
+```
+
+On valid barge-in:
+
+1. invalidate current generation epoch,
+2. flush local interruptible playout,
+3. send CONTROL_CANCEL,
+4. cancel upstream generation/TTS where supported,
+5. discard stale epoch events,
+6. preserve only evidence-backed rendered content,
+7. return to LISTENING.
+
+## Vision law
+
+Camera/screen media are continuous sources.
+
+The Formula policy controls semantic sampling.
+
+```text
+sample iff semantic_change_score >= theta OR task_trigger
+```
+
+Stable scenes reduce sampling.
+Scene change, motion, OCR/UI change, pointing, task relevance, or explicit user request may increase sampling.
+
+Native-video models may consume a live negotiated stream.
+Image-capable models receive adaptive keyframes.
+Text-only models receive semantic vision events/text.
+
+## Formula integration
+
+Raw runtime telemetry is normalized and quantized through the canonical LeeWay Formula authority.
+
+```text
+raw telemetry
+→ rho in [0,1]
+→ Q69
+→ 16x6 history
+→ centralized Formula authority
+→ bounded policy
+→ media/runtime/storage action
+→ measurement
+→ Veritas
+→ receipt
+```
+
+Formula controls qualified policy choices such as:
+
+- audio frame duration
+- jitter buffer
+- queue capacity
+- codec profile
+- VAD/endpointer profile
+- speech chunk size
+- model residency
+- context budget
+- vision sampling
+- media resolution
+- cache retention
+- exact vs behavioral representation
+
+Formula does not turn an unverified codec or threshold into a verified result.
+
+## Storage law
+
+Do not store continuous raw sensory media by default.
+
+Working media is ephemeral unless authority requires retention.
+
+Use the existing LeeWay storage equations for:
+
+- chunk identity
+- dedupe
+- unique-byte demand
+- reconstruction
+- acquisition factor
+- fidelity/exactness gates
+
+The system distinguishes:
+
+```text
+installed footprint
+runtime RAM/VRAM
+network bandwidth
+session buffers
+persistent evidence
+retained media
+```
+
+These are different optimization axes.
+
+## Completion gate
+
+The harness is complete only when:
 
 ```text
 arbitrary supported device
-        ↓
-publishes live mic + camera/screen
-        ↓
-arbitrary authorized model adapter joins
-        ↓
-model receives live audio/vision
-        ↓
-model returns streamed response
-        ↓
-user hears response
-        ↓
-user can interrupt it
-        ↓
-session recovers/reconnects
-        ↓
-evidence proves the complete path
+→ publishes live voice + live vision
+→ arbitrary authorized model adapter attaches
+→ negotiated representation flows
+→ model responds continuously
+→ user receives streamed speech/output
+→ user interrupts
+→ stale work is rejected
+→ session reconnects
+→ Formula policy adapts runtime
+→ evidence proves every stage
 ```
 
-No device-specific success may be generalized to all devices without capability evidence.
+Configured != executed.
+Streaming != low latency.
+Transport connected != healthy.
+Audio rendered != human heard.
+Model output != proof.
