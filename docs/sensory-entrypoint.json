@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "LEEWAY_UNIVERSAL_SENSORY_ENTRYPOINT_V1",
+  "authority": "4citeB4U/Leeway-live",
+  "agentSkillsAuthority": "4citeB4U/LeeWay-Agent-Skills",
+  "formulaAuthority": "4citeB4U/Leeway-formula-live",
+  "serviceDependencies": {
+    "paidThirdPartyRealtimeService": false,
+    "externalRealtimeApiKey": false,
+    "proprietaryMediaAuthority": false
+  },
+  "contracts": {
+    "modelSensory": "./model-sensory-contract-v1.json",
+    "formulaPolicy": "./formula-sensory-policy-v1.json",
+    "universalVoiceBus": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/universal-voice-bus-v1.json",
+    "voiceExecution": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/realtime-voice-execution-contract-v1.json",
+    "voiceProfile": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/realtime-voice-multimodal-profile-v1.json",
+    "voiceRouting": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/realtime-voice-heavy-use-routing-v1.json",
+    "formula": "https://raw.githubusercontent.com/4citeB4U/Leeway-formula-live/main/authority/formula-authority.json"
+  },
+  "runtime": {
+    "browserFabric": "./sensory-fabric.js",
+    "selfHostedSignalServer": "../server/sensory-signal.mjs",
+    "mediaTransport": "NATIVE_WEBRTC_RTP_SRTP",
+    "controlTransport": "LEEWAY_OWNED_SIGNALING",
+    "defaultIceServers": [],
+    "natTraversalPolicy": "DIRECT_FIRST_SELF_HOSTED_STUN_TURN_IF_REQUIRED"
+  },
+  "attachSequence": [
+    "read sensory entrypoint",
+    "read model sensory contract",
+    "declare model capabilities",
+    "create or join LeeWay session",
+    "negotiate representation",
+    "attach media/control planes",
+    "execute under Formula policy",
+    "emit evidence and receipts"
+  ],
+  "hardRule": "A model attaches to the LeeWay sensory session. It never requires device-specific microphone/camera integration."
+}
