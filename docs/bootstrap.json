@@ -15,7 +15,11 @@
     "deviceRuntimeContract": "https://raw.githubusercontent.com/4citeB4U/LEEWAY-DEVICE-BRIDGE/main/docs/runtime-contract.json",
     "skillsManifest": "./skills-manifest.json",
     "formulaAuthority": "https://raw.githubusercontent.com/4citeB4U/Leeway-formula-live/main/authority/formula-authority.json",
-    "formulaConsumer": "https://raw.githubusercontent.com/4citeB4U/Leeway-formula-live/main/contracts/consumer-contract.json"
+    "formulaConsumer": "https://raw.githubusercontent.com/4citeB4U/Leeway-formula-live/main/contracts/consumer-contract.json",
+    "sensoryEntrypoint": "./sensory-entrypoint.json",
+    "modelSensory": "./model-sensory-contract-v1.json",
+    "sensoryFormulaPolicy": "./formula-sensory-policy-v1.json",
+    "universalVoiceBus": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/universal-voice-bus-v1.json"
   },
   "laws": [
     "GitHub Pages distributes; the phone executes",
@@ -23,6 +27,9 @@
     "available != authorized",
     "configured != executed",
     "executed != verified",
-    "Formula authority is centralized and never duplicated"
+    "Formula authority is centralized and never duplicated",
+    "LeeWay owns the sensory contract; transport/provider implementations are replaceable",
+    "No paid realtime service or external realtime API key is required",
+    "Formula execution is never claimed without canonical evaluator execution evidence"
   ]
 }
