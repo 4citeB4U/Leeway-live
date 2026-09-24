@@ -1,0 +1,26 @@
+name: LeeWay Live Runtime Gate
+
+on:
+  push:
+    branches:
+      - main
+      - feature/live-browser-runtime-v1
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run governed source gate
+        run: node tests/live-runtime-source.test.mjs
