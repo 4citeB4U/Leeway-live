@@ -21,7 +21,27 @@ function evidence(event,data={}){const row={event,t:Math.round(performance.now()
 const media=new BrowserMediaAdapter(evidence),model=new BrowserModelRuntime(evidence),ecosystem=new EcosystemBinding(evidence),phoneRelay=new PhoneRelayClient(evidence);
 function setState(s){$("agentSphere").dataset.state=s;$("stateLabel").textContent=s.toUpperCase();$("agentSphere").setAttribute("aria-label","Agent Lee state: "+s)}
 function showUser(text){$("userBubble").hidden=!text;$("userTranscript").textContent=text}
-function agent(text,speak=false){$("agentText").textContent=text;if(speak){const my=epoch;try{media.speak(text,{onStart:()=>my===epoch&&setState("speaking"),onEnd:()=>my===epoch&&setState("idle")})}catch(e){evidence("ERROR",{stage:"speech_output",message:e.message});setState("idle")}}}
+async function agent(text,speak=false){
+ $("agentText").textContent=text;
+ if(!speak)return;
+ const my=epoch;
+ const relay=phoneRelay.status();
+ if(relay.configured){
+  try{
+   if(!relay.connected||!relay.phoneOnline)await phoneRelay.connect();
+   if(my!==epoch)return;
+   setState("speaking");
+   $("voiceStatus").textContent="LEEWAY PHONE CLONE ROUTE";
+   await phoneRelay.speak(text);
+   if(my===epoch)setState("idle");
+   evidence("LEEWAY_VOICE_SPEAK_OK",{route:"sensory.speak"});
+   return;
+  }catch(e){evidence("LEEWAY_VOICE_SPEAK_FAILED",{message:e.message})}
+ }
+ $("voiceStatus").textContent="CLONE VOICE NOT BOUND • TEXT EMERGENCY";
+ setState("idle");
+ evidence("LEEWAY_VOICE_TEXT_EMERGENCY",{reason:"no_verified_clone_route"});
+}
 function interrupt(reason){epoch++;media.stopRecognition();media.stopSpeaking();listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("CONTROL_CANCEL",{reason,newEpoch:epoch})}
 function configureInstaller(state){
  const pkg=state.androidPackage,button=$("installButton"),info=$("packageInfo");
@@ -127,9 +147,9 @@ $("connectLocal").onclick=async()=>{evidence("LOCAL_CONNECT_REQUEST",{});$("runt
 $("cameraToggle").onclick=async()=>{try{if(cameraOn){media.stopCamera();cameraOn=false;$("cameraPanel").classList.remove("active");$("cameraStatus").textContent="OFF"}else{await media.startCamera($("cameraView"));cameraOn=true;$("cameraPanel").classList.add("active");$("cameraStatus").textContent="LIVE"}}catch(e){evidence("ERROR",{stage:"camera",message:e.message});agent("Camera permission or browser support is unavailable.")}};
 $("seeButton").onclick=async()=>{interrupt("vision_turn");setState("thinking");try{const result=await model.see(cameraFrame());agent(result,true);evidence("MODEL_INFERENCE_OK",{kind:"vision",runtime:model.status()})}catch(e){setState("idle");agent("Vision could not run on this device. Check Evidence for the exact failure.");evidence("MODEL_INFERENCE_FAILED",{kind:"vision",message:e.message})}};
 $("micButton").onclick=()=>{if(listening){interrupt("mic_stop");return}interrupt("mic_start");listening=true;$("micButton").setAttribute("aria-pressed","true");setState("listening");try{media.startSpeechRecognition({onInterim:t=>showUser(t),onFinal:t=>{listening=false;$("micButton").setAttribute("aria-pressed","false");handleInput(t)},onError:e=>{listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("Microphone transcription is unavailable here. Type below.")}})}catch(e){listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("This browser does not expose speech recognition. Type below.")}};
-$("sendButton").onclick=()=>{const t=$("textInput").value;$("textInput").value="";handleInput(t)};$("textInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("sendButton").click()});
+$("agentSphereButton").onclick=()=>$("micButton").click();\n$("sendButton").onclick=()=>{const t=$("textInput").value;$("textInput").value="";handleInput(t)};$("textInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("sendButton").click()});
 (async()=>{
- evidence("APP_READY",{capabilities:media.capabilities(),model:model.status(),phoneRelay:phoneRelay.status()});
+ evidence("APP_READY",{capabilities:media.capabilities(),model:model.status(),phoneRelay:phoneRelay.status()});\n $("voiceStatus").textContent="LEEWAY VOICE ROUTE CHECK";
  const s=await ecosystem.hydrate();
  configureInstaller(s);
  renderPhoneStatus();
@@ -145,6 +165,6 @@ $("sendButton").onclick=()=>{const t=$("textInput").value;$("textInput").value="
    .catch(e=>renderPhoneStatus(e.message));
  }
  $("runtimeStatus").textContent=(s.androidPackage?"PHONE "+s.androidPackage.versionName:"PHONE PACKAGE BLOCKED")+" • MODEL "+model.status().device.toUpperCase()+" • SKILLS "+(s.manifest?.skillCount||0)+" BOUND • FORMULA "+s.formulaServiceIdentity;
- agent(s.androidPackage?"LeeWay Live is ready. Pair the installed phone runtime once, then voice and text turns will prefer the phone-local model.":"LeeWay Live loaded, but the Android package manifest did not resolve.",false);
+ agent(s.androidPackage?"Tap the sphere and speak.":"LeeWay Live loaded, but the phone package authority did not resolve.",false);
  evidence("ECOSYSTEM_READY",ecosystem.summary());
 })().catch(e=>evidence("BOOT_ERROR",{message:e.message}));
