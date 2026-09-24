@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "LEEWAY_SENSORY_FORMULA_POLICY_V1",
+  "authority": {
+    "formulaRepo": "4citeB4U/Leeway-formula-live",
+    "formulaId": "LEEWAY-FORMULA-v1.0",
+    "consumerRule": "Consumers call centralized Formula authority; do not embed divergent Formula implementations.",
+    "authorityState": "RECOVERED_IDENTITY_PENDING_HOST_REVERIFICATION"
+  },
+  "sourceMath": {
+    "audioFrameGeometry": {
+      "expression": "N = Fs * dt_frame",
+      "bytesExpression": "bytes = N * (B/8) * C",
+      "class": "DOMAIN_CONSTRAINED_IDENTITY"
+    },
+    "responseCriticalPath": {
+      "expression": "T_response_onset = critical_path(network, endpointing, STT, LLM_TTFT, chunker_dwell, TTS_TTFB, playout)",
+      "class": "PHYSICAL_ENGINEERING_MODEL"
+    },
+    "synthesisRealtimeFactor": {
+      "expression": "RTF = synth_wall_time / rendered_audio_duration",
+      "class": "DOMAIN_CONSTRAINED_IDENTITY"
+    },
+    "queueLittle": {
+      "expression": "L = lambda * W",
+      "class": "STATISTICAL_MODEL",
+      "domain": "stable average queue regime only"
+    },
+    "queueSaturation": {
+      "expression": "rho_Q = lambda / mu",
+      "class": "EXTERNAL_INFERENCE_METRIC"
+    },
+    "vadEnergy": {
+      "expression": "STE = sum_n w[n] * x[n]^2",
+      "class": "PHYSICAL_ENGINEERING_MODEL"
+    },
+    "vadRms": {
+      "expression": "RMS = sqrt((1/N) * sum x[n]^2)",
+      "dbfs": "dBFS = 20 * log10(RMS/xmax)",
+      "class": "PHYSICAL_ENGINEERING_MODEL"
+    },
+    "bargeInSpill": {
+      "expression": "T_spill ~= detection + local_flush + already_uninterruptible_device_path",
+      "class": "PHYSICAL_ENGINEERING_MODEL"
+    },
+    "chunkMargin": {
+      "expression": "M_i = audio_duration_i - synth_wall_time_i",
+      "class": "PHYSICAL_ENGINEERING_MODEL"
+    },
+    "visionSampling": {
+      "expression": "sample if semantic_change_score >= theta or task_trigger",
+      "class": "HEURISTIC"
+    },
+    "q69": {
+      "expression": "Q69(rho)=clamp(round(69*rho),0,69)",
+      "reconstruction": "rho_hat = q/69",
+      "errorBound": "epsilon_q <= 1/138",
+      "class": "CANONICAL_CERTIFIED"
+    },
+    "uniqueByteDemand": {
+      "expression": "U(O)=sum_i u_i*|C_i|",
+      "class": "LEEWAY_STORAGE"
+    },
+    "sourceAcquisition": {
+      "expression": "SAF=P_new/L(O)",
+      "amplification": "SAFA=L(O)/P_new",
+      "class": "LEEWAY_STORAGE"
+    },
+    "exactStorage": {
+      "length": "|O'|=|O|",
+      "hash": "SHA256(O')=SHA256(O)",
+      "bytes": "O'=O byte-for-byte"
+    }
+  },
+  "telemetryVector": {
+    "audio": [
+      "captureLoad",
+      "queuePressure",
+      "packetLossJitter",
+      "playoutDelay",
+      "aecResidual",
+      "thermalPressure"
+    ],
+    "vision": [
+      "semanticChange",
+      "motion",
+      "ocrChange",
+      "taskRelevance",
+      "bandwidthPressure",
+      "computePressure"
+    ],
+    "runtime": [
+      "cpu",
+      "ram",
+      "network",
+      "process",
+      "queue",
+      "disk"
+    ]
+  },
+  "q69Mapping": {
+    "rule": "Normalize each declared telemetry channel to rho in [0,1], then call the centralized Formula authority using its declared adapter/contract. Never infer Formula outputs from local heuristics.",
+    "historyShape": "16x6",
+    "historyExpression": "W_t in Z^(16x6), 0 <= W_ij <= 69"
+  },
+  "adaptiveControls": {
+    "audio": [
+      "frameDurationMs",
+      "sampleRate",
+      "codecProfile",
+      "jitterBufferMs",
+      "vadThresholdProfile",
+      "speechChunkTarget",
+      "playoutQueueLimit"
+    ],
+    "vision": [
+      "samplingFps",
+      "keyframeBurst",
+      "resolution",
+      "qualityProfile"
+    ],
+    "runtime": [
+      "modelResidency",
+      "contextBudget",
+      "queueCapacity",
+      "cacheRetention",
+      "memoryBudget",
+      "threadBudget"
+    ],
+    "storage": [
+      "mediaCodecPolicy",
+      "contentChunking",
+      "dedupeEligibility",
+      "cacheEviction",
+      "exactVsBehavioralRepresentation"
+    ]
+  },
+  "hardGates": [
+    "privacy_or_authority_violation=0",
+    "uncancellable_playout=0",
+    "unbounded_queue=0",
+    "stale_generation_audio_after_interrupt=0",
+    "irreversible_action_from_unstable_transcript=0",
+    "no storage replacement without fidelity/exactness evidence"
+  ],
+  "measuredEvidence": {
+    "currentPhoneCoreBytes": {
+      "apk": 65869689,
+      "model": 373719040,
+      "sum": 439588729,
+      "approxMiB": 419.22
+    },
+    "audioOpus24": {
+      "measuredReductionPctRange": [
+        82.206,
+        89.09
+      ],
+      "status": "PROMISING_BEHAVIORAL_REPRESENTATION_REQUIRES_SEMANTIC_INTELLIGIBILITY_GATE"
+    },
+    "runtimeGpuWorkingSet": {
+      "verifiedReduction": "11.18x",
+      "scope": "VRAM_WORKING_SET_ONLY_NOT_TOTAL_MODEL_COMPRESSION"
+    }
+  },
+  "targetLaw": "Optimize installed bytes, transient working set, queue/buffer size, media bitrate, latency and cache growth separately. Never claim one metric proves another.",
+  "completionLaw": "First success is not completion. Measure -> Formula policy -> execute -> verify -> receipt."
+}
