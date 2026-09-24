@@ -14,6 +14,7 @@ const PEER_TTL_MS=Number(process.env.LEEWAY_SENSORY_PEER_TTL_MS||120000);
 const queues=new Map();
 const waiters=new Map();
 const peers=new Map();
+const sessions=new Map();
 
 const now=()=>Date.now();
 const key=(sessionId,peerId)=>sessionId+"::"+peerId;
@@ -29,6 +30,14 @@ const json=(res,status,value)=>{
   res.end(body);
 };
 const validId=v=>typeof v==="string"&&/^[A-Za-z0-9._:-]{8,128}$/.test(v);
+const validSecret=v=>typeof v==="string"&&v.length>=24&&v.length<=256;
+const secretHash=v=>crypto.createHash("sha256").update(v,"utf8").digest("hex");
+const authorizeSession=(sessionId,secret)=>{
+  if(!validSecret(secret))return false;
+  const h=secretHash(secret),existing=sessions.get(sessionId);
+  if(!existing){sessions.set(sessionId,{secretHash:h,createdAt:now()});return true}
+  return crypto.timingSafeEqual(Buffer.from(existing.secretHash,"hex"),Buffer.from(h,"hex"));
+};
 const touch=(sessionId,peerId,role,capabilities={})=>{
   peers.set(key(sessionId,peerId),{sessionId,peerId,role,capabilities,lastSeen:now()});
 };
@@ -84,6 +93,7 @@ const server=http.createServer(async(req,res)=>{
       authority:"LEEWAY_CONTROL_PLANE",
       mediaAuthority:false,
       peers:peers.size,
+      sessions:sessions.size,
       transport:"HTTP_LONG_POLL_SIGNALING",
       externalApiKeyRequired:false
     });
@@ -93,6 +103,7 @@ const server=http.createServer(async(req,res)=>{
     try{
       const b=await readBody(req);
       if(!validId(b.sessionId)||!validId(b.peerId))return json(res,400,{error:"INVALID_ID"});
+      if(!authorizeSession(b.sessionId,b.sessionSecret))return json(res,403,{error:"SESSION_AUTH_FAILED"});
       const role=String(b.role||"peer");
       touch(b.sessionId,b.peerId,role,b.capabilities||{});
       const sessionPeers=[...peers.values()]
@@ -113,6 +124,7 @@ const server=http.createServer(async(req,res)=>{
       const b=await readBody(req);
       if(!validId(b.sessionId)||!validId(b.fromPeerId)||!validId(b.toPeerId))
         return json(res,400,{error:"INVALID_ID"});
+      if(!authorizeSession(b.sessionId,b.sessionSecret))return json(res,403,{error:"SESSION_AUTH_FAILED"});
       const from=peers.get(key(b.sessionId,b.fromPeerId));
       if(!from)return json(res,403,{error:"FROM_PEER_NOT_JOINED"});
       touch(b.sessionId,b.fromPeerId,from.role,from.capabilities);
@@ -134,7 +146,9 @@ const server=http.createServer(async(req,res)=>{
   if(req.method==="GET"&&url.pathname==="/poll"){
     const sessionId=url.searchParams.get("sessionId")||"";
     const peerId=url.searchParams.get("peerId")||"";
+    const sessionSecret=url.searchParams.get("sessionSecret")||"";
     if(!validId(sessionId)||!validId(peerId))return json(res,400,{error:"INVALID_ID"});
+    if(!authorizeSession(sessionId,sessionSecret))return json(res,403,{error:"SESSION_AUTH_FAILED"});
     const peer=peers.get(key(sessionId,peerId));
     if(!peer)return json(res,403,{error:"PEER_NOT_JOINED"});
     touch(sessionId,peerId,peer.role,peer.capabilities);
