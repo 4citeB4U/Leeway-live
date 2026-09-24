@@ -43,7 +43,23 @@ LICENSE: MIT
     <div id="packageInfo" style="margin-top:.75rem;font-size:.82rem;opacity:.85">Reading the canonical Device Bridge package manifest…</div>
   </section>
 
-  <section class="camera-pip" id="cameraPanel">
+    <section class="speech-bubble agent-bubble" aria-labelledby="phonePairTitle">
+    <strong id="phonePairTitle">Connect This Page to Your Phone Model</strong>
+    <p>Enter the Device ID and owner pairing token shown by the installed LeeWay Device Bridge. They are stored only in this browser on this device.</p>
+    <div class="input-row" style="margin-bottom:.5rem">
+      <input id="phoneDeviceId" type="text" autocomplete="off" placeholder="Phone Device ID" aria-label="Phone Device ID">
+    </div>
+    <div class="input-row" style="margin-bottom:.5rem">
+      <input id="phonePairingToken" type="password" autocomplete="off" placeholder="Owner pairing token" aria-label="Owner pairing token">
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+      <button id="connectPhone" class="send-button">CONNECT PHONE</button>
+      <button id="forgetPhone" class="icon-button">FORGET PHONE</button>
+    </div>
+    <div id="phoneStatus" style="margin-top:.75rem;font-size:.82rem;opacity:.85">PHONE MODEL: NOT CONNECTED</div>
+  </section>
+
+<section class="camera-pip" id="cameraPanel">
     <video id="cameraView" autoplay muted playsinline></video>
     <div class="camera-placeholder" id="cameraPlaceholder">BROWSER CAMERA DIAGNOSTIC</div>
     <span class="camera-status" id="cameraStatus">OFF</span>

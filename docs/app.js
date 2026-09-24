@@ -15,9 +15,10 @@ LICENSE: MIT
 import{BrowserMediaAdapter}from"./media.js";
 import{BrowserModelRuntime}from"./model-runtime.js";
 import{EcosystemBinding}from"./ecosystem.js";
+import{PhoneRelayClient}from"./phone-relay.js";
 const $=id=>document.getElementById(id),trace=[];let epoch=0,cameraOn=false,listening=false;
 function evidence(event,data={}){const row={event,t:Math.round(performance.now()),epoch,...data};trace.push(row);$("evidenceTrace").textContent=trace.slice(-60).map(x=>JSON.stringify(x)).join("\n")}
-const media=new BrowserMediaAdapter(evidence),model=new BrowserModelRuntime(evidence),ecosystem=new EcosystemBinding(evidence);
+const media=new BrowserMediaAdapter(evidence),model=new BrowserModelRuntime(evidence),ecosystem=new EcosystemBinding(evidence),phoneRelay=new PhoneRelayClient(evidence);
 function setState(s){$("agentSphere").dataset.state=s;$("stateLabel").textContent=s.toUpperCase();$("agentSphere").setAttribute("aria-label","Agent Lee state: "+s)}
 function showUser(text){$("userBubble").hidden=!text;$("userTranscript").textContent=text}
 function agent(text,speak=false){$("agentText").textContent=text;if(speak){const my=epoch;try{media.speak(text,{onStart:()=>my===epoch&&setState("speaking"),onEnd:()=>my===epoch&&setState("idle")})}catch(e){evidence("ERROR",{stage:"speech_output",message:e.message});setState("idle")}}}
@@ -41,11 +42,109 @@ function configureInstaller(state){
  info.textContent="Android • "+mb+" MiB • SHA-256 "+pkg.sha256+" • phone-local runtime";
  button.addEventListener("click",()=>evidence("ANDROID_PACKAGE_DOWNLOAD_REQUESTED",{versionName:pkg.versionName,versionCode:pkg.versionCode,sha256:pkg.sha256,url:pkg.absoluteDownloadUrl}));
 }
-async function handleInput(text){text=text.trim();if(!text)return;interrupt("new_turn");showUser(text);setState("thinking");evidence("USER_INPUT",{text});const my=epoch;try{const skillContext=await ecosystem.taskContext(text);const response=await model.generate(text,ecosystem.systemContext()+"\n"+skillContext);if(my!==epoch)return;agent(response,true);evidence("MODEL_INFERENCE_OK",{kind:"text",runtime:model.status()})}catch(e){if(my!==epoch)return;setState("idle");agent("The local model could not load on this browser. Check Evidence for the exact failure.");evidence("MODEL_INFERENCE_FAILED",{kind:"text",message:e.message})}}
+async function answerWithPreferredModel(text){
+ const skillContext=await ecosystem.taskContext(text);
+ const system=ecosystem.systemContext()+"\n"+skillContext;
+ const relayState=phoneRelay.status();
+
+ if(relayState.configured){
+  try{
+   if(!relayState.connected||!relayState.phoneOnline)await phoneRelay.connect();
+   const status=await phoneRelay.modelStatus();
+   const modelStatus=status?.status||status;
+   if(modelStatus?.verified!==true)throw new Error("PHONE_MODEL_NOT_VERIFIED");
+   const prompt=system+"\n\nUSER:\n"+text+"\n\nRespond as Agent Lee. Be concise and truthful.";
+   const result=await phoneRelay.infer(prompt);
+   const response=String(result?.response||"").trim();
+   if(!response)throw new Error("PHONE_MODEL_EMPTY_RESPONSE");
+   evidence("MODEL_INFERENCE_OK",{kind:"text",provider:"PHONE_LOCAL_MODEL",modelId:result.modelId||modelStatus?.modelId||null,elapsedMs:result.elapsedMs||null});
+   return{response,provider:"PHONE_LOCAL_MODEL"};
+  }catch(error){
+   evidence("PHONE_MODEL_PATH_FAILED",{message:error.message});
+  }
+ }
+
+ const response=await model.generate(text,system);
+ evidence("MODEL_INFERENCE_OK",{kind:"text",provider:"LEEWAY_FALLBACK_RUNTIME",runtime:model.status()});
+ return{response,provider:"LEEWAY_FALLBACK_RUNTIME"};
+}
+async function handleInput(text){
+ text=text.trim();
+ if(!text)return;
+ interrupt("new_turn");
+ showUser(text);
+ setState("thinking");
+ evidence("USER_INPUT",{text});
+ const my=epoch;
+ try{
+  const result=await answerWithPreferredModel(text);
+  if(my!==epoch)return;
+  agent(result.response,true);
+  evidence("VOICE_OR_TEXT_TURN_COMPLETE",{provider:result.provider});
+ }catch(e){
+  if(my!==epoch)return;
+  setState("idle");
+  agent("LeeWay Live could not complete this turn. Check Evidence for the exact failure.");
+  evidence("MODEL_INFERENCE_FAILED",{kind:"text",message:e.message});
+ }
+}
 function cameraFrame(){const v=$("cameraView");if(!cameraOn||!v.videoWidth)throw new Error("Camera is not live");const c=document.createElement("canvas");c.width=Math.min(v.videoWidth,1024);c.height=Math.round(v.videoHeight*c.width/v.videoWidth);c.getContext("2d").drawImage(v,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.82)}
+function renderPhoneStatus(extra=""){
+ const st=phoneRelay.status();
+ const label=st.connected&&st.phoneOnline?"CONNECTED TO PHONE MODEL":st.configured?"PAIRED • PHONE OFFLINE/CONNECTING":"NOT PAIRED";
+ $("phoneStatus").textContent="PHONE MODEL: "+label+(extra?" • "+extra:"");
+ $("phoneDeviceId").value=st.deviceId||"";
+ if(!st.configured)$("phonePairingToken").value="";
+}
+$("connectPhone").onclick=async()=>{
+ const deviceId=$("phoneDeviceId").value.trim();
+ const token=$("phonePairingToken").value.trim();
+ try{
+  if(deviceId&&token)phoneRelay.saveCredentials(deviceId,token);
+  renderPhoneStatus("CONNECTING");
+  const st=await phoneRelay.connect();
+  if(!st.phoneOnline)throw new Error("PHONE_OFFLINE");
+  const ms=await phoneRelay.modelStatus();
+  const m=ms?.status||ms;
+  if(m?.verified!==true)throw new Error("PHONE_MODEL_NOT_VERIFIED");
+  renderPhoneStatus("MODEL VERIFIED");
+  evidence("PHONE_MODEL_READY",{deviceId:st.deviceId,modelId:m?.modelId||null});
+  agent("Phone model connected and verified.",false);
+ }catch(e){
+  renderPhoneStatus(e.message);
+  evidence("PHONE_CONNECT_FAILED",{message:e.message});
+  agent("Phone model connection failed: "+e.message,false);
+ }
+};
+$("forgetPhone").onclick=()=>{
+ phoneRelay.clearCredentials();
+ $("phoneDeviceId").value="";
+ $("phonePairingToken").value="";
+ renderPhoneStatus();
+ evidence("PHONE_PAIRING_CLEARED");
+};
 $("connectLocal").onclick=async()=>{evidence("LOCAL_CONNECT_REQUEST",{});$("runtimeStatus").textContent="CONNECTING LOCAL RUNTIME…";const state=await ecosystem.probeFormula({interactive:true});$("runtimeStatus").textContent="MODEL "+model.status().device.toUpperCase()+" • SKILLS "+(ecosystem.state.manifest?.skillCount||0)+" BOUND • FORMULA "+state;agent(state==="VERIFIED"?"Local LeeWay Runtime Fabric verified.":"Local Runtime Fabric was not granted or is not reachable. Check Evidence and browser local-network permission.",false)};
 $("cameraToggle").onclick=async()=>{try{if(cameraOn){media.stopCamera();cameraOn=false;$("cameraPanel").classList.remove("active");$("cameraStatus").textContent="OFF"}else{await media.startCamera($("cameraView"));cameraOn=true;$("cameraPanel").classList.add("active");$("cameraStatus").textContent="LIVE"}}catch(e){evidence("ERROR",{stage:"camera",message:e.message});agent("Camera permission or browser support is unavailable.")}};
 $("seeButton").onclick=async()=>{interrupt("vision_turn");setState("thinking");try{const result=await model.see(cameraFrame());agent(result,true);evidence("MODEL_INFERENCE_OK",{kind:"vision",runtime:model.status()})}catch(e){setState("idle");agent("Vision could not run on this device. Check Evidence for the exact failure.");evidence("MODEL_INFERENCE_FAILED",{kind:"vision",message:e.message})}};
 $("micButton").onclick=()=>{if(listening){interrupt("mic_stop");return}interrupt("mic_start");listening=true;$("micButton").setAttribute("aria-pressed","true");setState("listening");try{media.startSpeechRecognition({onInterim:t=>showUser(t),onFinal:t=>{listening=false;$("micButton").setAttribute("aria-pressed","false");handleInput(t)},onError:e=>{listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("Microphone transcription is unavailable here. Type below.")}})}catch(e){listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("This browser does not expose speech recognition. Type below.")}};
 $("sendButton").onclick=()=>{const t=$("textInput").value;$("textInput").value="";handleInput(t)};$("textInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("sendButton").click()});
-(async()=>{evidence("APP_READY",{capabilities:media.capabilities(),model:model.status()});const s=await ecosystem.hydrate();configureInstaller(s);$("runtimeStatus").textContent=(s.androidPackage?"PHONE "+s.androidPackage.versionName:"PHONE PACKAGE BLOCKED")+" • MODEL "+model.status().device.toUpperCase()+" • SKILLS "+(s.manifest?.skillCount||0)+" BOUND • FORMULA "+s.formulaServiceIdentity;agent(s.androidPackage?"LeeWay Live is ready. Download the phone harness for native execution, or use the browser/local diagnostics below.":"LeeWay Live loaded, but the Android package manifest did not resolve.",false);evidence("ECOSYSTEM_READY",ecosystem.summary())})().catch(e=>evidence("BOOT_ERROR",{message:e.message}));
+(async()=>{
+ evidence("APP_READY",{capabilities:media.capabilities(),model:model.status(),phoneRelay:phoneRelay.status()});
+ const s=await ecosystem.hydrate();
+ configureInstaller(s);
+ renderPhoneStatus();
+ if(phoneRelay.status().configured){
+  phoneRelay.connect()
+   .then(async st=>{
+    if(st.phoneOnline){
+     const ms=await phoneRelay.modelStatus();
+     const m=ms?.status||ms;
+     renderPhoneStatus(m?.verified?"MODEL VERIFIED":"MODEL NOT VERIFIED");
+    }else renderPhoneStatus("PHONE OFFLINE");
+   })
+   .catch(e=>renderPhoneStatus(e.message));
+ }
+ $("runtimeStatus").textContent=(s.androidPackage?"PHONE "+s.androidPackage.versionName:"PHONE PACKAGE BLOCKED")+" • MODEL "+model.status().device.toUpperCase()+" • SKILLS "+(s.manifest?.skillCount||0)+" BOUND • FORMULA "+s.formulaServiceIdentity;
+ agent(s.androidPackage?"LeeWay Live is ready. Pair the installed phone runtime once, then voice and text turns will prefer the phone-local model.":"LeeWay Live loaded, but the Android package manifest did not resolve.",false);
+ evidence("ECOSYSTEM_READY",ecosystem.summary());
+})().catch(e=>evidence("BOOT_ERROR",{message:e.message}));
