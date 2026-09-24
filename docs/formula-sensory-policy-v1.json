@@ -132,7 +132,11 @@
       "contentChunking",
       "dedupeEligibility",
       "cacheEviction",
-      "exactVsBehavioralRepresentation"
+      "exactVsBehavioralRepresentation",
+      "installedFootprintBudget",
+      "sessionBufferBudget",
+      "evidenceRetentionBudget",
+      "temporaryMediaBudget"
     ]
   },
   "hardGates": [
@@ -141,7 +145,8 @@
     "unbounded_queue=0",
     "stale_generation_audio_after_interrupt=0",
     "irreversible_action_from_unstable_transcript=0",
-    "no storage replacement without fidelity/exactness evidence"
+    "no storage replacement without fidelity/exactness evidence",
+    "installed footprint must not cross configured ceiling without explicit owner authority"
   ],
   "measuredEvidence": {
     "currentPhoneCoreBytes": {
@@ -163,5 +168,25 @@
     }
   },
   "targetLaw": "Optimize installed bytes, transient working set, queue/buffer size, media bitrate, latency and cache growth separately. Never claim one metric proves another.",
-  "completionLaw": "First success is not completion. Measure -> Formula policy -> execute -> verify -> receipt."
+  "completionLaw": "First success is not completion. Measure -> Formula policy -> execute -> verify -> receipt.",
+  "storageBudget": {
+    "targetInstalledCeilingBytes": 1073741824,
+    "measuredCoreBytes": 439588729,
+    "remainingBudgetBytes": 634153095,
+    "remainingBudgetMiB": 604.78,
+    "categories": [
+      "cache",
+      "sessionBuffers",
+      "evidence",
+      "temporaryMedia"
+    ],
+    "laws": [
+      "continuous raw sensory media is ephemeral by default",
+      "persistent media requires explicit authority/retention policy",
+      "each category has an explicit byte ceiling",
+      "cache eviction occurs before the installed footprint crosses the target ceiling",
+      "evidence needed for Veritas is preserved according to its retention authority",
+      "storage pressure cannot silently delete authoritative receipts"
+    ]
+  }
 }
