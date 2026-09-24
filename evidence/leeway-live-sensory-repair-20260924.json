@@ -1,0 +1,47 @@
+{
+  "receiptId": "LEEWAY-LIVE-SENSORY-REPAIR-20260924T2045Z",
+  "timestampUtc": "2026-09-24T20:45:00Z",
+  "authority": {
+    "repository": "4citeB4U/Leeway-live",
+    "branch": "main",
+    "preRepairCommit": "33d77fb1b44c0e5d9170a35892784458a67f6e23",
+    "desktopCommanderDevice": "Agent-Lee",
+    "leewayRoot": "D:\\Leeway-Ecosystem v2.1.4"
+  },
+  "formula": {
+    "formulaId": "LEEWAY-FORMULA-v1.0",
+    "healthVerified": true,
+    "implementationSha256": "6502791BBA909D7481DB3A204F3CBF67B1DC06A4B76A73C797D709408341D63E",
+    "goldenVectorPass": true,
+    "formulaDecisionExecutedForThisRepair": false
+  },
+  "skills": {
+    "repository": "4citeB4U/LeeWay-Agent-Skills",
+    "branch": "feature/full-238-gateway-promotion",
+    "commit": "cbb1cc73190784544a2fae6caf4a689f1c1c0bfd",
+    "declaredSkillCount": 238
+  },
+  "repairs": [
+    "Replaced diagnostic-heavy public surface with sphere-first sensory UI",
+    "Added state-driven 3D/fluid sphere motion for listening, thinking, and speaking",
+    "Made sphere itself activate talk control",
+    "Promoted visible camera frame with explicit vision control",
+    "Demoted installer, pairing, runtime, and evidence controls into System drawer",
+    "Removed generic browser speechSynthesis as an Agent Lee voice fallback",
+    "Added governed phone sensory.speak client capability"
+  ],
+  "verification": {
+    "javascriptSyntaxGate": "PASS",
+    "deployedPagesMarker": "PASS",
+    "deployedMarker": "agentSphereButton",
+    "desktopCommanderPing": "PASS",
+    "formulaHealth": "PASS",
+    "cloneVoiceRuntime": "BLOCKED",
+    "cloneVoiceReason": "No verified GitHub-Pages/browser or promoted phone-local Agent Lee clone engine is currently bound. Device Bridge sensory branch uses Android TextToSpeech and is explicitly not physically verified.",
+    "deviceBridgeSensoryBranch": "feature/leeway-live-sensory-harness-v1",
+    "deviceBridgeBuildState": "BLOCKED_BEFORE_RUNNER_STEPS",
+    "deviceBridgePhysicalVoiceTurn": "NOT_EXECUTED"
+  },
+  "veritas": "PARTIAL_PASS_UI_AND_SOURCE_ONLY",
+  "learningLedgerUpdated": false
+}
