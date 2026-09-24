@@ -1,63 +1,121 @@
-# LeeWay Live — Phone-First Architecture v1
+# LeeWay Live — GitHub Pages → Phone Architecture
 
 ## MASTER CHECKPOINT
-LeeWay Live is an Android-first, offline-capable voice + vision agent. GitHub Pages is its public/install/diagnostic companion. The APK is the execution runtime.
 
-## Canonical v1 stack
-- Brain / multimodal: Gemma 3n E2B through Google AI Edge/LiteRT MediaPipe on Android.
-- Text fallback: Qwen3 1.7B quantized through llama.cpp Android only if the Gemma profile fails the device acceptance gate or a text-specialized profile is useful.
-- Audio capture/playout: Android AudioRecord / AudioTrack.
-- V1 turn-taking: push-to-talk.
-- Speech output proof: Android offline TextToSpeech.
-- Controlled offline voice: Sherpa-ONNX compact TTS after baseline.
-- VAD/full duplex: Sherpa-ONNX VAD after push-to-talk passes.
-- Audio understanding/STT: Gemma 3n audio where supported; dedicated Sherpa-ONNX/Qwen3-ASR fallback where required.
-- Vision: Gemma 3n image/video input with semantic frame sampling.
-- Memory: Room/SQLite.
-- Tools: explicit Kotlin allowlist.
-- Skills: compact LeeWay skill retrieval bundle; never dump hundreds of skills into context.
-- Evidence: Universal Voice Bus events + generation epochs + receipts.
+LeeWay Live is a GitHub-first, phone-executed sensory harness and Agent Lee interaction surface.
 
-## Execution path
-MIC/CAMERA
-  -> Android media adapters
-  -> push-to-talk / semantic frame sampler
-  -> Gemma 3n E2B
-  -> LeeWay skill retrieval / tool proposal
-  -> allowlist + human authority gate
-  -> response
-  -> offline TTS
-  -> AudioTrack
-  -> receipt
+There is no required PC runtime and no canonical host-drive dependency.
 
-## Why Gemma 3n E2B
-It is the primary profile because it is engineered for on-device multimodal use and covers text, image/video and audio understanding. This reduces duplicated inference stacks on a phone.
+```text
+LeeWay Live GitHub Pages
+        ↓
+bootstrap.json + Device Bridge package manifest
+        ↓
+Download current Android package
+        ↓
+phone-local LeeWay runtime
+        ↓
+model + voice + vision + relay + device capabilities
+        ↓
+Agent Skills / Formula / Device Bridge GitHub authorities
+        ↓
+Veritas evidence + receipts
+```
 
-## Why Qwen3 1.7B remains optional
-Qwen3 1.7B has a viable Android llama.cpp path and is small enough to be a useful text fallback. It is not the primary multimodal engine.
+## Pages responsibilities
 
-## What GitHub Pages does
-- project dashboard
-- APK/release link
-- device capability checklist
-- architecture/evidence status
-- test instructions
+LeeWay Live Pages provides:
+
+- public installer/bootstrap UI
+- dynamic discovery of the canonical Android package
+- package version / size / SHA-256 display
+- direct package download
+- 238-skill/task-context interaction path
+- Formula authority discovery without fabricated execution
+- `CONNECT LOCAL` for optional local Runtime Fabric/Ollama
+- browser voice, camera, text, and model diagnostics
+- evidence trace
+
+Pages does not become Android device authority.
+
+## Native phone authority
+
+The Android package from `4citeB4U/LEEWAY-DEVICE-BRIDGE` is the native phone execution authority.
+
+Published v0.7 includes:
+
+- LiteRT-LM phone-local model installation and SHA-256 verification
+- local model inference
+- owner authorization
+- persistent outbound relay
+- device providers
+- Formula F8 gate
 - receipts
-- optional lightweight browser diagnostics
+- owner stop
+- boot restart / reconnect
 
-Pages does NOT claim to run the native Android Gemma/Sherpa stack.
+## Sensory v0.8 promotion path
 
-## Build gates
-G0 Pages UI
-G1 Android shell
-G2 Device Passport
-G3 Model install/load
-G4 Text inference
-G5 Push-to-talk
-G6 Spoken response
-G7 Interrupt
-G8 Vision
-G9 Skill retrieval
-G10 Airplane-mode proof
-G11 Thermal/long-session
-G12 Veritas/receipt
+The staged Device Bridge v0.8 source adds:
+
+```text
+VOICE
+owner tap
+→ microphone permission
+→ Android SpeechRecognizer
+→ prefer on-device recognizer when available
+→ phone-local model reasoning
+→ Android TextToSpeech
+→ receipt
+
+VISION
+owner tap
+→ camera permission
+→ camera capture
+→ bundled ML Kit image labeling
+→ phone-local model reasoning
+→ Android TextToSpeech
+→ receipt
+```
+
+Remote-safe sensory capabilities:
+
+- `sensory.status`
+- `sensory.speak`
+
+Remote microphone/camera activation remains unauthorized. Sensor capture stays owner-initiated.
+
+## GitHub authority bindings
+
+LeeWay Live binds to:
+
+- `4citeB4U/LEEWAY-DEVICE-BRIDGE`
+- `4citeB4U/LeeWay-Agent-Skills`
+- `4citeB4U/Leeway-formula-live`
+
+Repository reachability is not execution.
+
+Formula service identity is not Formula execution.
+
+No divergent Formula implementation is embedded.
+
+## Promotion gates
+
+G0 — Pages bootstrap manifest valid  
+G1 — Device Bridge package manifest resolves  
+G2 — installer resolves version / size / SHA-256 / URL  
+G3 — Pages UI deployed  
+G4 — Android APK built from canonical source  
+G5 — APK hash/size recorded and package manifest promoted  
+G6 — APK installs on physical phone  
+G7 — local model verified  
+G8 — microphone → transcript → local model verified  
+G9 — model → spoken phone response verified  
+G10 — camera → phone-local vision inference verified  
+G11 — vision result → local model → spoken response verified  
+G12 — relay works without USB/PC  
+G13 — Agent Skills / Formula authority discovery verified  
+G14 — owner stop verified  
+G15 — Veritas receipt / Learning Ledger correlation
+
+First success is not completion.
