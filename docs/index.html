@@ -3,12 +3,12 @@ LEEWAY HEADER — DO NOT REMOVE
 REGION: UI.APP.SURFACE
 TAG: UI.APP.LEEWAYLIVE.MAIN
 5WH:
-WHAT = LeeWay Live mobile-first voice, vision, and local-model interface
-WHY = Governed public surface for microphone, camera, model inference, ecosystem discovery, and evidence
+WHAT = LeeWay Live GitHub Pages bootstrap, installer, browser diagnostics, voice and vision surface
+WHY = Gives any authorized user one GitHub Pages front door for the phone-local LeeWay sensory harness
 WHO = LeeWay Industries / Agent Lee
 WHERE = docs/index.html
 WHEN = 2026-09-23
-HOW = Static GitHub Pages shell driven by governed JavaScript modules
+HOW = GitHub Pages reads canonical manifests, exposes the current Android package, and retains browser diagnostics
 AGENTS: ASSESS ALIGN AUDIT AGENT_LEE VERITAS
 LICENSE: MIT
 -->
@@ -26,41 +26,51 @@ LICENSE: MIT
 <body>
 <main class="app-shell">
   <header class="topbar">
-    <div class="identity"><strong>LeeWay Live</strong><span id="runtimeStatus">BOOTING LIVE RUNTIME…</span></div>
-    <button id="cameraToggle" class="icon-button" aria-label="Toggle camera">CAM</button>
+    <div class="identity"><strong>LeeWay Live</strong><span id="runtimeStatus">CONNECTING GITHUB AUTHORITIES…</span></div>
+    <button id="cameraToggle" class="icon-button" aria-label="Toggle browser camera diagnostic">CAM</button>
   </header>
+
+  <section class="speech-bubble agent-bubble" aria-labelledby="installTitle">
+    <strong id="installTitle">Phone Sensory Harness</strong>
+    <p>GitHub Pages distributes. Your phone executes the model, bridge, voice, vision, and governed LeeWay connections.</p>
+    <a id="installButton" class="send-button" href="#" aria-disabled="true">DISCOVERING ANDROID PACKAGE…</a>
+    <div id="packageInfo" style="margin-top:.75rem;font-size:.82rem;opacity:.85">Reading the canonical Device Bridge manifest…</div>
+  </section>
+
   <section class="camera-pip" id="cameraPanel">
     <video id="cameraView" autoplay muted playsinline></video>
-    <div class="camera-placeholder" id="cameraPlaceholder">CAMERA</div>
+    <div class="camera-placeholder" id="cameraPlaceholder">BROWSER CAMERA DIAGNOSTIC</div>
     <span class="camera-status" id="cameraStatus">OFF</span>
   </section>
+
   <section class="conversation-stage">
     <div class="speech-bubble agent-bubble" role="status" aria-live="polite">
-      <span id="agentText">LeeWay Live is loading its governed runtime.</span>
+      <span id="agentText">LeeWay Live is binding GitHub authorities and discovering the phone package.</span>
     </div>
     <div class="sphere-wrap">
       <div class="agent-sphere" id="agentSphere" data-state="idle">
-        <div class="sphere-core">L</div>
-        <div class="sphere-ring ring-one"></div>
-        <div class="sphere-ring ring-two"></div>
+        <div class="sphere-core">L</div><div class="sphere-ring ring-one"></div><div class="sphere-ring ring-two"></div>
       </div>
       <div class="state-label" id="stateLabel">READY</div>
     </div>
     <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
-      <button id="micButton" class="mic-button" aria-label="Start voice input" aria-pressed="false">
-        <span class="mic-glyph">●</span><span>MIC</span>
-      </button>
-      <button id="seeButton" class="mic-button" aria-label="Analyze current camera frame"><span>SEE</span></button>
+      <button id="micButton" class="mic-button" aria-label="Start browser voice diagnostic" aria-pressed="false"><span class="mic-glyph">●</span><span>MIC</span></button>
+      <button id="seeButton" class="mic-button" aria-label="Analyze current browser camera frame"><span>SEE</span></button>
     </div>
   </section>
+
   <section class="composer">
     <div class="speech-bubble user-bubble" id="userBubble" hidden><span id="userTranscript"></span></div>
     <div class="input-row">
-      <input id="textInput" type="text" autocomplete="off" placeholder="Type to LeeWay Live…" aria-label="Message">
+      <input id="textInput" type="text" autocomplete="off" placeholder="Browser diagnostic message…" aria-label="Message">
       <button id="sendButton" class="send-button">SEND</button>
     </div>
   </section>
-  <details class="evidence-panel"><summary>Evidence</summary><pre id="evidenceTrace"></pre></details>
+
+  <details class="evidence-panel">
+    <summary>GitHub / runtime evidence</summary>
+    <pre id="evidenceTrace"></pre>
+  </details>
 </main>
 <script type="module" src="./app.js"></script>
 </body>
