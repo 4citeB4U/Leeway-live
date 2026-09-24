@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "LEEWAY_LIVE",
+  "role": "GITHUB_PAGES_BOOTSTRAP_AND_DISTRIBUTION_FRONT_DOOR",
+  "executionAuthority": "PHONE_LOCAL_NATIVE_PACKAGE",
+  "repositories": {
+    "live": "https://github.com/4citeB4U/Leeway-live",
+    "deviceBridge": "https://github.com/4citeB4U/LEEWAY-DEVICE-BRIDGE",
+    "agentSkills": "https://github.com/4citeB4U/LeeWay-Agent-Skills",
+    "formula": "https://github.com/4citeB4U/Leeway-formula-live"
+  },
+  "contracts": {
+    "devicePackageManifest": "https://raw.githubusercontent.com/4citeB4U/LEEWAY-DEVICE-BRIDGE/main/docs/package-manifest.json",
+    "deviceEntrypoint": "https://raw.githubusercontent.com/4citeB4U/LEEWAY-DEVICE-BRIDGE/main/docs/llm-entrypoint.json",
+    "deviceRuntimeContract": "https://raw.githubusercontent.com/4citeB4U/LEEWAY-DEVICE-BRIDGE/main/docs/runtime-contract.json",
+    "skillsGovernance": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/leeway-core-governance.yaml",
+    "skillsCapabilityManifold": "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/main/config/leeway-capability-manifold.yaml",
+    "formulaAuthority": "https://raw.githubusercontent.com/4citeB4U/Leeway-formula-live/main/authority/formula-authority.json",
+    "formulaConsumer": "https://raw.githubusercontent.com/4citeB4U/Leeway-formula-live/main/contracts/consumer-contract.json"
+  },
+  "laws": [
+    "GitHub Pages distributes; the phone executes",
+    "downloaded package is the sensory harness",
+    "available != authorized",
+    "configured != executed",
+    "executed != verified",
+    "Formula authority is centralized and never duplicated"
+  ]
+}
