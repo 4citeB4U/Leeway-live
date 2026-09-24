@@ -1,0 +1,26 @@
+name: LeeWay Live GitHub-First Gate
+
+on:
+  push:
+    branches:
+      - main
+      - feature/github-pages-phone-front-door-v2
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  source-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify GitHub Pages to phone path
+        run: node tests/live-runtime-source.test.mjs
