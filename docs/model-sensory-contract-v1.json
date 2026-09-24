@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "contractId": "LEEWAY_MODEL_SENSORY_CONTRACT_V1",
+  "authority": "4citeB4U/LeeWay-Agent-Skills",
+  "implementationRepo": "4citeB4U/Leeway-live",
+  "transport": {
+    "preferred": "LIVEKIT_WEBRTC",
+    "media": [
+      "audio",
+      "video",
+      "screen_share"
+    ],
+    "control": [
+      "rpc",
+      "data_packets",
+      "text_streams",
+      "state_sync"
+    ],
+    "fallbackTransportPolicy": "CAPABILITY_NEGOTIATED"
+  },
+  "requiredAdapterIdentity": [
+    "adapterId",
+    "adapterVersion",
+    "provider",
+    "model",
+    "runtime",
+    "executionLocation"
+  ],
+  "capabilityNegotiation": {
+    "required": [
+      "audioInput",
+      "audioOutput",
+      "videoInput",
+      "textInput",
+      "textOutput",
+      "streamingInput",
+      "streamingOutput",
+      "cancelSemantics",
+      "timingSemantics"
+    ],
+    "rule": "Never assume a modality or representation."
+  },
+  "modelClasses": {
+    "nativeRealtime": {
+      "consumes": [
+        "audio_track",
+        "optional_video_track",
+        "optional_text"
+      ],
+      "produces": [
+        "audio_stream",
+        "optional_text",
+        "optional_semantic_events"
+      ]
+    },
+    "cascadedText": {
+      "consumes": [
+        "stable_text",
+        "optional_vision_semantics"
+      ],
+      "produces": [
+        "text_delta"
+      ],
+      "harnessProvides": [
+        "vad",
+        "streaming_stt",
+        "streaming_tts",
+        "vision_adapter"
+      ]
+    },
+    "localModel": {
+      "transportToModel": "adapter_defined",
+      "examples": [
+        "OpenAI-compatible HTTP",
+        "WebSocket",
+        "LiteRT bridge",
+        "Ollama",
+        "llama.cpp"
+      ],
+      "mediaContract": "UNCHANGED"
+    }
+  },
+  "universalVoiceBus": {
+    "protocolId": "LEEWAY_UNIVERSAL_VOICE_BUS_V1",
+    "requiredEnvelope": [
+      "sessionId",
+      "eventId",
+      "eventType",
+      "monotonicTimestamp",
+      "generationEpoch",
+      "source",
+      "provenance"
+    ]
+  },
+  "stateMachine": [
+    "CONNECTING",
+    "CONNECTED",
+    "LISTENING",
+    "USER_SPEAKING",
+    "ENDPOINT_PENDING",
+    "AGENT_THINKING",
+    "AGENT_SPEAKING",
+    "INTERRUPTING",
+    "RECOVERING",
+    "DEGRADED",
+    "CLOSED"
+  ],
+  "hardGates": [
+    "no_uncancellable_playout",
+    "no_unbounded_audio_queue",
+    "no_stale_epoch_output_after_interrupt",
+    "no_silent_provider_fallback_without_evidence",
+    "no_privacy_or_authority_violation",
+    "no_false_modality_claim"
+  ],
+  "deviceLaw": "Clients publish capabilities and media; they never embed model-specific sensory logic.",
+  "modelLaw": "Models consume the LeeWay session through adapters; they never require device-specific media code.",
+  "executionLaw": "Configured != executed; streaming != low latency; transport connected != healthy; audio generated != audio heard."
+}
