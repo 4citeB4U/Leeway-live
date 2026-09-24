@@ -1,0 +1,34 @@
+{
+    "receiptId":  "LEEWAY-LIVE-BROWSER-RUNTIME-LOCAL-20260923",
+    "observedAt":  "2026-09-24T01:21:18.7296661Z",
+    "sourceCommit":  "c3d8b724ec83a3e3dd1695f1e08c14f33dc14469",
+    "branch":  "feature/live-browser-runtime-v1",
+    "results":  {
+                    "static_http":  "PASS",
+                    "browser_boot":  "PASS",
+                    "browser_errors":  0,
+                    "text_model_execution":  "PASS",
+                    "text_model":  "onnx-community/SmolLM2-135M-Instruct-ONNX-MHA",
+                    "text_device":  "webgpu",
+                    "vision_model_execution":  "PASS",
+                    "vision_model":  "Xenova/vit-gpt2-image-captioning",
+                    "speech_output_events":  "PASS",
+                    "speech_recognition_api":  "PRESENT_NOT_PHYSICALLY_TRANSCRIBED",
+                    "physical_camera_capture":  "NOT_TESTED_IN_HEADLESS_GATE",
+                    "skills_bound":  238,
+                    "skills_commit":  "cbb1cc73190784544a2fae6caf4a689f1c1c0bfd",
+                    "formula_service_identity":  "VERIFIED",
+                    "formula_implementation_sha256":  "6502791BBA909D7481DB3A204F3CBF67B1DC06A4B76A73C797D709408341D63E",
+                    "formula_golden_vector_pass":  true,
+                    "formula_execution":  "NOT_EXECUTED",
+                    "public_github_pages":  "NOT_YET_VERIFIED_AFTER_PROMOTION"
+                },
+    "hashes":  {
+                   "docs/ecosystem.js":  "0D763AEBA65435E09A3E077E642560596423710C0A43221864DF1AA45ED96DFC",
+                   "docs/model-runtime.js":  "ADF3F9E0D7B2ED5DF37EE31B4EC7EB6A510EB82658BDC3A56A6993102EBA34B8",
+                   "docs/app.js":  "A296FBFB0EA124CB23339BC041AAEAEB806C85E5589A7CF1948C60C455E431FF",
+                   "docs/index.html":  "B9C69184AF221178D68CDAD8674EA00C008F5BEB3896D6FFBDBECF36E8ECE5B5",
+                   "docs/skills-manifest.json":  "A7D71A30ABF02D993C7848BE5AAB82B33EF829216838EDAC960417F7BE2536F1"
+               },
+    "evidenceLaw":  "configured != executed; executed != verified"
+}

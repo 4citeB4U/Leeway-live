@@ -1,0 +1,1200 @@
+{
+    "schemaVersion":  "1.0.0",
+    "repository":  "4citeB4U/LeeWay-Agent-Skills",
+    "branch":  "feature/full-238-gateway-promotion",
+    "commit":  "cbb1cc73190784544a2fae6caf4a689f1c1c0bfd",
+    "skillCount":  238,
+    "generatedFrom":  "committed git tree",
+    "skills":  [
+                   {
+                       "id":  "agent-autonomy/autonomous-conductor",
+                       "path":  "skills/agent-autonomy/autonomous-conductor/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/agent-autonomy/autonomous-conductor/SKILL.md"
+                   },
+                   {
+                       "id":  "agent-autonomy/full-stack-delivery",
+                       "path":  "skills/agent-autonomy/full-stack-delivery/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/agent-autonomy/full-stack-delivery/SKILL.md"
+                   },
+                   {
+                       "id":  "agent-orchestration/multi-agent-orchestration",
+                       "path":  "skills/agent-orchestration/multi-agent-orchestration/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/agent-orchestration/multi-agent-orchestration/SKILL.md"
+                   },
+                   {
+                       "id":  "agent-patterns/agent-design-patterns",
+                       "path":  "skills/agent-patterns/agent-design-patterns/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/agent-patterns/agent-design-patterns/SKILL.md"
+                   },
+                   {
+                       "id":  "ai-ml/llm-prompting",
+                       "path":  "skills/ai-ml/llm-prompting/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/ai-ml/llm-prompting/SKILL.md"
+                   },
+                   {
+                       "id":  "ai-ml/ml-model-development",
+                       "path":  "skills/ai-ml/ml-model-development/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/ai-ml/ml-model-development/SKILL.md"
+                   },
+                   {
+                       "id":  "ai-ml/multimodal-systems",
+                       "path":  "skills/ai-ml/multimodal-systems/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/ai-ml/multimodal-systems/SKILL.md"
+                   },
+                   {
+                       "id":  "ai-ml/retrieval-generation-fine-tuning",
+                       "path":  "skills/ai-ml/retrieval-generation-fine-tuning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/ai-ml/retrieval-generation-fine-tuning/SKILL.md"
+                   },
+                   {
+                       "id":  "architecture/system-design",
+                       "path":  "skills/architecture/system-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/architecture/system-design/SKILL.md"
+                   },
+                   {
+                       "id":  "code-analysis/refactoring",
+                       "path":  "skills/code-analysis/refactoring/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-analysis/refactoring/SKILL.md"
+                   },
+                   {
+                       "id":  "code-analysis/security-vulnerability-scanning",
+                       "path":  "skills/code-analysis/security-vulnerability-scanning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-analysis/security-vulnerability-scanning/SKILL.md"
+                   },
+                   {
+                       "id":  "code-analysis/static-analysis",
+                       "path":  "skills/code-analysis/static-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-analysis/static-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "code-generation/full-stack-application",
+                       "path":  "skills/code-generation/full-stack-application/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-generation/full-stack-application/SKILL.md"
+                   },
+                   {
+                       "id":  "code-generation/microservices-architecture",
+                       "path":  "skills/code-generation/microservices-architecture/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-generation/microservices-architecture/SKILL.md"
+                   },
+                   {
+                       "id":  "code-generation/python-codegen",
+                       "path":  "skills/code-generation/python-codegen/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-generation/python-codegen/SKILL.md"
+                   },
+                   {
+                       "id":  "code-generation/typescript-codegen",
+                       "path":  "skills/code-generation/typescript-codegen/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/code-generation/typescript-codegen/SKILL.md"
+                   },
+                   {
+                       "id":  "data-analysis/advanced-analytics",
+                       "path":  "skills/data-analysis/advanced-analytics/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/data-analysis/advanced-analytics/SKILL.md"
+                   },
+                   {
+                       "id":  "data-analysis/pandas-analysis",
+                       "path":  "skills/data-analysis/pandas-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/data-analysis/pandas-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "database-design/database-design-optimization",
+                       "path":  "skills/database-design/database-design-optimization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/database-design/database-design-optimization/SKILL.md"
+                   },
+                   {
+                       "id":  "debugging/javascript-debugging",
+                       "path":  "skills/debugging/javascript-debugging/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/debugging/javascript-debugging/SKILL.md"
+                   },
+                   {
+                       "id":  "debugging/python-debugging",
+                       "path":  "skills/debugging/python-debugging/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/debugging/python-debugging/SKILL.md"
+                   },
+                   {
+                       "id":  "design-suite",
+                       "path":  "skills/design-suite/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/design-suite/SKILL.md"
+                   },
+                   {
+                       "id":  "devops/dockerfile-creation",
+                       "path":  "skills/devops/dockerfile-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/devops/dockerfile-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "devops/kubernetes-deployment",
+                       "path":  "skills/devops/kubernetes-deployment/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/devops/kubernetes-deployment/SKILL.md"
+                   },
+                   {
+                       "id":  "documentation/api-documentation",
+                       "path":  "skills/documentation/api-documentation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/documentation/api-documentation/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-api-governance",
+                       "path":  "skills/enterprise/leeway-api-governance/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-api-governance/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-application-final-review",
+                       "path":  "skills/enterprise/leeway-application-final-review/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-application-final-review/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-cicd-quality-gates",
+                       "path":  "skills/enterprise/leeway-cicd-quality-gates/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-cicd-quality-gates/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-deployment-readiness",
+                       "path":  "skills/enterprise/leeway-deployment-readiness/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-deployment-readiness/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-developer-workflow",
+                       "path":  "skills/enterprise/leeway-developer-workflow/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-developer-workflow/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-infrastructure-governance",
+                       "path":  "skills/enterprise/leeway-infrastructure-governance/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-infrastructure-governance/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-model-serving-governance",
+                       "path":  "skills/enterprise/leeway-model-serving-governance/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-model-serving-governance/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-permission-security-review",
+                       "path":  "skills/enterprise/leeway-permission-security-review/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-permission-security-review/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-reliability-slo",
+                       "path":  "skills/enterprise/leeway-reliability-slo/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-reliability-slo/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-runtime-durability",
+                       "path":  "skills/enterprise/leeway-runtime-durability/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-runtime-durability/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-scalability-proof",
+                       "path":  "skills/enterprise/leeway-scalability-proof/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-scalability-proof/SKILL.md"
+                   },
+                   {
+                       "id":  "enterprise/leeway-telemetry-observability",
+                       "path":  "skills/enterprise/leeway-telemetry-observability/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/enterprise/leeway-telemetry-observability/SKILL.md"
+                   },
+                   {
+                       "id":  "error-handling/resilience-patterns",
+                       "path":  "skills/error-handling/resilience-patterns/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/error-handling/resilience-patterns/SKILL.md"
+                   },
+                   {
+                       "id":  "external/21st-dev",
+                       "path":  "skills/external/21st-dev/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/21st-dev/SKILL.md"
+                   },
+                   {
+                       "id":  "external/awesome-design",
+                       "path":  "skills/external/awesome-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/awesome-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/binance-capability-router",
+                       "path":  "skills/external/binance-capability-router/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/binance-capability-router/SKILL.md"
+                   },
+                   {
+                       "id":  "external/dashboard",
+                       "path":  "skills/external/dashboard/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/dashboard/SKILL.md"
+                   },
+                   {
+                       "id":  "external/expo",
+                       "path":  "skills/external/expo/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/expo/SKILL.md"
+                   },
+                   {
+                       "id":  "external/frontend-design",
+                       "path":  "skills/external/frontend-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/frontend-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/frontend-ui-ux",
+                       "path":  "skills/external/frontend-ui-ux/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/frontend-ui-ux/SKILL.md"
+                   },
+                   {
+                       "id":  "external/google-fonts",
+                       "path":  "skills/external/google-fonts/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/google-fonts/SKILL.md"
+                   },
+                   {
+                       "id":  "external/graphify",
+                       "path":  "skills/external/graphify/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/graphify/SKILL.md"
+                   },
+                   {
+                       "id":  "external/gsap",
+                       "path":  "skills/external/gsap/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/gsap/SKILL.md"
+                   },
+                   {
+                       "id":  "external/gstack",
+                       "path":  "skills/external/gstack/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/gstack/SKILL.md"
+                   },
+                   {
+                       "id":  "external/hyperframes",
+                       "path":  "skills/external/hyperframes/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/hyperframes/SKILL.md"
+                   },
+                   {
+                       "id":  "external/impeccable",
+                       "path":  "skills/external/impeccable/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/impeccable/SKILL.md"
+                   },
+                   {
+                       "id":  "external/industrial-brutalist-ui",
+                       "path":  "skills/external/industrial-brutalist-ui/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/industrial-brutalist-ui/SKILL.md"
+                   },
+                   {
+                       "id":  "external/last30days",
+                       "path":  "skills/external/last30days/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/last30days/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/ab-test-setup",
+                       "path":  "skills/external/marketing/ab-test-setup/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/ab-test-setup/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/ad-creative",
+                       "path":  "skills/external/marketing/ad-creative/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/ad-creative/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/ai-seo",
+                       "path":  "skills/external/marketing/ai-seo/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/ai-seo/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/analytics-tracking",
+                       "path":  "skills/external/marketing/analytics-tracking/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/analytics-tracking/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/churn-prevention",
+                       "path":  "skills/external/marketing/churn-prevention/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/churn-prevention/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/cold-email",
+                       "path":  "skills/external/marketing/cold-email/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/cold-email/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/competitor-alternatives",
+                       "path":  "skills/external/marketing/competitor-alternatives/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/competitor-alternatives/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/content-strategy",
+                       "path":  "skills/external/marketing/content-strategy/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/content-strategy/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/copy-editing",
+                       "path":  "skills/external/marketing/copy-editing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/copy-editing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/copywriting",
+                       "path":  "skills/external/marketing/copywriting/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/copywriting/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/email-sequence",
+                       "path":  "skills/external/marketing/email-sequence/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/email-sequence/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/form-cro",
+                       "path":  "skills/external/marketing/form-cro/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/form-cro/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/free-tool-strategy",
+                       "path":  "skills/external/marketing/free-tool-strategy/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/free-tool-strategy/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/launch-strategy",
+                       "path":  "skills/external/marketing/launch-strategy/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/launch-strategy/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/lead-magnets",
+                       "path":  "skills/external/marketing/lead-magnets/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/lead-magnets/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/marketing-ideas",
+                       "path":  "skills/external/marketing/marketing-ideas/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/marketing-ideas/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/marketing-psychology",
+                       "path":  "skills/external/marketing/marketing-psychology/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/marketing-psychology/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/onboarding-cro",
+                       "path":  "skills/external/marketing/onboarding-cro/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/onboarding-cro/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/page-cro",
+                       "path":  "skills/external/marketing/page-cro/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/page-cro/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/paid-ads",
+                       "path":  "skills/external/marketing/paid-ads/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/paid-ads/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/paywall-upgrade-cro",
+                       "path":  "skills/external/marketing/paywall-upgrade-cro/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/paywall-upgrade-cro/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/popup-cro",
+                       "path":  "skills/external/marketing/popup-cro/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/popup-cro/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/pricing-strategy",
+                       "path":  "skills/external/marketing/pricing-strategy/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/pricing-strategy/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/product-marketing-context",
+                       "path":  "skills/external/marketing/product-marketing-context/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/product-marketing-context/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/programmatic-seo",
+                       "path":  "skills/external/marketing/programmatic-seo/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/programmatic-seo/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/referral-program",
+                       "path":  "skills/external/marketing/referral-program/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/referral-program/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/revops",
+                       "path":  "skills/external/marketing/revops/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/revops/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/sales-enablement",
+                       "path":  "skills/external/marketing/sales-enablement/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/sales-enablement/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/schema-markup",
+                       "path":  "skills/external/marketing/schema-markup/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/schema-markup/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/seo-audit",
+                       "path":  "skills/external/marketing/seo-audit/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/seo-audit/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/signup-flow-cro",
+                       "path":  "skills/external/marketing/signup-flow-cro/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/signup-flow-cro/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/site-architecture",
+                       "path":  "skills/external/marketing/site-architecture/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/site-architecture/SKILL.md"
+                   },
+                   {
+                       "id":  "external/marketing/social-content",
+                       "path":  "skills/external/marketing/social-content/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/marketing/social-content/SKILL.md"
+                   },
+                   {
+                       "id":  "external/material-3",
+                       "path":  "skills/external/material-3/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/material-3/SKILL.md"
+                   },
+                   {
+                       "id":  "external/minimalist-ui",
+                       "path":  "skills/external/minimalist-ui/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/minimalist-ui/SKILL.md"
+                   },
+                   {
+                       "id":  "external/mobile-app-ui-design",
+                       "path":  "skills/external/mobile-app-ui-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/mobile-app-ui-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/open-design",
+                       "path":  "skills/external/open-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/open-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/playwright",
+                       "path":  "skills/external/playwright/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/playwright/SKILL.md"
+                   },
+                   {
+                       "id":  "external/premium-frontend-ui",
+                       "path":  "skills/external/premium-frontend-ui/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/premium-frontend-ui/SKILL.md"
+                   },
+                   {
+                       "id":  "external/react-best-practices",
+                       "path":  "skills/external/react-best-practices/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/react-best-practices/SKILL.md"
+                   },
+                   {
+                       "id":  "external/remotion",
+                       "path":  "skills/external/remotion/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/remotion/SKILL.md"
+                   },
+                   {
+                       "id":  "external/shadcn",
+                       "path":  "skills/external/shadcn/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/shadcn/SKILL.md"
+                   },
+                   {
+                       "id":  "external/skillui",
+                       "path":  "skills/external/skillui/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/skillui/SKILL.md"
+                   },
+                   {
+                       "id":  "external/stitch",
+                       "path":  "skills/external/stitch/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/stitch/SKILL.md"
+                   },
+                   {
+                       "id":  "external/stop-slop",
+                       "path":  "skills/external/stop-slop/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/stop-slop/SKILL.md"
+                   },
+                   {
+                       "id":  "external/swiftui",
+                       "path":  "skills/external/swiftui/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/swiftui/SKILL.md"
+                   },
+                   {
+                       "id":  "external/taste",
+                       "path":  "skills/external/taste/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/taste/SKILL.md"
+                   },
+                   {
+                       "id":  "external/ui-ux-pro-max",
+                       "path":  "skills/external/ui-ux-pro-max/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/ui-ux-pro-max/SKILL.md"
+                   },
+                   {
+                       "id":  "external/understand-anything",
+                       "path":  "skills/external/understand-anything/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/understand-anything/SKILL.md"
+                   },
+                   {
+                       "id":  "external/webgpu",
+                       "path":  "skills/external/webgpu/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/webgpu/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/accessibility-testing",
+                       "path":  "skills/external/workforce/accessibility-testing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/accessibility-testing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/analytics-reporting",
+                       "path":  "skills/external/workforce/analytics-reporting/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/analytics-reporting/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/api-integration",
+                       "path":  "skills/external/workforce/api-integration/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/api-integration/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/blog-post-writing",
+                       "path":  "skills/external/workforce/blog-post-writing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/blog-post-writing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/budget-planning",
+                       "path":  "skills/external/workforce/budget-planning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/budget-planning/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/chatbot-conversation-design",
+                       "path":  "skills/external/workforce/chatbot-conversation-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/chatbot-conversation-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/churn-analysis",
+                       "path":  "skills/external/workforce/churn-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/churn-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/ci-cd",
+                       "path":  "skills/external/workforce/ci-cd/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/ci-cd/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/cloud-monitoring",
+                       "path":  "skills/external/workforce/cloud-monitoring/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/cloud-monitoring/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/code-documentation",
+                       "path":  "skills/external/workforce/code-documentation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/code-documentation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/code-review",
+                       "path":  "skills/external/workforce/code-review/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/code-review/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/competitive-battlecard-creation",
+                       "path":  "skills/external/workforce/competitive-battlecard-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/competitive-battlecard-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/compliance-checklist-generation",
+                       "path":  "skills/external/workforce/compliance-checklist-generation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/compliance-checklist-generation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/context-compression",
+                       "path":  "skills/external/workforce/context-compression/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/context-compression/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/context-injection",
+                       "path":  "skills/external/workforce/context-injection/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/context-injection/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/context-optimization",
+                       "path":  "skills/external/workforce/context-optimization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/context-optimization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/context-ranking",
+                       "path":  "skills/external/workforce/context-ranking/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/context-ranking/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/context-retrieval",
+                       "path":  "skills/external/workforce/context-retrieval/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/context-retrieval/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/contract-review",
+                       "path":  "skills/external/workforce/contract-review/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/contract-review/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/crm-data-enrichment",
+                       "path":  "skills/external/workforce/crm-data-enrichment/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/crm-data-enrichment/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/customer-feedback-analysis",
+                       "path":  "skills/external/workforce/customer-feedback-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/customer-feedback-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/data-analysis",
+                       "path":  "skills/external/workforce/data-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/data-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/data-cleaning",
+                       "path":  "skills/external/workforce/data-cleaning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/data-cleaning/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/data-labeling",
+                       "path":  "skills/external/workforce/data-labeling/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/data-labeling/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/data-visualization",
+                       "path":  "skills/external/workforce/data-visualization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/data-visualization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/database-backup",
+                       "path":  "skills/external/workforce/database-backup/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/database-backup/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/database-migration",
+                       "path":  "skills/external/workforce/database-migration/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/database-migration/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/database-schema-design",
+                       "path":  "skills/external/workforce/database-schema-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/database-schema-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/database-seeding",
+                       "path":  "skills/external/workforce/database-seeding/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/database-seeding/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/debugging",
+                       "path":  "skills/external/workforce/debugging/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/debugging/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/deep-research",
+                       "path":  "skills/external/workforce/deep-research/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/deep-research/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/dependency-scanning",
+                       "path":  "skills/external/workforce/dependency-scanning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/dependency-scanning/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/docker-compose-setup",
+                       "path":  "skills/external/workforce/docker-compose-setup/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/docker-compose-setup/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/dynamic-application-security-testing",
+                       "path":  "skills/external/workforce/dynamic-application-security-testing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/dynamic-application-security-testing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/email-drafting",
+                       "path":  "skills/external/workforce/email-drafting/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/email-drafting/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/expense-categorization",
+                       "path":  "skills/external/workforce/expense-categorization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/expense-categorization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/exploratory-data-analysis",
+                       "path":  "skills/external/workforce/exploratory-data-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/exploratory-data-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/fact-checking",
+                       "path":  "skills/external/workforce/fact-checking/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/fact-checking/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/file-organization",
+                       "path":  "skills/external/workforce/file-organization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/file-organization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/financial-modeling",
+                       "path":  "skills/external/workforce/financial-modeling/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/financial-modeling/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/financial-report-generation",
+                       "path":  "skills/external/workforce/financial-report-generation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/financial-report-generation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/graphql-api-design",
+                       "path":  "skills/external/workforce/graphql-api-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/graphql-api-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/hyperparameter-tuning",
+                       "path":  "skills/external/workforce/hyperparameter-tuning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/hyperparameter-tuning/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/invoice-processing",
+                       "path":  "skills/external/workforce/invoice-processing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/invoice-processing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/keyword-research",
+                       "path":  "skills/external/workforce/keyword-research/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/keyword-research/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/knowledge-base-article-writing",
+                       "path":  "skills/external/workforce/knowledge-base-article-writing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/knowledge-base-article-writing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/knowledge-graph-creation",
+                       "path":  "skills/external/workforce/knowledge-graph-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/knowledge-graph-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/lead-scoring",
+                       "path":  "skills/external/workforce/lead-scoring/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/lead-scoring/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/license-analysis",
+                       "path":  "skills/external/workforce/license-analysis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/license-analysis/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/literature-review",
+                       "path":  "skills/external/workforce/literature-review/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/literature-review/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/logo-design",
+                       "path":  "skills/external/workforce/logo-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/logo-design/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/meeting-scheduler",
+                       "path":  "skills/external/workforce/meeting-scheduler/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/meeting-scheduler/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/meeting-transcription",
+                       "path":  "skills/external/workforce/meeting-transcription/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/meeting-transcription/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/ml-pipeline-creation",
+                       "path":  "skills/external/workforce/ml-pipeline-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/ml-pipeline-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/model-deployment",
+                       "path":  "skills/external/workforce/model-deployment/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/model-deployment/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/model-training",
+                       "path":  "skills/external/workforce/model-training/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/model-training/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/note-taking",
+                       "path":  "skills/external/workforce/note-taking/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/note-taking/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/oauth-2-0-setup",
+                       "path":  "skills/external/workforce/oauth-2-0-setup/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/oauth-2-0-setup/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/onboarding-playbook-creation",
+                       "path":  "skills/external/workforce/onboarding-playbook-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/onboarding-playbook-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/presentation-creation",
+                       "path":  "skills/external/workforce/presentation-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/presentation-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/privacy-policy-drafting",
+                       "path":  "skills/external/workforce/privacy-policy-drafting/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/privacy-policy-drafting/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/project-management",
+                       "path":  "skills/external/workforce/project-management/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/project-management/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/proofreading",
+                       "path":  "skills/external/workforce/proofreading/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/proofreading/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/proposal-generation",
+                       "path":  "skills/external/workforce/proposal-generation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/proposal-generation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/query-optimization",
+                       "path":  "skills/external/workforce/query-optimization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/query-optimization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/report-generation",
+                       "path":  "skills/external/workforce/report-generation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/report-generation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/sales-email-sequences",
+                       "path":  "skills/external/workforce/sales-email-sequences/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/sales-email-sequences/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/security-audit",
+                       "path":  "skills/external/workforce/security-audit/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/security-audit/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/seo-optimization",
+                       "path":  "skills/external/workforce/seo-optimization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/seo-optimization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/social-media-posting",
+                       "path":  "skills/external/workforce/social-media-posting/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/social-media-posting/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/sql-query-generation",
+                       "path":  "skills/external/workforce/sql-query-generation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/sql-query-generation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/static-application-security-testing",
+                       "path":  "skills/external/workforce/static-application-security-testing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/static-application-security-testing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/summarization",
+                       "path":  "skills/external/workforce/summarization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/summarization/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/task-automation",
+                       "path":  "skills/external/workforce/task-automation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/task-automation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/technical-writing",
+                       "path":  "skills/external/workforce/technical-writing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/technical-writing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/terms-of-service-generation",
+                       "path":  "skills/external/workforce/terms-of-service-generation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/terms-of-service-generation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/testing",
+                       "path":  "skills/external/workforce/testing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/testing/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/threat-modeling",
+                       "path":  "skills/external/workforce/threat-modeling/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/threat-modeling/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/ticket-triage",
+                       "path":  "skills/external/workforce/ticket-triage/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/ticket-triage/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/translation",
+                       "path":  "skills/external/workforce/translation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/translation/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/user-flow-mapping",
+                       "path":  "skills/external/workforce/user-flow-mapping/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/user-flow-mapping/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/version-control",
+                       "path":  "skills/external/workforce/version-control/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/version-control/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/webhook-setup",
+                       "path":  "skills/external/workforce/webhook-setup/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/webhook-setup/SKILL.md"
+                   },
+                   {
+                       "id":  "external/workforce/wireframing",
+                       "path":  "skills/external/workforce/wireframing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/external/workforce/wireframing/SKILL.md"
+                   },
+                   {
+                       "id":  "git-workflow/git-collaboration",
+                       "path":  "skills/git-workflow/git-collaboration/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/git-workflow/git-collaboration/SKILL.md"
+                   },
+                   {
+                       "id":  "infrastructure/cicd-pipelines",
+                       "path":  "skills/infrastructure/cicd-pipelines/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/infrastructure/cicd-pipelines/SKILL.md"
+                   },
+                   {
+                       "id":  "infrastructure/infrastructure-as-code",
+                       "path":  "skills/infrastructure/infrastructure-as-code/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/infrastructure/infrastructure-as-code/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-blender-mcp",
+                       "path":  "skills/leeway-blender-mcp/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-blender-mcp/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-bootstrap-authority",
+                       "path":  "skills/leeway-bootstrap-authority/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-bootstrap-authority/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-context-engineering",
+                       "path":  "skills/leeway-context-engineering/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-context-engineering/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-continuity-authority",
+                       "path":  "skills/leeway-continuity-authority/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-continuity-authority/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-conversation-vault",
+                       "path":  "skills/leeway-conversation-vault/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-conversation-vault/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-creator-intent",
+                       "path":  "skills/leeway-creator-intent/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-creator-intent/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-formula-authority-recovery",
+                       "path":  "skills/leeway-formula-authority-recovery/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-formula-authority-recovery/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-formula-governance",
+                       "path":  "skills/leeway-formula-governance/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-formula-governance/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-google-ecosystem-bridge",
+                       "path":  "skills/leeway-google-ecosystem-bridge/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-google-ecosystem-bridge/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-human-conversation",
+                       "path":  "skills/leeway-human-conversation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-human-conversation/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-message-ingress-authority",
+                       "path":  "skills/leeway-message-ingress-authority/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-message-ingress-authority/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-og-expressive-identity",
+                       "path":  "skills/leeway-og-expressive-identity/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-og-expressive-identity/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-quantum-readiness",
+                       "path":  "skills/leeway-quantum-readiness/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-quantum-readiness/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-reference-authority",
+                       "path":  "skills/leeway-reference-authority/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-reference-authority/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-skill-factory",
+                       "path":  "skills/leeway-skill-factory/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-skill-factory/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-skill-lifecycle-governance",
+                       "path":  "skills/leeway-skill-lifecycle-governance/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-skill-lifecycle-governance/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-tool-gateway",
+                       "path":  "skills/leeway-tool-gateway/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-tool-gateway/SKILL.md"
+                   },
+                   {
+                       "id":  "leeway-universal-capability-kernel",
+                       "path":  "skills/leeway-universal-capability-kernel/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/leeway-universal-capability-kernel/SKILL.md"
+                   },
+                   {
+                       "id":  "observability/monitoring-and-observability",
+                       "path":  "skills/observability/monitoring-and-observability/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/observability/monitoring-and-observability/SKILL.md"
+                   },
+                   {
+                       "id":  "performance-optimization/performance-engineering",
+                       "path":  "skills/performance-optimization/performance-engineering/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/performance-optimization/performance-engineering/SKILL.md"
+                   },
+                   {
+                       "id":  "prompt-optimization/prompt-engineering-advanced",
+                       "path":  "skills/prompt-optimization/prompt-engineering-advanced/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/prompt-optimization/prompt-engineering-advanced/SKILL.md"
+                   },
+                   {
+                       "id":  "quality-assurance/deployment-validator",
+                       "path":  "skills/quality-assurance/deployment-validator/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/quality-assurance/deployment-validator/SKILL.md"
+                   },
+                   {
+                       "id":  "quality-assurance/web-security-sweep",
+                       "path":  "skills/quality-assurance/web-security-sweep/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/quality-assurance/web-security-sweep/SKILL.md"
+                   },
+                   {
+                       "id":  "rag-knowledge/rag-systems",
+                       "path":  "skills/rag-knowledge/rag-systems/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/rag-knowledge/rag-systems/SKILL.md"
+                   },
+                   {
+                       "id":  "research/knowledge-synthesis",
+                       "path":  "skills/research/knowledge-synthesis/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/research/knowledge-synthesis/SKILL.md"
+                   },
+                   {
+                       "id":  "security/authentication-authorization",
+                       "path":  "skills/security/authentication-authorization/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/security/authentication-authorization/SKILL.md"
+                   },
+                   {
+                       "id":  "security/code-security",
+                       "path":  "skills/security/code-security/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/security/code-security/SKILL.md"
+                   },
+                   {
+                       "id":  "security/secure-architecture",
+                       "path":  "skills/security/secure-architecture/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/security/secure-architecture/SKILL.md"
+                   },
+                   {
+                       "id":  "self-optimization/dev-loop-optimizer",
+                       "path":  "skills/self-optimization/dev-loop-optimizer/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/self-optimization/dev-loop-optimizer/SKILL.md"
+                   },
+                   {
+                       "id":  "self-optimization/memory-learning",
+                       "path":  "skills/self-optimization/memory-learning/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/self-optimization/memory-learning/SKILL.md"
+                   },
+                   {
+                       "id":  "self-optimization/runtime-self-profiling",
+                       "path":  "skills/self-optimization/runtime-self-profiling/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/self-optimization/runtime-self-profiling/SKILL.md"
+                   },
+                   {
+                       "id":  "testing/advanced-testing-strategies",
+                       "path":  "skills/testing/advanced-testing-strategies/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/testing/advanced-testing-strategies/SKILL.md"
+                   },
+                   {
+                       "id":  "testing/integration-testing",
+                       "path":  "skills/testing/integration-testing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/testing/integration-testing/SKILL.md"
+                   },
+                   {
+                       "id":  "testing/load-testing-capacity",
+                       "path":  "skills/testing/load-testing-capacity/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/testing/load-testing-capacity/SKILL.md"
+                   },
+                   {
+                       "id":  "testing/unit-testing",
+                       "path":  "skills/testing/unit-testing/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/testing/unit-testing/SKILL.md"
+                   },
+                   {
+                       "id":  "tool-integration/custom-tool-creation",
+                       "path":  "skills/tool-integration/custom-tool-creation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/tool-integration/custom-tool-creation/SKILL.md"
+                   },
+                   {
+                       "id":  "video-game-development",
+                       "path":  "skills/video-game-development/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/video-game-development/SKILL.md"
+                   },
+                   {
+                       "id":  "web-development/advanced-frontend-patterns",
+                       "path":  "skills/web-development/advanced-frontend-patterns/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/web-development/advanced-frontend-patterns/SKILL.md"
+                   },
+                   {
+                       "id":  "web-development/api-design",
+                       "path":  "skills/web-development/api-design/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/web-development/api-design/SKILL.md"
+                   },
+                   {
+                       "id":  "web-development/css-styling",
+                       "path":  "skills/web-development/css-styling/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/web-development/css-styling/SKILL.md"
+                   },
+                   {
+                       "id":  "web-development/react-development",
+                       "path":  "skills/web-development/react-development/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/web-development/react-development/SKILL.md"
+                   },
+                   {
+                       "id":  "work-domains/freight-broker-negotiation",
+                       "path":  "skills/work-domains/freight-broker-negotiation/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/work-domains/freight-broker-negotiation/SKILL.md"
+                   },
+                   {
+                       "id":  "work-domains/front-counter-service",
+                       "path":  "skills/work-domains/front-counter-service/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/work-domains/front-counter-service/SKILL.md"
+                   },
+                   {
+                       "id":  "work-domains/front-office-reception",
+                       "path":  "skills/work-domains/front-office-reception/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/work-domains/front-office-reception/SKILL.md"
+                   },
+                   {
+                       "id":  "work-domains/logistics-dispatch",
+                       "path":  "skills/work-domains/logistics-dispatch/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/work-domains/logistics-dispatch/SKILL.md"
+                   },
+                   {
+                       "id":  "work-domains/office-management",
+                       "path":  "skills/work-domains/office-management/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/work-domains/office-management/SKILL.md"
+                   },
+                   {
+                       "id":  "work-domains/warehouse-storage-operations",
+                       "path":  "skills/work-domains/warehouse-storage-operations/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/work-domains/warehouse-storage-operations/SKILL.md"
+                   },
+                   {
+                       "id":  "workflow-composition/workflow-orchestration",
+                       "path":  "skills/workflow-composition/workflow-orchestration/SKILL.md",
+                       "rawUrl":  "https://raw.githubusercontent.com/4citeB4U/LeeWay-Agent-Skills/feature/full-238-gateway-promotion/skills/workflow-composition/workflow-orchestration/SKILL.md"
+                   }
+               ]
+}
