@@ -1,0 +1,35 @@
+{
+  "receiptId": "LEEWAY-C3-CLONE-PROMOTION-20260924T2055Z",
+  "timestampUtc": "2026-09-24T20:55:00Z",
+  "authorization": "Creator approved full task completion",
+  "observed": {
+    "desktopCommander": "PASS",
+    "foldAdb": "SM_F956U CONNECTED",
+    "hostCloneKernel": {
+      "port": 8092,
+      "status": "healthy",
+      "modelLoaded": true,
+      "readiness": "ready",
+      "authority": "LEEWAY_VOICE::AGENT_LEE::DEFAULT_CLONE",
+      "engine": "XTTS-v2"
+    },
+    "githubActionsAccountLock": "CLEARED_FOR_CANONICAL_MAIN_BUILD",
+    "deviceBridgeMainBuildEvidence": "PRESENT",
+    "sensoryBranchHead": "93a057c58e609af3c8b829e5d8c3ca24e7bb36c0",
+    "sensoryPr": 10,
+    "sensoryPrMergeable": false
+  },
+  "repairs": [
+    "Re-requested sensory branch qualification after Actions unlock",
+    "Added truthful phone runtime fields agentLeeCloneVoice=false and voiceIdentityState=BLOCKED_CLONE_ENGINE_NOT_BOUND",
+    "Strengthened promotion rule so Android TextToSpeech cannot satisfy Agent Lee clone identity"
+  ],
+  "blockingBoundary": {
+    "state": "BLOCKED",
+    "reason": "Canonical Agent Lee XTTS-v2 clone is host-class and no verified phone/browser compact clone engine carrying the locked Agent Lee identity exists in the current governed artifacts. The staged phone sensory runtime still uses Android TextToSpeech. PR 10 is also currently non-mergeable against main.",
+    "prohibitedShortcut": "Do not label Android TTS, browser speechSynthesis, or an external provider as Agent Lee clone voice."
+  },
+  "veritas": "NOT_CONVERGED",
+  "receiptTruth": "Task not complete; blocker preserved rather than fabricated.",
+  "learningLedgerUpdated": false
+}
