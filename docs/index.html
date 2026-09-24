@@ -13,7 +13,7 @@ AGENTS: ASSESS ALIGN AUDIT AGENT_LEE VERITAS
 LICENSE: MIT
 -->
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06111d"><link rel="icon" href="data:,"><title>LeeWay Live</title><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css"></head>
-<body><main class="app-shell"><header class="topbar"><div class="identity"><strong>LeeWay Live</strong><span id="runtimeStatus">BOOTING LIVE RUNTIME…</span></div><button id="cameraToggle" class="icon-button" aria-label="Toggle camera">CAM</button></header>
+<body><main class="app-shell"><header class="topbar"><div class="identity"><strong>LeeWay Live</strong><span id="runtimeStatus">BOOTING LIVE RUNTIME…</span></div><div style="display:flex;gap:.5rem"><button id="connectLocal" class="icon-button" aria-label="Connect local LeeWay Runtime Fabric">CONNECT LOCAL</button><button id="cameraToggle" class="icon-button" aria-label="Toggle camera">CAM</button></div></header>
 <section class="camera-pip" id="cameraPanel"><video id="cameraView" autoplay muted playsinline></video><div class="camera-placeholder" id="cameraPlaceholder">CAMERA</div><span class="camera-status" id="cameraStatus">OFF</span></section>
 <section class="conversation-stage"><div class="speech-bubble agent-bubble" role="status" aria-live="polite"><span id="agentText">LeeWay Live is loading its governed runtime.</span></div>
 <div class="sphere-wrap"><div class="agent-sphere" id="agentSphere" data-state="idle"><div class="sphere-core">L</div><div class="sphere-ring ring-one"></div><div class="sphere-ring ring-two"></div></div><div class="state-label" id="stateLabel">READY</div></div>

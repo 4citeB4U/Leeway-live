@@ -1,0 +1,61 @@
+{
+  "receiptId": "LWL-E2E-QUALIFICATION-20260923",
+  "timestampUtc": "2026-09-24T01:50:30.3152869Z",
+  "project": "LeeWay Live",
+  "repository": "4citeB4U/Leeway-live",
+  "authority": "Creator/Human Authority > LeeWay Standards > Root of Trust > Runtime Fabric > Agent Lee > Harness > Formula > capabilities > execution > Veritas > receipt",
+  "sourceHeadBeforeReceipt": "361f9a26d9854fb0842861604ec35a7b064c8c3c",
+  "runtimeHost": "Agent-Lee",
+  "tests": {
+    "pageBoot": {
+      "status": "PASS",
+      "observed": ["TITLE=LeeWay Live","MODEL WEBGPU","skills manifest bound","Formula health reachable"]
+    },
+    "skillsBinding": {
+      "status": "PASS",
+      "skillCount": 238,
+      "manifestCommit": "cbb1cc73190784544a2fae6caf4a689f1c1c0bfd",
+      "taskScopedRetrievalObserved": true
+    },
+    "formulaIdentity": {
+      "status": "PASS",
+      "formulaId": "LEEWAY-FORMULA-v1.0",
+      "implementationSha256": "6502791BBA909D7481DB3A204F3CBF67B1DC06A4B76A73C797D709408341D63E",
+      "goldenVectorPass": true,
+      "formulaExecution": "NOT_EXECUTED"
+    },
+    "textInference": {
+      "status": "PASS",
+      "provider": "OLLAMA",
+      "model": "leeway/agent-lee-core:latest",
+      "prompt": "Reply with exactly: LEEWAY LIVE MODEL OK",
+      "response": "LEEWAY LIVE MODEL OK",
+      "browserEvidence": ["OLLAMA_DISCOVERY:AVAILABLE","MODEL_INFERENCE_PROVIDER:OLLAMA","MODEL_INFERENCE_OK"]
+    },
+    "speechOutput": {
+      "status": "PASS",
+      "browserEvidence": ["SPEECH_STARTED","SPEECH_ENDED"]
+    },
+    "cameraVision": {
+      "status": "PASS",
+      "cameraSource": "Chromium fake media device for deterministic headless qualification",
+      "cameraStatus": "LIVE",
+      "provider": "OLLAMA_VISION",
+      "model": "leeway/agent-lee-vision-fast:latest",
+      "observedDescription": "Model described the synthetic green camera test pattern.",
+      "browserEvidence": ["CAMERA_STARTED","MODEL_INFERENCE_PROVIDER:OLLAMA_VISION","MODEL_INFERENCE_OK"]
+    },
+    "microphoneTranscription": {
+      "status": "NOT_EXECUTION_VERIFIED",
+      "observed": "SpeechRecognition capability exposed by browser; physical spoken transcription was not proven by headless automation."
+    },
+    "browserFallbackModels": {
+      "status": "CONFIGURED_NOT_EXECUTION_VERIFIED",
+      "textPrimary": "onnx-community/SmolLM2-135M-Instruct-ONNX-MHA",
+      "textFallback": "onnx-community/Qwen2.5-0.5B-Instruct",
+      "visionFallback": "Xenova/vit-gpt2-image-captioning"
+    }
+  },
+  "veritas": "PASS_WITH_EXPLICIT_UNVERIFIED_SUBGATES",
+  "learningLedger": "NOT_UPDATED"
+}
