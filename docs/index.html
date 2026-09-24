@@ -3,20 +3,87 @@ LEEWAY HEADER — DO NOT REMOVE
 REGION: UI.APP.SURFACE
 TAG: UI.APP.LEEWAYLIVE.MAIN
 5WH:
-WHAT = LeeWay Live mobile-first voice, vision, and local-model interface
-WHY = Governed public surface for microphone, camera, model inference, ecosystem discovery, and evidence
+WHAT = LeeWay Live GitHub Pages installer plus browser/local-runtime diagnostics
+WHY = Provides one public front door for phone-local LeeWay while preserving current local runtime and browser capabilities
 WHO = LeeWay Industries / Agent Lee
 WHERE = docs/index.html
 WHEN = 2026-09-23
-HOW = Static GitHub Pages shell driven by governed JavaScript modules
+HOW = Static GitHub Pages UI driven by canonical manifests and governed JavaScript modules
 AGENTS: ASSESS ALIGN AUDIT AGENT_LEE VERITAS
 LICENSE: MIT
 -->
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06111d"><link rel="icon" href="data:,"><title>LeeWay Live</title><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./styles.css"></head>
-<body><main class="app-shell"><header class="topbar"><div class="identity"><strong>LeeWay Live</strong><span id="runtimeStatus">BOOTING LIVE RUNTIME…</span></div><div style="display:flex;gap:.5rem"><button id="connectLocal" class="icon-button" aria-label="Connect local LeeWay Runtime Fabric">CONNECT LOCAL</button><button id="cameraToggle" class="icon-button" aria-label="Toggle camera">CAM</button></div></header>
-<section class="camera-pip" id="cameraPanel"><video id="cameraView" autoplay muted playsinline></video><div class="camera-placeholder" id="cameraPlaceholder">CAMERA</div><span class="camera-status" id="cameraStatus">OFF</span></section>
-<section class="conversation-stage"><div class="speech-bubble agent-bubble" role="status" aria-live="polite"><span id="agentText">LeeWay Live is loading its governed runtime.</span></div>
-<div class="sphere-wrap"><div class="agent-sphere" id="agentSphere" data-state="idle"><div class="sphere-core">L</div><div class="sphere-ring ring-one"></div><div class="sphere-ring ring-two"></div></div><div class="state-label" id="stateLabel">READY</div></div>
-<div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap"><button id="micButton" class="mic-button" aria-label="Start voice input" aria-pressed="false"><span class="mic-glyph">●</span><span>MIC</span></button><button id="seeButton" class="mic-button" aria-label="Analyze current camera frame"><span>SEE</span></button></div></section>
-<section class="composer"><div class="speech-bubble user-bubble" id="userBubble" hidden><span id="userTranscript"></span></div><div class="input-row"><input id="textInput" type="text" autocomplete="off" placeholder="Type to LeeWay Live…" aria-label="Message"><button id="sendButton" class="send-button">SEND</button></div></section>
-<details class="evidence-panel"><summary>Evidence</summary><pre id="evidenceTrace"></pre></details></main><script type="module" src="./app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06111d">
+  <link rel="icon" href="data:,">
+  <title>LeeWay Live</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="app-shell">
+  <header class="topbar">
+    <div class="identity">
+      <strong>LeeWay Live</strong>
+      <span id="runtimeStatus">CONNECTING GITHUB AUTHORITIES…</span>
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+      <button id="connectLocal" class="icon-button" aria-label="Connect local LeeWay Runtime Fabric">CONNECT LOCAL</button>
+      <button id="cameraToggle" class="icon-button" aria-label="Toggle browser camera diagnostic">CAM</button>
+    </div>
+  </header>
+
+  <section class="speech-bubble agent-bubble" aria-labelledby="installTitle">
+    <strong id="installTitle">LeeWay Phone Sensory Harness</strong>
+    <p>GitHub Pages distributes. The installed phone package executes the model, bridge, relay, and native LeeWay capabilities.</p>
+    <a id="installButton" class="send-button" href="#" aria-disabled="true">DISCOVERING ANDROID PACKAGE…</a>
+    <div id="packageInfo" style="margin-top:.75rem;font-size:.82rem;opacity:.85">Reading the canonical Device Bridge package manifest…</div>
+  </section>
+
+  <section class="camera-pip" id="cameraPanel">
+    <video id="cameraView" autoplay muted playsinline></video>
+    <div class="camera-placeholder" id="cameraPlaceholder">BROWSER CAMERA DIAGNOSTIC</div>
+    <span class="camera-status" id="cameraStatus">OFF</span>
+  </section>
+
+  <section class="conversation-stage">
+    <div class="speech-bubble agent-bubble" role="status" aria-live="polite">
+      <span id="agentText">LeeWay Live is loading its governed runtime.</span>
+    </div>
+
+    <div class="sphere-wrap">
+      <div class="agent-sphere" id="agentSphere" data-state="idle">
+        <div class="sphere-core">L</div>
+        <div class="sphere-ring ring-one"></div>
+        <div class="sphere-ring ring-two"></div>
+      </div>
+      <div class="state-label" id="stateLabel">READY</div>
+    </div>
+
+    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+      <button id="micButton" class="mic-button" aria-label="Start browser voice diagnostic" aria-pressed="false">
+        <span class="mic-glyph">●</span><span>MIC</span>
+      </button>
+      <button id="seeButton" class="mic-button" aria-label="Analyze current browser camera frame"><span>SEE</span></button>
+    </div>
+  </section>
+
+  <section class="composer">
+    <div class="speech-bubble user-bubble" id="userBubble" hidden><span id="userTranscript"></span></div>
+    <div class="input-row">
+      <input id="textInput" type="text" autocomplete="off" placeholder="Type to LeeWay Live…" aria-label="Message">
+      <button id="sendButton" class="send-button">SEND</button>
+    </div>
+  </section>
+
+  <details class="evidence-panel">
+    <summary>GitHub / runtime evidence</summary>
+    <pre id="evidenceTrace"></pre>
+  </details>
+</main>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
