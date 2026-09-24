@@ -31,5 +31,6 @@ export class BrowserMediaAdapter{
  stopCamera(){this.cameraStream?.getTracks().forEach(t=>t.stop());this.cameraStream=null;this.onEvidence("CAMERA_STOPPED")}
  startSpeechRecognition({onInterim,onFinal,onError}){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)throw new Error("Browser speech recognition unavailable");this.stopRecognition();const r=new SR();this.recognition=r;r.continuous=false;r.interimResults=true;r.lang=navigator.language||"en-US";r.onresult=e=>{let interim="",final="";for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;e.results[i].isFinal?final+=t:interim+=t}if(interim)onInterim?.(interim);if(final)onFinal?.(final)};r.onerror=e=>onError?.(new Error(e.error));r.onend=()=>{if(this.recognition===r)this.recognition=null};r.start();this.onEvidence("MIC_RECOGNITION_STARTED")}
  stopRecognition(){try{this.recognition?.abort()}catch{}this.recognition=null}
- speak(){throw new Error("LEEWAY_CLONE_VOICE_NOT_BOUND")}\n stopSpeaking(){this.onEvidence("SPEECH_CANCELLED")}
+ speak(){throw new Error("LEEWAY_CLONE_VOICE_NOT_BOUND")}
+ stopSpeaking(){this.onEvidence("SPEECH_CANCELLED")}
 }
