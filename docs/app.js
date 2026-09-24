@@ -150,7 +150,8 @@ $("micButton").onclick=()=>{if(listening){interrupt("mic_stop");return}interrupt
 $("agentSphereButton").onclick=()=>$("micButton").click();
 $("sendButton").onclick=()=>{const t=$("textInput").value;$("textInput").value="";handleInput(t)};$("textInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("sendButton").click()});
 (async()=>{
- evidence("APP_READY",{capabilities:media.capabilities(),model:model.status(),phoneRelay:phoneRelay.status()});\n $("voiceStatus").textContent="LEEWAY VOICE ROUTE CHECK";
+ evidence("APP_READY",{capabilities:media.capabilities(),model:model.status(),phoneRelay:phoneRelay.status()});
+ $("voiceStatus").textContent="LEEWAY VOICE ROUTE CHECK";
  const s=await ecosystem.hydrate();
  configureInstaller(s);
  renderPhoneStatus();
