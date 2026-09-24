@@ -1,23 +1,45 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "contractId": "LEEWAY_MODEL_SENSORY_CONTRACT_V1",
   "authority": "4citeB4U/LeeWay-Agent-Skills",
   "implementationRepo": "4citeB4U/Leeway-live",
+  "serviceDependencies": {
+    "paidThirdPartyRealtimeService": false,
+    "thirdPartyRealtimeApiKey": false,
+    "proprietaryHostedMediaAuthority": false
+  },
   "transport": {
-    "preferred": "LIVEKIT_WEBRTC",
+    "mediaPreferred": "NATIVE_WEBRTC_RTP_SRTP",
+    "signalingPreferred": "LEEWAY_OWNED_WEBSOCKET_CONTROL",
+    "natTraversal": [
+      "DIRECT",
+      "SELF_HOSTED_STUN_TURN_WHEN_REQUIRED"
+    ],
     "media": [
       "audio",
       "video",
       "screen_share"
     ],
     "control": [
-      "rpc",
-      "data_packets",
-      "text_streams",
-      "state_sync"
+      "session",
+      "sdp",
+      "ice_candidate",
+      "capability",
+      "cancel",
+      "epoch",
+      "telemetry",
+      "receipt_ref"
     ],
-    "fallbackTransportPolicy": "CAPABILITY_NEGOTIATED"
+    "rule": "Transport is replaceable; LeeWay sensory semantics remain authoritative."
   },
+  "agentSkillsAuthority": [
+    "config/universal-voice-bus-v1.json",
+    "config/realtime-voice-execution-contract-v1.json",
+    "config/realtime-voice-multimodal-profile-v1.json",
+    "config/realtime-voice-heavy-use-routing-v1.json",
+    "skills/leeway-frontier-voice-architecture-selector/SKILL.md",
+    "skills/leeway-real-time-voice-multimodal-infrastructure/SKILL.md"
+  ],
   "requiredAdapterIdentity": [
     "adapterId",
     "adapterVersion",
@@ -28,27 +50,23 @@
   ],
   "capabilityNegotiation": {
     "required": [
-      "audioInput",
-      "audioOutput",
-      "videoInput",
-      "textInput",
-      "textOutput",
-      "streamingInput",
-      "streamingOutput",
+      "inputCapabilities",
+      "outputCapabilities",
       "cancelSemantics",
-      "timingSemantics"
+      "timingSemantics",
+      "providerModelIdentity"
     ],
-    "rule": "Never assume a modality or representation."
+    "rule": "Never assume an optional representation exists."
   },
   "modelClasses": {
     "nativeRealtime": {
       "consumes": [
-        "audio_track",
-        "optional_video_track",
+        "native_audio_stream",
+        "optional_live_video",
         "optional_text"
       ],
       "produces": [
-        "audio_stream",
+        "native_audio_stream",
         "optional_text",
         "optional_semantic_events"
       ]
@@ -65,17 +83,18 @@
         "vad",
         "streaming_stt",
         "streaming_tts",
-        "vision_adapter"
+        "vision_adapter",
+        "barge_in",
+        "playout_ledger"
       ]
     },
     "localModel": {
-      "transportToModel": "adapter_defined",
+      "transportToModel": "ADAPTER_DEFINED_LOCAL_OR_LAN",
       "examples": [
-        "OpenAI-compatible HTTP",
-        "WebSocket",
-        "LiteRT bridge",
+        "LiteRT",
         "Ollama",
-        "llama.cpp"
+        "llama.cpp",
+        "OpenAI-compatible local endpoint"
       ],
       "mediaContract": "UNCHANGED"
     }
@@ -113,7 +132,8 @@
     "no_privacy_or_authority_violation",
     "no_false_modality_claim"
   ],
-  "deviceLaw": "Clients publish capabilities and media; they never embed model-specific sensory logic.",
-  "modelLaw": "Models consume the LeeWay session through adapters; they never require device-specific media code.",
+  "formulaPolicy": "./formula-sensory-policy-v1.json",
+  "deviceLaw": "Device adapters publish capabilities/media and contain no model-specific sensory logic.",
+  "modelLaw": "Model adapters consume the LeeWay session and contain no device-specific media logic.",
   "executionLaw": "Configured != executed; streaming != low latency; transport connected != healthy; audio generated != audio heard."
 }
