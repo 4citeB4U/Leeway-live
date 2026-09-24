@@ -192,7 +192,7 @@ export class PhoneRelayClient{
     return this.command("model.status",{},30000);
   }
 
-  async infer(prompt){
+  async speak(text){\n    return this.command("sensory.speak",{text},120000);\n  }\n\n  async infer(prompt){
     const result=await this.command("model.inference",{prompt},180000);
     if(result?.ok===false)throw new Error(result.error||"PHONE_MODEL_FAILED");
     return result;
