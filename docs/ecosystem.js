@@ -17,6 +17,11 @@ const DEVICE_PAGES="https://4citeb4u.github.io/LEEWAY-DEVICE-BRIDGE/";
 const urls={bootstrap:"./bootstrap.json",devicePackageManifest:RAW+"LEEWAY-DEVICE-BRIDGE/main/docs/package-manifest.json",deviceEntrypoint:RAW+"LEEWAY-DEVICE-BRIDGE/main/docs/llm-entrypoint.json",deviceRuntimeContract:RAW+"LEEWAY-DEVICE-BRIDGE/main/docs/runtime-contract.json",manifest:"./skills-manifest.json",formulaAuthority:RAW+"Leeway-formula-live/main/authority/formula-authority.json",formulaConsumer:RAW+"Leeway-formula-live/main/contracts/consumer-contract.json",formulaBindings:RAW+"Leeway-formula-live/main/contracts/ecosystem-bindings.json"};
 async function getJson(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error(url+" -> "+r.status);return r.json()}
 async function getText(url){const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error(url+" -> "+r.status);return r.text()}
+export function describeFormulaHealth(identity){
+ if(identity==="VERIFIED")return "Formula service identity and golden check matched. Governed Runtime Fabric execution is not yet verified.";
+ if(identity==="MISMATCH")return "Formula service responded, but its identity checks did not match the canonical authority. Governed Runtime Fabric execution is not yet verified.";
+ return "Formula service health is unavailable from this browser. Check Evidence for the connection or local-network permission result. Governed Runtime Fabric execution is not yet verified.";
+}
 export class EcosystemBinding{
  constructor(evidence=()=>{}){this.evidence=evidence;this.state={bootstrap:null,devicePackageManifest:null,deviceEntrypoint:null,deviceRuntimeContract:null,androidPackage:null,manifest:null,formulaAuthority:null,formulaConsumer:null,formulaBindings:null,formulaServiceIdentity:"UNEXPOSED",formulaExecution:"NOT_EXECUTED"}}
  async hydrate(){for(const [k,u] of Object.entries(urls)){try{this.state[k]=await getJson(u);this.evidence("BINDING_OK",{binding:k})}catch(e){this.evidence("BINDING_ERROR",{binding:k,message:e.message})}}this.state.androidPackage=this.resolveAndroidPackage();await this.probeFormula();return this.state}

@@ -14,7 +14,7 @@ LICENSE: MIT
 */
 import{BrowserMediaAdapter}from"./media.js";
 import{BrowserModelRuntime}from"./model-runtime.js";
-import{EcosystemBinding}from"./ecosystem.js";
+import{EcosystemBinding,describeFormulaHealth}from"./ecosystem.js";
 import{PhoneRelayClient}from"./phone-relay.js";
 const $=id=>document.getElementById(id),trace=[];let epoch=0,cameraOn=false,listening=false;
 function evidence(event,data={}){const row={event,t:Math.round(performance.now()),epoch,...data};trace.push(row);$("evidenceTrace").textContent=trace.slice(-60).map(x=>JSON.stringify(x)).join("\n")}
@@ -143,7 +143,13 @@ $("forgetPhone").onclick=()=>{
  renderPhoneStatus();
  evidence("PHONE_PAIRING_CLEARED");
 };
-$("connectLocal").onclick=async()=>{evidence("LOCAL_CONNECT_REQUEST",{});$("runtimeStatus").textContent="CONNECTING LOCAL RUNTIME…";const state=await ecosystem.probeFormula({interactive:true});$("runtimeStatus").textContent="MODEL "+model.status().device.toUpperCase()+" • SKILLS "+(ecosystem.state.manifest?.skillCount||0)+" BOUND • FORMULA "+state;agent(state==="VERIFIED"?"Local LeeWay Runtime Fabric verified.":"Local Runtime Fabric was not granted or is not reachable. Check Evidence and browser local-network permission.",false)};
+$("connectLocal").onclick=async()=>{
+ evidence("FORMULA_HEALTH_CHECK_REQUEST",{scope:"FORMULA_SERVICE_IDENTITY_ONLY"});
+ $("runtimeStatus").textContent="CHECKING FORMULA SERVICE HEALTH…";
+ const state=await ecosystem.probeFormula({interactive:true});
+ $("runtimeStatus").textContent="MODEL "+model.status().device.toUpperCase()+" • SKILLS "+(ecosystem.state.manifest?.skillCount||0)+" BOUND • FORMULA HEALTH "+state+" • GOVERNED EXECUTION UNVERIFIED";
+ agent(describeFormulaHealth(state),false);
+};
 $("cameraToggle").onclick=async()=>{try{if(cameraOn){media.stopCamera();cameraOn=false;$("cameraPanel").classList.remove("active");$("cameraStatus").textContent="OFF"}else{await media.startCamera($("cameraView"));cameraOn=true;$("cameraPanel").classList.add("active");$("cameraStatus").textContent="LIVE"}}catch(e){evidence("ERROR",{stage:"camera",message:e.message});agent("Camera permission or browser support is unavailable.")}};
 $("seeButton").onclick=async()=>{interrupt("vision_turn");setState("thinking");try{const result=await model.see(cameraFrame());agent(result,true);evidence("MODEL_INFERENCE_OK",{kind:"vision",runtime:model.status()})}catch(e){setState("idle");agent("Vision could not run on this device. Check Evidence for the exact failure.");evidence("MODEL_INFERENCE_FAILED",{kind:"vision",message:e.message})}};
 $("micButton").onclick=()=>{if(listening){interrupt("mic_stop");return}interrupt("mic_start");listening=true;$("micButton").setAttribute("aria-pressed","true");setState("listening");try{media.startSpeechRecognition({onInterim:t=>showUser(t),onFinal:t=>{listening=false;$("micButton").setAttribute("aria-pressed","false");handleInput(t)},onError:e=>{listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("Microphone transcription is unavailable here. Type below.")}})}catch(e){listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("This browser does not expose speech recognition. Type below.")}};
