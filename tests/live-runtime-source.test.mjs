@@ -85,6 +85,23 @@ assert.match(html,/id="phoneStatus"/);
 
 console.log("LEEWAY_LIVE_PHONE_ROUTE_SOURCE_GATE=PASS");
 
+// A Formula health result cannot establish governed Runtime Fabric execution.
+const {describeFormulaHealth}=await import("../docs/ecosystem.js");
+const healthMessages=["VERIFIED","MISMATCH","UNEXPOSED"].map(describeFormulaHealth);
+assert.equal(new Set(healthMessages).size,3,"health success, identity mismatch, and unavailable transport need distinct results");
+assert.match(healthMessages[0],/identity and golden check matched/);
+assert.match(healthMessages[1],/identity checks did not match/);
+assert.match(healthMessages[2],/health is unavailable/);
+for(const message of healthMessages){
+ assert.match(message,/Governed Runtime Fabric execution is not yet verified\./);
+ assert.doesNotMatch(message,/Local LeeWay Runtime Fabric verified\./);
+}
+assert.equal(describeFormulaHealth("UNKNOWN"),healthMessages[2],"unknown health states must not claim successful identity verification");
+assert.match(app,/agent\(describeFormulaHealth\(state\),false\)/,"the connection control must use the scoped health result");
+assert.doesNotMatch(app,/Local LeeWay Runtime Fabric verified\./,"Formula health must not claim Runtime Fabric verification");
+assert.match(html,/id="connectLocal"[^>]*>CHECK FORMULA<\/button>/,"the control must identify its actual health-check scope");
+console.log("LEEWAY_LIVE_FORMULA_HEALTH_SCOPE_GATE=PASS");
+
 // This is adapter contract evidence with a controlled transport, not a live phone test.
 const {PhoneRelayClient}=await import("../docs/phone-relay.js");
 const {BrowserMediaAdapter}=await import("../docs/media.js");
