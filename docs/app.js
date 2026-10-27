@@ -16,6 +16,7 @@ import{BrowserMediaAdapter}from"./media.js";
 import{BrowserModelRuntime}from"./model-runtime.js";
 import{EcosystemBinding,describeFormulaHealth}from"./ecosystem.js";
 import{PhoneRelayClient}from"./phone-relay.js";
+import{prepareContextCandidate,contextCandidatePromptNote}from"./context-ingress.mjs";
 const $=id=>document.getElementById(id),trace=[];let epoch=0,cameraOn=false,listening=false;
 function evidence(event,data={}){const row={event,t:Math.round(performance.now()),epoch,...data};trace.push(row);$("evidenceTrace").textContent=trace.slice(-60).map(x=>JSON.stringify(x)).join("\n")}
 const media=new BrowserMediaAdapter(evidence),model=new BrowserModelRuntime(evidence),ecosystem=new EcosystemBinding(evidence),phoneRelay=new PhoneRelayClient(evidence);
@@ -62,9 +63,9 @@ function configureInstaller(state){
  info.textContent="Android • "+mb+" MiB • SHA-256 "+pkg.sha256+" • phone-local runtime";
  button.addEventListener("click",()=>evidence("ANDROID_PACKAGE_DOWNLOAD_REQUESTED",{versionName:pkg.versionName,versionCode:pkg.versionCode,sha256:pkg.sha256,url:pkg.absoluteDownloadUrl}));
 }
-async function answerWithPreferredModel(text){
+async function answerWithPreferredModel(text,prepared){
  const skillContext=await ecosystem.taskContext(text);
- const system=ecosystem.systemContext()+"\n"+skillContext;
+ const system=ecosystem.systemContext()+"\n"+skillContext+"\n"+contextCandidatePromptNote(prepared);
  const relayState=phoneRelay.status();
 
  if(relayState.configured){
@@ -88,7 +89,7 @@ async function answerWithPreferredModel(text){
  evidence("MODEL_INFERENCE_OK",{kind:"text",provider:"LEEWAY_FALLBACK_RUNTIME",runtime:model.status()});
  return{response,provider:"LEEWAY_FALLBACK_RUNTIME"};
 }
-async function handleInput(text){
+async function handleInput(text,modality="text"){
  text=text.trim();
  if(!text)return;
  interrupt("new_turn");
@@ -97,7 +98,10 @@ async function handleInput(text){
  evidence("USER_INPUT",{text});
  const my=epoch;
  try{
-  const result=await answerWithPreferredModel(text);
+  const requestId="live:"+crypto.randomUUID();
+  const prepared=prepareContextCandidate({text,requestId,modality});
+  evidence("CONTEXT_PREPARED",{requestId,schema:prepared.schema,modality,intents:prepared.interpretation.intents,formula:prepared.formula.state,authority:"NONE",runtimeHandoff:"NOT_SUBMITTED"});
+  const result=await answerWithPreferredModel(text,prepared);
   if(my!==epoch)return;
   agent(result.response,true);
   evidence("VOICE_OR_TEXT_TURN_COMPLETE",{provider:result.provider});
@@ -152,7 +156,7 @@ $("connectLocal").onclick=async()=>{
 };
 $("cameraToggle").onclick=async()=>{try{if(cameraOn){media.stopCamera();cameraOn=false;$("cameraPanel").classList.remove("active");$("cameraStatus").textContent="OFF"}else{await media.startCamera($("cameraView"));cameraOn=true;$("cameraPanel").classList.add("active");$("cameraStatus").textContent="LIVE"}}catch(e){evidence("ERROR",{stage:"camera",message:e.message});agent("Camera permission or browser support is unavailable.")}};
 $("seeButton").onclick=async()=>{interrupt("vision_turn");setState("thinking");try{const result=await model.see(cameraFrame());agent(result,true);evidence("MODEL_INFERENCE_OK",{kind:"vision",runtime:model.status()})}catch(e){setState("idle");agent("Vision could not run on this device. Check Evidence for the exact failure.");evidence("MODEL_INFERENCE_FAILED",{kind:"vision",message:e.message})}};
-$("micButton").onclick=()=>{if(listening){interrupt("mic_stop");return}interrupt("mic_start");listening=true;$("micButton").setAttribute("aria-pressed","true");setState("listening");try{media.startSpeechRecognition({onInterim:t=>showUser(t),onFinal:t=>{listening=false;$("micButton").setAttribute("aria-pressed","false");handleInput(t)},onError:e=>{listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("Microphone transcription is unavailable here. Type below.")}})}catch(e){listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("This browser does not expose speech recognition. Type below.")}};
+$("micButton").onclick=()=>{if(listening){interrupt("mic_stop");return}interrupt("mic_start");listening=true;$("micButton").setAttribute("aria-pressed","true");setState("listening");try{media.startSpeechRecognition({onInterim:t=>showUser(t),onFinal:t=>{listening=false;$("micButton").setAttribute("aria-pressed","false");handleInput(t,"speech")},onError:e=>{listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("Microphone transcription is unavailable here. Type below.")}})}catch(e){listening=false;$("micButton").setAttribute("aria-pressed","false");setState("idle");evidence("ERROR",{stage:"speech_recognition",message:e.message});agent("This browser does not expose speech recognition. Type below.")}};
 $("agentSphereButton").onclick=()=>$("micButton").click();
 $("sendButton").onclick=()=>{const t=$("textInput").value;$("textInput").value="";handleInput(t)};$("textInput").addEventListener("keydown",e=>{if(e.key==="Enter")$("sendButton").click()});
 (async()=>{
