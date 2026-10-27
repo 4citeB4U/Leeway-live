@@ -24,3 +24,5 @@ jobs:
           node-version: "22"
       - name: Verify GitHub Pages to phone path
         run: node tests/live-runtime-source.test.mjs
+      - name: Verify bounded context ingress
+        run: node --test tests/context-ingress.test.mjs
