@@ -42,6 +42,16 @@ test("fenced instructions are not interpreted as direct commands",()=>{
   assert.ok(!x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
   assert.equal(x.handoff,"CANDIDATE_ONLY_NOT_RUNTIME_SUBMITTED");
 });
+test("contractions do not consume subsequent genuine requests",()=>{
+  const x=prep("No, don't restart it. Check the GPU and tell me why it's slow.");
+  assert.ok(x.interpretation.intents.includes("CORRECTION_OR_CONSTRAINT_CANDIDATE"));
+  assert.ok(x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
+  assert.ok(x.interpretation.intents.includes("QUESTION_CANDIDATE"));
+});
+test("single-quoted document instructions remain evidence",()=>{
+  const x=prep("The notes say 'restart the service'.");
+  assert.ok(!x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
+});
 test("unquoted action request remains candidate only",()=>{
   const x=prep("Check the GPU, but do not restart it.");
   assert.ok(x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
