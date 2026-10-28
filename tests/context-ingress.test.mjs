@@ -35,6 +35,17 @@ test("quoted commands retain original meaning without execution",()=>{
   assert.equal(x.formula.state,"NOT_EXECUTED");
   assert.equal(x.formula.matrix16x6,null);
   assert.equal(x.interpretation.confidence,null);
+  assert.ok(!x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
+});
+test("fenced instructions are not interpreted as direct commands",()=>{
+  const x=prep("Documentation:\n```text\\nrestart the service\\n```");
+  assert.ok(!x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
+  assert.equal(x.handoff,"CANDIDATE_ONLY_NOT_RUNTIME_SUBMITTED");
+});
+test("unquoted action request remains candidate only",()=>{
+  const x=prep("Check the GPU, but do not restart it.");
+  assert.ok(x.interpretation.intents.includes("ACTION_OR_REQUEST_CANDIDATE"));
+  assert.equal(x.authority.canExecute,false);
 });
 test("unresolved utterance does not invent a Formula state",()=>{
   const x=prep("I was thinking about yesterday.");
