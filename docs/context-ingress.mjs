@@ -24,10 +24,10 @@ export function prepareContextCandidate({text, requestId, modality = "text", sou
   // Quoted or fenced content is informational evidence, not a speaker command.
   // This lexical filter is intentionally conservative; it never authorizes action.
   const nonQuoted = original
-    .replace(/```[\\s\\S]*?```/g, " ")
-    .replace(/\"[^\"\\n]*\"/g, " ")
-    .replace(/“[^”\\n]*”/g, " ")
-    .replace(/'[^'\\n]*'/g, " ");
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/\"[^\"\n]*\"/g, " ")
+    .replace(/“[^”\n]*”/g, " ")
+    .replace(/'[^'\n]*'/g, " ");
   const s = nonQuoted.toLowerCase();
   const intents = [];
   if (any(/\b(?:no|not|don't|do not|instead|rather|i said|correction|cancel|stop)\b/i,s)) intents.push("CORRECTION_OR_CONSTRAINT_CANDIDATE");
