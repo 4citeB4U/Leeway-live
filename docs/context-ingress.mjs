@@ -63,7 +63,9 @@ export function prepareContextCandidate({text, requestId, modality = "text", sou
 }
 export function contextCandidatePromptNote(envelope) {
   if (!envelope || envelope.schema !== CONTEXT_SCHEMA ||
-      envelope.authority?.canExecute !== false || envelope.handoff !== "CANDIDATE_ONLY_NOT_RUNTIME_SUBMITTED")
+      !["canAuthorize","canDispatch","canExecute","canVerify","canWriteLearning"].every(k => envelope.authority?.[k] === false) ||
+      envelope.formula?.state !== "NOT_EXECUTED" || envelope.formula?.mapping !== "NOT_APPROVED" ||
+      envelope.handoff !== "CANDIDATE_ONLY_NOT_RUNTIME_SUBMITTED")
     throw new Error("CONTEXT_ENVELOPE_UNTRUSTED");
   return "LEEWAY LIVE NON-AUTHORITATIVE CONTEXT CANDIDATE: " +
     JSON.stringify({requestId:envelope.requestId, modality:envelope.modality,
