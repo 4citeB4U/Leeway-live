@@ -27,7 +27,7 @@ export function prepareContextCandidate({text, requestId, modality = "text", sou
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/\"[^\"\n]*\"/g, " ")
     .replace(/“[^”\n]*”/g, " ")
-    .replace(/'[^'\n]*'/g, " ");
+    .replace(/(^|[\s([{])'[^'\n]+'(?=$|[\s.,;!?)}\]])/gm, "$1");
   const s = nonQuoted.toLowerCase();
   const intents = [];
   if (any(/\b(?:no|not|don't|do not|instead|rather|i said|correction|cancel|stop)\b/i,s)) intents.push("CORRECTION_OR_CONSTRAINT_CANDIDATE");
