@@ -65,4 +65,6 @@ test("model context note cannot be given execution authority",()=>{
  assert.match(note,/NOT_SUBMITTED/);
  assert.doesNotMatch(note,/Please inspect/);
  assert.throws(()=>contextCandidatePromptNote({...x,authority:{canExecute:true}}),/CONTEXT_ENVELOPE_UNTRUSTED/);
+ assert.throws(()=>contextCandidatePromptNote({...x,authority:{...x.authority,canAuthorize:true}}),/CONTEXT_ENVELOPE_UNTRUSTED/);
+ assert.throws(()=>contextCandidatePromptNote({...x,formula:{...x.formula,state:"EXECUTED"}}),/CONTEXT_ENVELOPE_UNTRUSTED/);
 });
