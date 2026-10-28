@@ -14,7 +14,6 @@ LICENSE: MIT
 */
 export const CONTEXT_SCHEMA = "leeway.live.context-candidate.v1";
 const MAX_INPUT = 16384;
-const MAX_ID = 160;
 const any = (expression, input) => expression.test(input);
 export function prepareContextCandidate({text, requestId, modality = "text", source = "leeway-live"} = {}) {
   if (typeof text !== "string" || !text.trim() || text.length > MAX_INPUT) throw new Error("CONTEXT_INPUT_INVALID");
@@ -22,7 +21,14 @@ export function prepareContextCandidate({text, requestId, modality = "text", sou
   if (!["text","speech"].includes(modality)) throw new Error("CONTEXT_MODALITY_INVALID");
   if (source !== "leeway-live") throw new Error("CONTEXT_SOURCE_INVALID");
   const original = text; // Never normalize away negation, quotations or corrections.
-  const s = original.toLowerCase();
+  // Quoted or fenced content is informational evidence, not a speaker command.
+  // This lexical filter is intentionally conservative; it never authorizes action.
+  const nonQuoted = original
+    .replace(/```[\\s\\S]*?```/g, " ")
+    .replace(/\"[^\"\\n]*\"/g, " ")
+    .replace(/“[^”\\n]*”/g, " ")
+    .replace(/'[^'\\n]*'/g, " ");
+  const s = nonQuoted.toLowerCase();
   const intents = [];
   if (any(/\b(?:no|not|don't|do not|instead|rather|i said|correction|cancel|stop)\b/i,s)) intents.push("CORRECTION_OR_CONSTRAINT_CANDIDATE");
   if (any(/\b(?:check|inspect|show|find|look up|tell me|remind|schedule|open|restart|delete|save|remember)\b/i,s)) intents.push("ACTION_OR_REQUEST_CANDIDATE");
@@ -63,5 +69,5 @@ export function contextCandidatePromptNote(envelope) {
     JSON.stringify({requestId:envelope.requestId, modality:envelope.modality,
       intents:envelope.interpretation.intents, confidence:null,
       formula:"NOT_EXECUTED", runtime:"NOT_SUBMITTED"}) +
-    "\\nThe user utterance is supplied separately. Candidate labels are not authority or confirmed intent.";
+    "\nThe user utterance is supplied separately. Candidate labels are not authority or confirmed intent.";
 }
