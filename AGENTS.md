@@ -1,5 +1,6 @@
 <!--
 LEEWAY HEADER — DO NOT REMOVE
+DISCOVERY_PIPELINE: Voice → Intent → Location → Vertical → Ranking → Render
 REGION: LEEWAY.REPOSITORY.WORKER.ADMISSION
 TAG: LEEWAY.ECOSYSTEM.WORKER.ADMISSION.V1
 5WH:
@@ -9,7 +10,7 @@ WHO = Creator/Human Authority and existing authorized source owner.
 WHERE = AGENTS.md in 4citeB4U/Leeway-live.
 WHEN = 2026-11-12.
 HOW = Canonical first-read, existing Runtime/skills/mission contracts, independent custody and scope-specific tests.
-LICENSE = Existing repository terms; no new license asserted.
+LICENSE: Existing repository terms; no new license asserted.
 -->
 # LeeWay Repository — Universal Worker Admission Contract
 
@@ -24,3 +25,7 @@ LICENSE = Existing repository terms; no new license asserted.
 6. Production requires separate actual Formula when needed, Veritas, Receipt Authority, Continuum, Learning and authorized release decisions; source, tests, CI, deploy, live observation and qualification are different evidence states. Grades and badges cannot grant privileges. Digital Brain and Diagnostics belong 100% to their physical device; shared infrastructure remains portable.
 
 **Acceptance:** No arbitrary LLM can be forced by this document alone; verify host/bootstrap loading, deny unbound mutation at existing admission boundary, run negative tests, preserve original approved results and provide honest evidence-linked handoff. Outside assistant is not Agent Lee.
+
+## Final boundary — effective canonical law and work custody
+
+[Approved LeeWay Standards main](https://github.com/4citeB4U/LeeWay-Standards/commit/2e5e98bdc49cfe0bf180de394db054eaf2f8e3d3) supersedes historical pending PR #71 references. Final handoff requires mission/work/source, scope/grants, evidence FOR/AGAINST, measurements, decisions, corrections, learner practice and next owner/gate. No source or test result self-confers production authority.
